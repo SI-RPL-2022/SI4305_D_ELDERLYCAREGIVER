@@ -83,12 +83,12 @@
                                         <td>
                                             {{-- isi tabel selesai --}}
 
-                                          
+
                                             <!-- Button trigger modal konfirmasi -->
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
                                                 Konfirmasi
                                             </button>
-                                            
+
                                             <!-- isi Modal konfirmasi -->
                                             <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -138,7 +138,8 @@
                                                                 <div class="row mt-4">
                                                                     <label class=" col-2 col-form-label" for="ktp">KTP</label>
                                                                     <div class="col-3">
-                                                                        <a class="btn btn-primary" href="{{url('/download' . $datas->profile->ktp )}}" id="CV"> Download </a>
+                                                                        <input type="hidden" value="{{ $datas->profile->ktp }}" name="cv">
+                                                                        <button type="submit" class="btn btn-primary"> Download</button>
                                                                     </div>
                                                                 </div>
                                                                 </form>

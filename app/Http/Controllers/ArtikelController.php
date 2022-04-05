@@ -18,8 +18,8 @@ class ArtikelController extends Controller
 
         return view('admin/homeartikel');
     }
-    
-    
+
+
     public function posting(Request $request){
 
         $gambar = time().'.'.$request->gambarArtikel->extension();
@@ -33,14 +33,14 @@ class ArtikelController extends Controller
         $tulis->gambar = $gambar;
 
         $tulis->save();
-        
+
         return redirect('/dashboard')->with('status', 'Artikel berhasil diposting!!!');
     }
 
     public function dashboard(){
 
-        $pengasuh = user::where('status', 'pelamar')->count();
-        $pengguna = user::where('status', 'lansia')->count();
+        $pengasuh = user::where('status', 'pengasuh')->count();
+        $pengguna = user::where('status', 'user')->count();
 
         $datas = artikel::latest()->paginate(3);
 
@@ -70,9 +70,9 @@ class ArtikelController extends Controller
             $validatedData['gambarArtikel'] = $request->gambarArtikel->move(public_path('gambar_artikel'), $gambar);
         }
 
-        
-        
-        
+
+
+
         artikel::where('id', $id)->update([
             'pengarang' => $request->input('pengarang'),
             'judul' => $request->input('judul'),
@@ -83,7 +83,7 @@ class ArtikelController extends Controller
         if($request->file('gambarArtikel')) {
             artikel::where('id', $id)->update([
                 'gambar' => $gambar
-            ]); 
+            ]);
         }
 
         return redirect('/dashboard')->with('status', 'Artikel berhasil diupdate!!!');

@@ -90,7 +90,7 @@
                                             <div class="card-body">
                                                 <div class="row no-gutters align-items-center">
                                                     <div class="col mr-2">
-                                                        <div class="h3 font-weight-bold text-light text-uppercase mb-2">Jumlah Lansia</div>
+                                                        <div class="h3 font-weight-bold text-light text-uppercase mb-2">Jumlah User</div>
                                                         <div class="h4 mb-0 font-weight-bold text-gray-800">{{ $pengguna }}</div>
                                                     </div>
                                                     <div class="col-auto">

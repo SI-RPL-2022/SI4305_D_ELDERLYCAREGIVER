@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/homepengasuh', function () {
         return view('pengasuh/homepengasuh'); });
 
+        Route::post('/download', [UserController::class, "download"]);
+        Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
+        Route::post('/pelamar/konfirmasi', [UserController::class, "konfirmasi"]);
         Route::post('/logout', [UserController::class, 'logout']);
         Route::get('/homeartikel', [ArtikelController::class, "show"]);
         Route::get('/dashboard', [ArtikelController::class, "dashboard"]);
@@ -51,7 +54,3 @@ Route::get('/editprofilepengasuh', function () {
 Route::get('/detailuserpengasuh', function () {
     return view('admin/detailpengasuh');
 });
-
-Route::post('/download', [UserController::class, "download"]);
-Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
-Route::post('/pelamar/konfirmasi', [UserController::class, "konfirmasi"]);

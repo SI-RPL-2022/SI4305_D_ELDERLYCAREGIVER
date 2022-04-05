@@ -24,7 +24,7 @@
 <main>
     <div class="row g-0">
         <div class="col-sm-2 border-end bg-light d-md-block collapse" style="min-height: 100vh" id="sidebarMenu">
-            <div class="d-flex sticky-top"> 
+            <div class="d-flex sticky-top">
             <div class="container-fluid">
                 <ul class="nav flex-column">
                     <li class="nav-item border-bottom">
@@ -105,13 +105,13 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    
+
                                                     <form method="POST" action="/pelamar/deleted">
                                                         @csrf
                                                         <input type="hidden" value="{{ $datas->id }}" name="id">
-                                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                                    <button type="button" class="btn btn-primary">Hapus</button>
                                                     </form>
-                                                    
+
                                                 </div>
                                                 </div>
                                                 </div>
