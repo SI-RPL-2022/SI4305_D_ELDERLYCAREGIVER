@@ -21,6 +21,13 @@ class ArtikelController extends Controller
 
 
     public function posting(Request $request){
+        $rules = [
+            'gambarArtikel' => 'image|file',
+            'judul' => 'required|unique:artikel'
+        ];
+
+        $validatedData = $request->validate($rules);
+        
 
         $gambar = time().'.'.$request->gambarArtikel->extension();
         $request->gambarArtikel->move(public_path('gambar_artikel'), $gambar);
@@ -93,9 +100,9 @@ class ArtikelController extends Controller
 
 
         $model = artikel::find($id);
+        $artikel = artikel::where('id', $id)->first();
+        File::delete(public_path('gambar_artikel/'.$artikel->gambar));
         $model->delete();
-        artikel::where('id', $id)->delete(public_path('gambar_artikel/'.'gambar'));
-
 
         return redirect('/dashboard')->with('status', 'Artikel berhasil dihapus!!!');
     }
@@ -104,7 +111,13 @@ class ArtikelController extends Controller
 
         $datas = artikel::latest()->paginate(4);
 
-        return view('welcome', compact('datas'));
+        if (auth()->guest()){
+            return view('welcome', compact('datas'));
+        }elseif (auth()->user()->status == 'Admin'){
+            return redirect('dashboard');
+        }else{
+            return view('welcome', compact('datas'));
+        }
     }
 
 

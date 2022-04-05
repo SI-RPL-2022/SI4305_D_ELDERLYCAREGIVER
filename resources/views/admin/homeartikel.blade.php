@@ -40,8 +40,15 @@
                                                 placeholder="Change Profile Picture" name="gambarArtikel" required value="">
                                         </div>
                                         <div class="col-md-12"><label class="labels">Judul
-                                                Artikel</label><input type="text" class="form-control"
-                                                placeholder="Judul Artikel" name="judul" required value={{ old('judul') }}></div>
+                                                Artikel</label><input type="text" class="form-control @error('judul') is-invalid @enderror"
+                                                placeholder="Judul Artikel" name="judul" required value={{ old('judul') }}>
+                                                @error('judul')
+                                                    <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                                
                                         <div class="col-md-12"><label class="labels">Caption Artikel</label>
                                             <textarea class="form-control" placeholder="Caption" name="deskripsi" required value={{ old('deskripsi') }} rows="3"></textarea>
                                         </div>
