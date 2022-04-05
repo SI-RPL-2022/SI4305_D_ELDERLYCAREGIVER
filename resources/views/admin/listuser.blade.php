@@ -83,8 +83,9 @@
                                             <td>{{ $datas->status }}</td>
                                             <td>
                                                 <!-- Button trigger modal lihat -->
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                                <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
                                                     Lihat
+                                                    {{-- ini filenya ada di detailuserpengasuh.blade.php buat yg pengasuh sama di detailuser.blade.php buat user/lansia --}}
                                                 </button>
 
                                             <!-- Button trigger modal hapus-->

@@ -52,5 +52,9 @@ Route::get('/editprofilepengasuh', function () {
 });
 
 Route::get('/detailuserpengasuh', function () {
-    return view('admin/detailpengasuh');
+    return view('admin/detailuserpengasuh');
+});
+
+Route::get('/detailuser', function () {
+    return view('admin/detailuser');
 });
