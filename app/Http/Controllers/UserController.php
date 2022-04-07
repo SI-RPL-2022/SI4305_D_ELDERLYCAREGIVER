@@ -18,6 +18,14 @@ class UserController extends Controller
         ]);
     }
 
+    
+    public function detail(user $user) {
+        return view('admin.detailuserpengasuh', compact('user'),[
+            
+            "head" => "detail User | Elderly Caregiver",
+        ]);
+    }
+
     public function download(Request $request) {
         return response()->download(public_path('storage/'.$request['cv']));
         
@@ -28,10 +36,16 @@ class UserController extends Controller
         $user = User::find($request->id);
         $profile = profile::where('user_id', $request->id)->first();
         Storage::delete($profile->ktp);
-        Storage::delete($profile->cv);
-        $user->delete();
-
         
+        if($profile->cv) {  
+        Storage::delete($profile->cv);
+            }
+
+        if($profile->foto) {  
+            Storage::delete($profile->foto);
+            }
+
+        $user->delete();
         return redirect('/listpengasuh')->with('status', 'Data berhasil di hapus');
 
     }
@@ -42,7 +56,7 @@ class UserController extends Controller
             'status' => 'pengasuh'
         ]); 
 
-        return redirect('/dashboard')->with('status', 'Pengasuh berhasil ditambahkan');
+        return redirect('/listpengasuh')->with('status', 'Pengasuh berhasil ditambahkan');
     }
     
 
@@ -72,7 +86,7 @@ class UserController extends Controller
 
         return view('admin.listuser', [
 
-            "data" => user::where('status', '!=', 'admin')->get(),
+            "data" => user::where('status', '!=', 'admin')->where('status', '!=', 'pelamar')->get(),
             "head" => "Admin | Elderly Caregiver"
         ]);
     }

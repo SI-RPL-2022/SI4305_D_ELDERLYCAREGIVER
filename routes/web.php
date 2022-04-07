@@ -18,10 +18,11 @@ use App\Http\Controllers\AdminController;
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/homepengasuh', function () {
-        return view('pengasuh/homepengasuh'); });
+    // Route::get('/homepengasuh', function () {
+    //     return view('pengasuh/homepengasuh'); });
 
         Route::post('/download', [UserController::class, "download"]);
+        Route::get('/detailuser/{user:username}', [UserController::class, "detail"]);
         Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
         Route::post('/pelamar/konfirmasi', [UserController::class, "konfirmasi"]);
         Route::post('/logout', [UserController::class, 'logout']);

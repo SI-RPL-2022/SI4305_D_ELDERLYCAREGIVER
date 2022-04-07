@@ -83,10 +83,11 @@
                                             <td>{{ $datas->status }}</td>
                                             <td>
                                                 <!-- Button trigger modal lihat -->
-                                                <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+
+                                                <a href="/detailuser/{{ $datas->username }}" class="btn btn-success" > 
                                                     Lihat
                                                     {{-- ini filenya ada di detailuserpengasuh.blade.php buat yg pengasuh sama di detailuser.blade.php buat user/lansia --}}
-                                                </button>
+                                                </a>
 
                                             <!-- Button trigger modal hapus-->
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -110,7 +111,7 @@
                                                     <form method="POST" action="/pelamar/deleted">
                                                         @csrf
                                                         <input type="hidden" value="{{ $datas->id }}" name="id">
-                                                    <button type="button" class="btn btn-primary">Hapus</button>
+                                                    <button type="submit" class="btn btn-primary">Hapus</button>
                                                     </form>
 
                                                 </div>

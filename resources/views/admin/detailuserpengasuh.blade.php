@@ -1,5 +1,4 @@
 @extends('layouts.navbar')
-
 @section('isi')
     <section id="profile">
         <style type="text/css">
@@ -16,12 +15,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                    <img src="{{ asset('storage/' . $user->profile->foto) }}" alt="Admin"
                                         class="rounded-circle" width="150">
                                     <div class="mt-3">
-                                        <h4 style="color: black">Usernamenya ini</h4>
-                                        <p class="text-muted font-size-sm">Sebagai Pengasuh</p>
+                                        <h4 style="color: black">{{ $user->username }}</h4>
+                                        <p class="text-muted font-size-sm">Sebagai {{ $user->status }}</p>
                                     </div>
+                                    @if($user->profile->cv)
                                     <div>
                                         <p class="text-muted font-size-sm">Rating</p>
                                     </div>
@@ -30,6 +30,7 @@
                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                                       </svg>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -42,6 +43,7 @@
                                         <h6 class="mb-0" style="color: black">Nama Lengkap</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
+                                        {{ $user->profile->nama }}
 
                                     </div>
                                 </div>
@@ -51,7 +53,7 @@
                                         <h6 class="mb-0" style="color: black">Tanggal Lahir</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-
+                                        {{ $user->profile->ttl }}
                                     </div>
                                 </div>
                                 <hr>
@@ -60,7 +62,7 @@
                                         <h6 class="mb-0" style="color: black">Jenis Kelamin</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-
+                                        {{ $user->profile->jenis_kelamin }}
                                     </div>
                                 </div>
                                 <hr>
@@ -69,7 +71,7 @@
                                         <h6 class="mb-0">Alamat</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-
+                                        {{ $user->profile->alamat }}
                                     </div>
                                 </div>
                                 <hr>
@@ -78,7 +80,7 @@
                                         <h6 class="mb-2">Nomor Telepon</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-
+                                        {{ $user->profile->no_telp }}
                                     </div>
                                 </div>
                                 <hr>
@@ -87,7 +89,7 @@
                                         <h6 class="mb-2">Usia</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-
+                                        {{ $user->profile->usia }}
                                     </div>
                                 </div>
                                 <hr>
@@ -96,10 +98,14 @@
                                         <h6 class="mb-2">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-
+                                        {{ $user->email }}
                                     </div>
                                 </div>
                                 <hr>
+                            
+                            <form action="/download" method="post" enctype="">
+                                @csrf
+                                <input type="hidden" value="{{ $user->profile->ktp }}" name="cv">
                                 <div class="row">
                                     <div class="col-sm-3" style="color: black">
                                         <h6 class="mb-2">KTP</h6>
@@ -108,7 +114,13 @@
                                         <button type="submit" class="btn btn-success"> Download</button>
                                     </div>
                                 </div>
+                            </form>
                                 <hr>
+
+                                @if($user->profile->cv)
+                                <form action="/download" method="post" enctype="">
+                                    @csrf
+                                    <input type="hidden" value="{{ $user->profile->cv }}" name="cv">
                                 <div class="row">
                                     <div class="col-sm-3" style="color: black">
                                         <h6 class="mb-2">CV</h6>
@@ -117,6 +129,9 @@
                                         <button type="submit" class="btn btn-success"> Download</button>
                                     </div>
                                 </div>
+                            </form>
+                            @endif
+                            
                             </div>
                         </div>
                     </div>
