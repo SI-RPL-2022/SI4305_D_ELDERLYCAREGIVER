@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\profile;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreprofileRequest;
 use App\Http\Requests\UpdateprofileRequest;
+use Illuminate\Contracts\Support\ValidatedData;
 
 class ProfileController extends Controller
 {
@@ -15,28 +18,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreprofileRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreprofileRequest $request)
-    {
-        //
+        return view('pengasuh.homepengasuh' , [
+            "head" => "Profile | Elderly Caregiver",
+            "user" => User::where('id', auth()->user()->id)->first(),
+        ]);
     }
 
     /**
@@ -56,9 +41,16 @@ class ProfileController extends Controller
      * @param  \App\Models\profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(profile $profile)
+    public function edit(user $user)
     {
-        //
+        if (auth()->user()->id == $user->id){
+            return view('pengasuh.editprofilepengasuh', compact('user'),[
+                
+                "head" => "edit profile | Elderly Caregiver",
+            ]);
+        }else{
+            return redirect('/profile');
+        }
     }
 
     /**
@@ -68,19 +60,36 @@ class ProfileController extends Controller
      * @param  \App\Models\profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateprofileRequest $request, profile $profile)
+    public function update(UpdateprofileRequest $request, User $user)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\profile  $profile
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(profile $profile)
-    {
-        //
+        $profile = profile::where('user_id', $request->id)->first();
+
+        $validatedata = $request->validate([
+            'nama' => 'max:32',
+            'ttl' => '',
+            'jenis_kelamin' => '',
+            'alamat' => '',
+            'no_telp' => '',
+            'usia' => '',
+            'foto' => 'image|nullable',
+        ]);
+
+        $validatedata2 = $request->validate([
+            'email' => 'nullable|email:dns',
+        ]);
+
+        if($request->file('foto')) {
+            Storage::delete($profile->foto);
+            $validatedata['foto'] = $request->file('foto')->store('foto_profile');
+        }
+
+        profile::where('user_id', $request->id)->update($validatedata);
+
+        if($request->email) {
+            user::where('id', $request->id) ->update($validatedata2);
+        }
+        
+        return redirect('/profile');
     }
 }

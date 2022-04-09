@@ -1,5 +1,4 @@
 @extends('layouts.navbar')
-
 @section('isi')
     <section id="editprofile">
         <style type="text/css">
@@ -26,40 +25,43 @@
                     <div class="col-md-8">
                         <div class="card mb-4">
                             <div class="card-body">
+                                <form method="POST" action="/profile/{{ $user->username }}">
+                                    @method('put')
+                                    @csrf
                                 <div class="row">
                                     <div class="row mt-2">
-                                        <div class="col-md-12"><label class="labels">Nama Lengkap</label><input
-                                                type="text" class="form-control" placeholder="Nama Lengkap" value="">
+                                        <div class="col-md-12"><label class="labels">Nama Lengkap</label>
+                                            <input type="text" class="form-control" name="nama" value="{{ $user->profile->nama }}">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12"><label class="labels">Nomor
-                                                Telepon</label><input type="text" class="form-control"
-                                                placeholder="Nomor Telepon" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Alamat</label><input
-                                                type="text" class="form-control" placeholder="Alamat" value="">
+                                        <div class="col-md-12"><label class="labels">Nomor Telepon</label>
+                                            <input type="text" class="form-control" name="no_telp" value="{{ $user->profile->no_telp }}">
                                         </div>
-                                        <div class="col-md-12"><label class="labels">Usia</label><input
-                                                type="text" class="form-control" placeholder="Usia" value="">
+                                        <div class="col-md-12"><label class="labels">Tempat, Tanggal Lahir</label>
+                                            <input type="text" class="form-control" name="ttl" value="{{ $user->profile->ttl }}">
                                         </div>
-                                        <div class="col-md-12"><label class="labels">Email</label><input
-                                                type="text" class="form-control" placeholder="Email" value="">
+                                        <div class="col-md-12"><label class="labels">jenis kelamin</label>
+                                        <select type="option" class="form-select" id="jeniskelamin" name="jenis_kelamin" placeholder="Masukkan Jenis Kelamin Anda" required>
+                                            <option @if($user->profile->jenis_kelamin = "laki-laki") selected @endif>laki-laki</option>
+                                            <option @if($user->profile->jenis_kelamin = "perempuan") selected @endif>Perempuan</option>
+                                        </select>
+                                        <div class="col-md-12"><label class="labels">Alamat</label>
+                                            <input type="text" class="form-control" name="alamat" value="{{ $user->profile->alamat }}">
                                         </div>
-                                        <div class="col-md-12"><label class="labels">Change Profile
-                                                Picture</label><input type="file" class="form-control"
-                                                placeholder="Change Profile Picture" value="">
+                                        <div class="col-md-12"><label class="labels">Usia</label>
+                                            <input type="text" class="form-control" name="Usia" value="{{ $user->profile->usia }}">
                                         </div>
-                                        <div class="col-md-12"><label class="labels">Update CV</label><input
-                                                type="file" class="form-control" placeholder="CV" value="">
+                                        <div class="col-md-12"><label class="labels">Email</label>
+                                            <input type="text" class="form-control" name="email" value="{{ $user->email }}">
                                         </div>
-                                        <div class="col-md-12"><label class="labels">KTP</label><input
-                                                type="file" class="form-control" placeholder="KTP" value="">
+                                        <input type="hidden" value="{{ $user->id }}" name="id">
+                                        <div class="mt-2 text-center">
+                                            <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
                                         </div>
-                                        <div class="mt-2 text-center"><button class="btn btn-primary profile-button"
-                                                type="button">Save
-                                                Profile</button></div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>

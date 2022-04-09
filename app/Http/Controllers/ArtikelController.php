@@ -115,6 +115,8 @@ class ArtikelController extends Controller
             return view('welcome', compact('datas'));
         }elseif (auth()->user()->status == 'Admin'){
             return redirect('dashboard');
+        }elseif (auth()->user()->status == 'Pengasuh'){
+            return redirect('/profile');
         }else{
             return view('welcome', compact('datas'));
         }

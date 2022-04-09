@@ -16,15 +16,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                    <img src="{{ asset('storage/' . $user->profile->foto) }}" alt="Admin"
                                         class="rounded-circle" width="150">
                                     <div class="col-sm-15">
-                                        <a class="btn btn-success " target="__blank" style="margin-top: 20px">Change Profile
-                                            Picture</a>
+
+                                        <button type="button" class="btn btn-success" style="margin-top: 20px" data-bs-toggle="modal" data-bs-target="#id{{ $user->id }}">
+                                            Change Profile Picture
+                                        </button>
                                     </div>
                                     <div class="mt-3">
-                                        <h4 style="color: black">Ucok</h4>
-                                        <p class="text-muted font-size-sm">Bandung CA</p>
+                                        <h4 style="color: black">{{ $user->username }}</h4>
+                                        <p class="text-muted font-size-sm">{{ $user->status }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +40,7 @@
                                         <h6 class="mb-0" style="color: black">Nama Lengkap</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        Ucok
+                                        {{ $user->profile->nama }}
                                     </div>
                                 </div>
                                 <hr>
@@ -47,7 +49,7 @@
                                         <h6 class="mb-0" style="color: black">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        ucok@gmail
+                                        {{ $user->email }}
                                     </div>
                                 </div>
                                 <hr>
@@ -56,7 +58,7 @@
                                         <h6 class="mb-0" style="color: black">Nomor Telepon</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        085300338899
+                                        {{ $user->profile->no_telp }}
                                     </div>
                                 </div>
                                 <hr>
@@ -65,7 +67,7 @@
                                         <h6 class="mb-0">Usia</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        19
+                                        {{ $user->profile->usia }}
                                     </div>
                                 </div>
                                 <hr>
@@ -74,13 +76,13 @@
                                         <h6 class="mb-2">Address</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        Jl. Telekomunikasi
+                                        {{ $user->profile->alamat }}
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-15">
-                                        <a class="btn btn-success " target="__blank">Edit</a>
+                                        <a class="btn btn-success " href="/profile/{{ $user->username }}/edit">Edit</a>
                                     </div>
                                 </div>
                             </div>
@@ -137,5 +139,37 @@
                 </center>
             </div>
         </div>
+
+{{-- Modal --}}
+        <div class="modal fade" id="id{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Upload Foto</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <form method="POST" action="/profile/{{ $user->username }}" enctype="multipart/form-data">
+                            @method('put')
+                            @csrf
+                            <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
+                            @error('ktp')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                    @enderror
+                      </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <input type="hidden" value="{{ $user->id }}" name="id">
+                  <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{-- endmodal --}}
     </section>
 @endsection

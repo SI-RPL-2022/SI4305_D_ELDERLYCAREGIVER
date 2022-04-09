@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,23 +19,23 @@ use App\Http\Controllers\AdminController;
 
 Route::middleware('auth')->group(function () {
 
-    // Route::get('/homepengasuh', function () {
-    //     return view('pengasuh/homepengasuh'); });
-
-        Route::post('/download', [UserController::class, "download"]);
-        Route::get('/detailuser/{user:username}', [UserController::class, "detail"]);
-        Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
-        Route::post('/pelamar/konfirmasi', [UserController::class, "konfirmasi"]);
-        Route::post('/logout', [UserController::class, 'logout']);
-        Route::get('/homeartikel', [ArtikelController::class, "show"]);
-        Route::get('/dashboard', [ArtikelController::class, "dashboard"]);
-        Route::post('/postingartikel', [ArtikelController::class, "posting"]);
-        Route::get('/artikel/edit/{id}', [ArtikelController::class, "editartikel"]);
-        Route::post('/artikel/update/{id}', [ArtikelController::class, "updateArtikel"]);
-        Route::get('/artikel/hapus/{id}', [ArtikelController::class, "hapusartikel"]);
-        Route::get('/listpengasuh', [UserController::class, 'listpengasuh']);
-        Route::get('/listuser', [UserController::class, 'listuser']);
-    });
+    Route::resource('/profile', ProfileController::class)->parameters([
+        'profile' => 'user:username',
+    ]);
+    Route::post('/download', [UserController::class, "download"]);
+    Route::get('/detailuser/{user}', [UserController::class, "detail"]);
+    Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
+    Route::post('/pelamar/konfirmasi', [UserController::class, "konfirmasi"]);
+    Route::post('/logout', [UserController::class, 'logout']);
+    Route::get('/homeartikel', [ArtikelController::class, "show"]);
+    Route::get('/dashboard', [ArtikelController::class, "dashboard"]);
+    Route::post('/postingartikel', [ArtikelController::class, "posting"]);
+    Route::get('/artikel/edit/{id}', [ArtikelController::class, "editartikel"]);
+    Route::post('/artikel/update/{id}', [ArtikelController::class, "updateArtikel"]);
+    Route::get('/artikel/hapus/{id}', [ArtikelController::class, "hapusartikel"]);
+    Route::get('/listpengasuh', [UserController::class, 'listpengasuh']);
+    Route::get('/listuser', [UserController::class, 'listuser']);
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [UserController::class, "loginview"])->name('login');
@@ -50,12 +51,4 @@ Route::middleware('guest')->group(function () {
 Route::get('/', [ArtikelController::class, "index"]);
 Route::get('/editprofilepengasuh', function () {
     return view('pengasuh/editprofilepengasuh');
-});
-
-Route::get('/detailuserpengasuh', function () {
-    return view('admin/detailuserpengasuh');
-});
-
-Route::get('/detailuser', function () {
-    return view('admin/detailuser');
 });

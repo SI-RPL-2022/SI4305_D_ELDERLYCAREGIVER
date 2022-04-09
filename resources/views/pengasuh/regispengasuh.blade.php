@@ -37,7 +37,7 @@ form{
                     <label for="jeniskelamin" class="form-label">Jenis Kelamin</label><br>
                     <select type="option" class="form-select @error('jenis_kelamin') is-invalid @enderror" id="jeniskelamin" name="jenis_kelamin" placeholder="Masukkan Jenis Kelamin Anda" required value={{ old('jenis_kelamin') }} >
                         <option selected>laki-laki</option>
-                        <option selected>Perempuan</option>
+                        <option>Perempuan</option>
                     </select>
                 </div>
 
