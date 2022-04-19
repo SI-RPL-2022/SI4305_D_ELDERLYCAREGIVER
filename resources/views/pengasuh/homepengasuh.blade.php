@@ -92,7 +92,39 @@
             </center>
         </div>
     </section>
-    <section id="daftarlansia">
+    {{-- Modal --}}
+        <div class="modal fade" id="id{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Upload Foto</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <form method="POST" action="/profile/{{ $user->username }}" enctype="multipart/form-data">
+                            @method('put')
+                            @csrf
+                            <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
+                            @error('ktp')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                    @enderror
+                      </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <input type="hidden" value="{{ $user->id }}" name="id">
+                  <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+    {{-- endmodal --}}
+    @can('pengasuh')
+    <section id="daftarlansia" class="mb-5">
         <style type="text/css">
             table {
                 border-collapse: collapse;
@@ -139,37 +171,6 @@
                 </center>
             </div>
         </div>
-
-{{-- Modal --}}
-        <div class="modal fade" id="id{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Upload Foto</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <form method="POST" action="/profile/{{ $user->username }}" enctype="multipart/form-data">
-                            @method('put')
-                            @csrf
-                            <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
-                            @error('ktp')
-                                <div class="invalid-feedback">
-                                {{ $message }}
-                                </div>
-                    @enderror
-                      </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <input type="hidden" value="{{ $user->id }}" name="id">
-                  <button type="submit" class="btn btn-primary">Konfirmasi</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{-- endmodal --}}
     </section>
+@endcan
 @endsection

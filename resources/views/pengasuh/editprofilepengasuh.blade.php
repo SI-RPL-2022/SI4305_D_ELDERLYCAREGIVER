@@ -41,7 +41,7 @@
                                         <div class="col-md-12"><label class="labels">Tempat, Tanggal Lahir</label>
                                             <input type="text" class="form-control" name="ttl" value="{{ $user->profile->ttl }}">
                                         </div>
-                                        <div class="col-md-12"><label class="labels">jenis kelamin</label>
+                                        <div class="col-md-12"><label class="labels">Jenis kelamin</label>
                                         <select type="option" class="form-select" id="jeniskelamin" name="jenis_kelamin" placeholder="Masukkan Jenis Kelamin Anda" required>
                                             <option @if($user->profile->jenis_kelamin = "laki-laki") selected @endif>laki-laki</option>
                                             <option @if($user->profile->jenis_kelamin = "perempuan") selected @endif>Perempuan</option>

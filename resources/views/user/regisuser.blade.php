@@ -87,6 +87,17 @@ form{
                         {{ $message }}
                         </div>
                     @enderror
+                </div>  
+
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Upload Foto</label>
+                    <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
+
+                    @error('foto')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">

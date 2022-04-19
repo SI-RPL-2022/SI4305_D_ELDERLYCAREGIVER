@@ -51,6 +51,7 @@ Route::middleware('guest')->group(function () {
 Route::get('/', [ArtikelController::class, "index"]);
 Route::get('/editprofilepengasuh', function () {
     return view('pengasuh/editprofilepengasuh');
+});
 Route::get('/editprofileuser', function () {
-    return view('user/editprofileuser');
+    return view('user/editprofile');
 });

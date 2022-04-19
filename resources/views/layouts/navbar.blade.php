@@ -57,15 +57,15 @@
                 </button>
                 <ul class="dropdown-menu">
                     @canany(['pengasuh','user'])
-                        @can('user')
                     <li><a class="dropdown-item" href=" ">Pesanan</a></li>
-                        @endcan
-                    <li><a class="dropdown-item" href=" ">Edit Profile</a></li>
+                    @can('user')
+                    <li><a class="dropdown-item" href="/profile">Edit Profile</a></li>
+                    @endcan
                     @endcanany
                     <li><form action="/logout" method="POST">
                         @csrf
                         <button type="submit" class="dropdown-item">keluar</button>
-                      </form></li>
+                    </form></li>
                 </ul>
             </div>
 

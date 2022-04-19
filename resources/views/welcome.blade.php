@@ -14,7 +14,7 @@
 @can('pelamar')
 
 <div style="top:50%; position:absolute;">
-<h1 style="text-align: center"> AKUN ANDA SENDANG DI PERTIMBANGKAN SILAKAN MENUNGGU 2/24 JAM UNTUK MELAKUKAN LOGIN ULANG</h1>
+<h1 style="text-align: center"> AKUN ANDA SEDANG DI PERTIMBANGKAN SILAKAN MENUNGGU 2x24 JAM UNTUK MELAKUKAN LOGIN ULANG</h1>
 
 <center>
 <form action="/logout" method="POST">

@@ -46,7 +46,7 @@ class UserController extends Controller
             }
 
         $user->delete();
-        return redirect('/listpengasuh')->with('status', 'Data berhasil di hapus');
+        return redirect('/dashboard')->with('status', 'Data berhasil di hapus');
 
     }
 
@@ -133,11 +133,14 @@ class UserController extends Controller
             'no_telp' => 'required',
             'usia' => 'required',
             'ktp' => 'image',
+            'foto' => 'image|required',
         ]);
 
         if($request->file('ktp')) {
             $validateprofile['ktp'] = $request->file('ktp')->store('ktp');
         }
+
+        $validateprofile['foto'] = $request->file('foto')->store('foto_profile');
 
         $validateuser['password'] = hash::make($validateuser['password']);
 
