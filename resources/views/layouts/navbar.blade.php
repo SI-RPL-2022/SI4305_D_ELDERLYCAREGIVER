@@ -28,7 +28,7 @@
             color:#ffffff;
             position: absolute;
 	        bottom: 0;
-            
+
         }
         </style>
     </head>
@@ -36,9 +36,9 @@
 <body>
     <div style="min-height: 100vh; position: relative;">
     @can('pelamar')
-    
+
     @else
-    
+
     {{-- <konten navbar> --}}
     <nav class="navbar navbar-light" style="background-color: #22577A;">
         <div class="container-fluid">
@@ -68,9 +68,9 @@
                       </form></li>
                 </ul>
             </div>
-            
+
             @else
-            
+
             <div class="btn-group">
                 <button type="button" class="btn btn-0 dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
                     Register
@@ -85,7 +85,7 @@
             @endauth
         </div>
     </nav>
-    
+
     @endcan
     @yield('isi')
 </div>
@@ -94,7 +94,7 @@
     <div class="footer">
         © 2022• Kelompok 4 | SI4305 • All Rights Reserved
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
