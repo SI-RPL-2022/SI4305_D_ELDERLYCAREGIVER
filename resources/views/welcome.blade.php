@@ -99,102 +99,24 @@
 
     <center>
         <div class="row row-cols-1 row-cols-md-4 g-3">
+            @foreach ($pengasuhData as $key=>$value)
             <div class="col-sm-3">
                 <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
+                    <img src="{{ asset('storage/' . $value->foto) }}" class="card-img-top" alt="" width="100px" height="200px">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh</p>
-                        <a href=" " class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh</p>
+                        <h5 class="card-title">{{ $value->nama }}</h5>
+                        <p class="card-text">{{ $value->jenis_kelamin }} <br> {{ $value->no_telp }}</p>
+                        <input type="hidden" name="">
                         <a href="" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-3">
-                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh</p>
-                        <a href="" class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh</p>
-                        <a href="" class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh</p>
-                        <a href="" class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh</p>
-                        <a href=" "class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div><div class="col-sm-3">
-                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh.</p>
-                        <a href="" class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-                    <img src="https://cdn1-production-images-kly.akamaized.net/AKxv0rT9tdYBU1YyJ5ir6EyEXhk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3080529/original/071137600_1584593443-WhatsApp_Image_2020-03-19_at_09.57.07.jpeg" class="card-img-top" alt="" width="100px" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Pengasuh</h5>
-                        <p class="card-text">Deskripsi pribadi pengasuh</p>
-                        <a href="" class="btn btn-primary">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-          </nav>
+        <div class="d-flex justify-content-center m-3">
+            {{ $pengasuhData->links() }}
+        </div>
     </center>
 
 </section>

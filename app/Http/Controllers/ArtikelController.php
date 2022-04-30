@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\artikel;
 use App\Models\User;
+use App\Models\profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -116,9 +117,11 @@ class ArtikelController extends Controller
         }elseif (auth()->user()->status == 'Admin'){
             return redirect('dashboard');
         }elseif (auth()->user()->status == 'Pengasuh'){
-            return redirect('/profile');
+            return redirect('/profile');    
         }else{
-            return view('welcome', compact('datas'));
+            $pengasuhData = profile::latest()->paginate(4);
+
+            return view('welcome', compact('datas', 'pengasuhData'));
         }
     }
 
