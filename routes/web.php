@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/detailuser/{user}', [UserController::class, "detail"]);
     Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
     Route::post('/pelamar/konfirmasi', [UserController::class, "konfirmasi"]);
+    Route::get('/cari', [ArtikelController::class, "index"]);
     Route::post('/logout', [UserController::class, 'logout']);
     Route::get('/homeartikel', [ArtikelController::class, "show"]);
     Route::get('/dashboard', [ArtikelController::class, "dashboard"]);

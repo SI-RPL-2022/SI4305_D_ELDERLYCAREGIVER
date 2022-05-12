@@ -79,27 +79,29 @@
         <p class="h4" style="margin-top: 10px; margin-bottom: 20px">Daftar Pengasuh</p>
     </center>
 
-    <div class="input-group flex-nowrap mb-3">
+    <form action="/cari" method="get">
+    @csrf
+    <div class="input-group flex-nowrap mb-5 ms-4">
         <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg></span>
         <div class="row">
-        <input class="col" type="text" class="form-control" placeholder="Cari" aria-label="Cari" aria-describedby="addon-wrapping" style="min-width: 10cm" class="col">
-        <select class="form-select col" aria-label="Default select example">
+        <input class="col me-2" type="text" class="form-control" placeholder="Cari" aria-label="Cari" name="search" id="search" aria-describedby="addon-wrapping" style="min-width: 10cm" class="col" value="{{ request('search') }}">
+        <select class="form-select col" aria-label="Default select example" name="filter" id="filter" {--onchange="location = this.value;"--}>
             <option selected>Filter</option>
-            <option value="1">Rating</option>
-            <option value="2">Jasa</option>
-            <option value="3">Jenis Kelamin</option>
-            <option value="4">Usia</option>
-            <option value="5">Jarak</option>
+            <option value="1" @if (old('filter') == '1') {{ 'selected' }} @endif>Nama</option>
+            <option value="2" @if (old('filter') == '2') {{ 'selected' }} @endif>Jenis Kelamin</option>
+            <option value="3" @if (old('filter') == '3') {{ 'selected' }} @endif>Usia</option>
         </select>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary" style="display:none;">cari</button>
+    </form>
 
 
     <center>
         <div class="row row-cols-1 row-cols-md-4 g-3">
-            @foreach ($pengasuhData as $key=>$value)
+            @foreach ($filter as $key=>$value)
             <div class="col-sm-3">
                 <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
                     <img src="{{ asset('storage/' . $value->foto) }}" class="card-img-top" alt="" width="100px" height="200px">
@@ -114,8 +116,8 @@
             @endforeach
         </div>
 
-        <div class="d-flex justify-content-center m-3">
-            {{ $pengasuhData->links() }}
+        <div class="d-flex justify-content-center mt-5">
+            {{ $filter->links() }}
         </div>
     </center>
 

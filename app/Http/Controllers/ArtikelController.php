@@ -108,9 +108,10 @@ class ArtikelController extends Controller
         return redirect('/dashboard')->with('status', 'Artikel berhasil dihapus!!!');
     }
 
-    public function index(){
+    public function index(Request $request){
 
         $datas = artikel::latest()->paginate(4);
+        $filter = profile::latest();
 
         if (auth()->guest()){
             return view('welcome', compact('datas'));
@@ -119,12 +120,37 @@ class ArtikelController extends Controller
         }elseif (auth()->user()->status == 'Pengasuh'){
             return redirect('/profile');    
         }else{
-            $pengasuhData = profile::latest()->paginate(4);
+            if (request('search')){
+                $filter = profile::where('nama', 'like', '%' . request('search') . '%')
+                       ->orWhere('jenis_kelamin', 'like', '%' . request('search') . '%')
+                       ->orWhere('alamat', 'like', '%' . request('search') . '%')
+                       ->orWhere('usia', 'like', '%' . request('search') . '%');
+                
+                if ( $request->filter == '1'){
+                    $filter = $filter->orderBy('nama', 'asc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '2'){
+                    $filter = $filter->orderBy('jenis_kelamin', 'desc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '3'){
+                    $filter = $filter->orderBy('usia', 'desc')->paginate(4)->withQueryString();
+                }else{
+                    $filter = $filter->paginate(4)->withQueryString();
+                }
 
-            return view('welcome', compact('datas', 'pengasuhData'));
+            }else{
+                if ( $request->filter == '1'){
+                    $filter = profile::orderBy('nama', 'asc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '2'){
+                    $filter = profile::orderBy('jenis_kelamin', 'desc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '3'){
+                    $filter = profile::orderBy('usia', 'desc')->paginate(4)->withQueryString();
+                }else{
+                    $filter = $filter->paginate(4)->withQueryString();
+                }
+            }
+            
+
+            return view('welcome', compact('datas', 'filter'));
         }
     }
-
-
 
 }

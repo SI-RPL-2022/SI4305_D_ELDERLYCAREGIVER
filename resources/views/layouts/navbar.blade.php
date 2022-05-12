@@ -10,6 +10,11 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" type="text/css" href="/css/layout.css">
+
+
         {{-- <Style CSS> --}}
         <style type="text/css">
         body{
@@ -48,8 +53,8 @@
             </a>
 
             @auth
-
-            <div class="btn-group">
+            
+            <div class="btn-group me-5">
                 <button type="button" class="btn btn-success dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -57,21 +62,21 @@
                 </button>
                 <ul class="dropdown-menu">
                     @canany(['pengasuh','user'])
-                    <li><a class="dropdown-item" href=" ">Pesanan</a></li>
+                    <li><a class="dropdown-item" href=" "><i class="bi bi-cart"></i> Pesanan</a></li>
                     @can('user')
-                    <li><a class="dropdown-item" href="/profile">Edit Profile</a></li>
+                    <li><a class="dropdown-item" href="/profile"><i class="bi bi-person-lines-fill"></i> Edit Profile</a></li>
                     @endcan
                     @endcanany
                     <li><form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="dropdown-item">keluar</button>
+                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> keluar</button>
                     </form></li>
                 </ul>
             </div>
 
             @else
 
-            <div class="btn-group">
+            <div class="btn-group me-5">
                 <button type="button" class="btn btn-0 dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
                     Register
                 </button>
