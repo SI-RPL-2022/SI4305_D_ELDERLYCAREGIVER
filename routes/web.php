@@ -58,3 +58,7 @@ Route::get('/editprofileuser', function () {
 Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
+Route::get('/infopengasuh', function () {
+    return view('user/infopengasuh');
+});
+

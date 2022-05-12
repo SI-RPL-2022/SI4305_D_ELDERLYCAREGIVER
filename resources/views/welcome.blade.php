@@ -107,7 +107,7 @@
                         <h5 class="card-title">{{ $value->nama }}</h5>
                         <p class="card-text">{{ $value->jenis_kelamin }} <br> {{ $value->no_telp }}</p>
                         <input type="hidden" name="">
-                        <a href="" class="btn btn-primary">Selengkapnya</a>
+                        <a href="/infopengasuh" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>
