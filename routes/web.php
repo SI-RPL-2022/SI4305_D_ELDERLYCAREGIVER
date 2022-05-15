@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/artikel/hapus/{id}', [ArtikelController::class, "hapusartikel"]);
     Route::get('/listpengasuh', [UserController::class, 'listpengasuh']);
     Route::get('/listuser', [UserController::class, 'listuser']);
+    Route::get('/infopengasuh/{id}', [UserController::class, 'detailuser']);
 });
 
 Route::middleware('guest')->group(function () {
@@ -50,6 +51,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/', [ArtikelController::class, "index"]);
+
 Route::get('/editprofilepengasuh', function () {
     return view('pengasuh/editprofilepengasuh');
 });

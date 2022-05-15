@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Routing\Redirector;
+use File;
+
 
 class UserController extends Controller
 
@@ -193,5 +197,13 @@ class UserController extends Controller
         profile::create($validateprofile);
 
         return redirect('/')->with('status', 'Akun anda sedang di proses, Silakan menunggu akun anda diaktivasi oleh kami ^_^ ');
+    }
+
+    public function detailuser($id) {
+        
+        $datas = profile::where('user_id', $id)->first();
+        $datas2 = user::where('id', $id)->first();
+
+        return view('user/infopengasuh', compact('datas', 'datas2'));
     }
 }

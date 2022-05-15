@@ -15,11 +15,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    {{-- <img src="{{ asset('storage/' . $user->profile->foto) }}" alt="Admin"
-                                        class="rounded-circle" width="150"> --}}
+                                    <img src="{{ asset('storage/' . $datas->foto) }}" alt="Admin"
+                                        class="rounded-circle" width="150">
                                     <div class="mt-3">
-                                        <h4 style="color: black">Nama</h4>
-                                        <p class="text-muted font-size-sm">Sebagai</p>
+                                        <h4 style="color: black">{{ $datas2->username }}</h4>
+                                        <p class="text-muted font-size-sm">{{ $datas2->status }}</p>
                                     </div>
                                     {{-- @if($user->profile->cv) --}}
                                     <div>
@@ -43,7 +43,7 @@
                                         <h6 class="mb-0" style="color: black">Nama Lengkap</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        {{-- {{ $user->profile->nama }} --}}
+                                    {{ $datas->nama }}
 
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                         <h6 class="mb-0" style="color: black">Tanggal Lahir</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        {{-- {{ $user->profile->ttl }} --}}
+                                        {{ $datas->ttl }}
                                     </div>
                                 </div>
                                 <hr>
@@ -62,7 +62,7 @@
                                         <h6 class="mb-0" style="color: black">Jenis Kelamin</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        {{-- {{ $user->profile->jenis_kelamin }} --}}
+                                    {{ $datas->jenis_kelamin }}
                                     </div>
                                 </div>
                                 <hr>
@@ -71,7 +71,7 @@
                                         <h6 class="mb-0">Alamat</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        {{-- {{ $user->profile->alamat }} --}}
+                                        {{ $datas->alamat }}
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                             <a href="/lokasi" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
@@ -86,7 +86,7 @@
                                         <h6 class="mb-2">Nomor Telepon</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        {{-- {{ $user->profile->no_telp }} --}}
+                                        {{ $datas->no_telp }}
                                     </div>
                                 </div>
                                 <hr>
@@ -95,7 +95,7 @@
                                         <h6 class="mb-2">Usia</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        {{-- {{ $user->profile->usia }} --}}
+                                        {{ $datas->usia }}
                                     </div>
                                 </div>
                                 <hr>
@@ -104,14 +104,14 @@
                                         <h6 class="mb-2">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        {{-- {{ $user->email }} --}}
+                                        {{ $datas2->email }}
                                     </div>
                                 </div>
                                 <hr>
 
                             <form action="/download" method="post" enctype="">
                                 @csrf
-                                {{-- <input type="hidden" value="{{ $user->profile->ktp }}" name="cv"> --}}
+                                <input type="hidden" value="{{ $datas->ktp }}" name="cv">
                                 <div class="row">
                                     <div class="col-sm-3" style="color: black">
                                         <h6 class="mb-2">KTP</h6>
@@ -123,20 +123,20 @@
                             </form>
                                 <hr>
 
-                                {{-- @if($user->profile->cv) --}}
+                                @if($datas->cv)
                                 <form action="/download" method="post" enctype="">
                                     @csrf
-                                    {{-- <input type="hidden" value="{{ $user->profile->cv }}" name="cv"> --}}
-                                <div class="row">
-                                    <div class="col-sm-3" style="color: black">
-                                        <h6 class="mb-2">CV</h6>
+                                    <input type="hidden" value="{{ $datas->cv }}" name="cv">
+                                    <div class="row">
+                                        <div class="col-sm-3" style="color: black">
+                                            <h6 class="mb-2">CV</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary" style="color: black">
+                                            <button type="submit" class="btn btn-success"> Download</button>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-9 text-secondary" style="color: black">
-                                        <button type="submit" class="btn btn-success"> Download</button>
-                                    </div>
-                                </div>
-                            </form>
-                            {{-- @endif --}}
+                                </form>
+                                @endif
 
                             </div>
                         </div>
