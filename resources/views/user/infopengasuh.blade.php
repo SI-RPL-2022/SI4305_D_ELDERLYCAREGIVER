@@ -2,9 +2,10 @@
 @section('isi')
     <section id="profile">
         <style type="text/css">
-        .card {
-            border-radius: 10px
-        }
+            .card {
+                border-radius: 10px
+            }
+
         </style>
         <title>Detail Pengasuh | Elderly Caregiver</title>
         <div class="container">
@@ -15,20 +16,22 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="{{ asset('storage/' . $datas->foto) }}" alt="Admin"
-                                        class="rounded-circle" width="150">
+                                    <img src="{{ asset('storage/' . $datas->foto) }}" alt="Admin" class="rounded-circle"
+                                        width="150">
                                     <div class="mt-3">
                                         <h4 style="color: black">{{ $datas2->username }}</h4>
                                         <p class="text-muted font-size-sm">{{ $datas2->status }}</p>
                                     </div>
-                                    {{-- @if($user->profile->cv) --}}
+                                    {{-- @if ($user->profile->cv) --}}
                                     <div>
                                         <p class="text-muted font-size-sm">Rating</p>
                                     </div>
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                      </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+                                            class="bi bi-star-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
                                     </div>
                                     {{-- @endif --}}
                                 </div>
@@ -43,7 +46,7 @@
                                         <h6 class="mb-0" style="color: black">Nama Lengkap</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    {{ $datas->nama }}
+                                        {{ $datas->nama }}
 
                                     </div>
                                 </div>
@@ -62,7 +65,7 @@
                                         <h6 class="mb-0" style="color: black">Jenis Kelamin</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                    {{ $datas->jenis_kelamin }}
+                                        {{ $datas->jenis_kelamin }}
                                     </div>
                                 </div>
                                 <hr>
@@ -73,9 +76,12 @@
                                     <div class="col-sm-9 text-secondary" style="color: black">
                                         {{ $datas->alamat }}
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                            <a href="/lokasi" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                                              </svg></a>
+                                            <a href="/lokasi" class="btn btn-primary"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                                </svg></a>
                                         </div>
                                     </div>
 
@@ -109,33 +115,33 @@
                                 </div>
                                 <hr>
 
-                            <form action="/download" method="post" enctype="">
-                                @csrf
-                                <input type="hidden" value="{{ $datas->ktp }}" name="cv">
-                                <div class="row">
-                                    <div class="col-sm-3" style="color: black">
-                                        <h6 class="mb-2">KTP</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary" style="color: black">
-                                        <button type="submit" class="btn btn-success"> Download</button>
-                                    </div>
-                                </div>
-                            </form>
-                                <hr>
-
-                                @if($datas->cv)
                                 <form action="/download" method="post" enctype="">
                                     @csrf
-                                    <input type="hidden" value="{{ $datas->cv }}" name="cv">
+                                    <input type="hidden" value="{{ $datas->ktp }}" name="cv">
                                     <div class="row">
                                         <div class="col-sm-3" style="color: black">
-                                            <h6 class="mb-2">CV</h6>
+                                            <h6 class="mb-2">KTP</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" style="color: black">
                                             <button type="submit" class="btn btn-success"> Download</button>
                                         </div>
                                     </div>
                                 </form>
+                                <hr>
+
+                                @if ($datas->cv)
+                                    <form action="/download" method="post" enctype="">
+                                        @csrf
+                                        <input type="hidden" value="{{ $datas->cv }}" name="cv">
+                                        <div class="row">
+                                            <div class="col-sm-3" style="color: black">
+                                                <h6 class="mb-2">CV</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary" style="color: black">
+                                                <button type="submit" class="btn btn-success"> Download</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 @endif
 
                             </div>
@@ -148,6 +154,26 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-3">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Pilih Jasa</option>
+                                            <option value="1">Harian</option>
+                                            <option value="2">Mingguan</option>
+                                            <option value="3">Bulanan</option>
+                                        </select>
+                                        <div class="input-group input-daterange">
+                                            <input type="text" id="start" class="form-control text-left mr-2">
+                                            <label class="ml-3 form-control-placeholder" id="start-p" for="start">Start
+                                                Date</label>
+                                            <span class="fa fa-calendar" id="fa-1"></span>
+                                            <input type="text" id="end" class="form-control text-left ml-2">
+                                            <label class="ml-3 form-control-placeholder" id="end-p" for="end">End
+                                                Date</label>
+                                            <span class="fa fa-calendar" id="fa-2"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
             </center>
         </div>
