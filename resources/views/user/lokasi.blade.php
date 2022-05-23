@@ -16,7 +16,7 @@
         </svg>
             Rumah Pengasuh
     </ul>
-    <p style="margin-left: 65px"">Jl. Telekomunikasi No. 51, Terusan Buahbatu - Bojongsoang, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40251</p>
+    <p style="margin-left: 65px"">Jl. Telekomunikasi No. 51, Terusan Buahbatu - Bojongsoang, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40252</p>
     <br>
 
     <ul class="h5">
