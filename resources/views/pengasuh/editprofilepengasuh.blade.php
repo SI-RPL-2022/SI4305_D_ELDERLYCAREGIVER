@@ -41,7 +41,7 @@
                                         <div class="col-md-12"><label class="labels">Tempat, Tanggal Lahir</label>
                                             <input type="text" class="form-control" name="ttl" value="{{ $user->profile->ttl }}">
                                         </div>
-                                        <div class="col-md-12"><label class="labels">Jenis kelamin</label>
+                                        <div class="col-md-12"><label class="labels">Jenis Kelamin</label>
                                         <select type="option" class="form-select" id="jeniskelamin" name="jenis_kelamin" placeholder="Masukkan Jenis Kelamin Anda" required>
                                             <option @if($user->profile->jenis_kelamin = "laki-laki") selected @endif>laki-laki</option>
                                             <option @if($user->profile->jenis_kelamin = "perempuan") selected @endif>Perempuan</option>
@@ -54,6 +54,12 @@
                                         </div>
                                         <div class="col-md-12"><label class="labels">Email</label>
                                             <input type="text" class="form-control" name="email" value="{{ $user->email }}">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Harian, Mingguan, Bulanan</span>
+                                            <input type="text" aria-label="Harian" class="form-control">
+                                            <input type="text" aria-label="Mingguan" class="form-control">
+                                            <input type="text" aria-label="Bulanan" class="form-control">
                                         </div>
                                         <input type="hidden" value="{{ $user->id }}" name="id">
                                         <div class="mt-2 text-center">
