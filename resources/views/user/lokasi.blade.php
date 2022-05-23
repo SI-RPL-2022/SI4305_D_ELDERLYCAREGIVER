@@ -4,7 +4,7 @@
 <title>Lokasi Pengasuh | Elderly Caregiver</title>
 
 <div class="mt-3 text-center">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.60912453677!2d107.57311616767873!3d-6.9032739160651655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1652245725798!5m2!1sen!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.60912453677!2d107.57311616767873!3d-6.9032739160651655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1652245725798!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <hr>
 
@@ -17,6 +17,7 @@
             Rumah Pengasuh
     </ul>
     <p style="margin-left: 65px"">Jl. Telekomunikasi No. 51, Terusan Buahbatu - Bojongsoang, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40251</p>
+    <br>
 
     <ul class="h5">
         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
@@ -24,6 +25,7 @@
         </svg>
             +62853-1122-3344
     </ul>
+    <br>
 
     <ul class="h5">
         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16">
@@ -32,5 +34,6 @@
         </svg>
             22.5 Km
     </ul>
+    <br>
 </div>
 @endsection
