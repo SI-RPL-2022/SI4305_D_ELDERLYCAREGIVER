@@ -177,5 +177,119 @@
                     </div>
             </center>
         </div>
+
+        <div class="container">
+            <center>
+            <form action="" method="post" enctype="multipart/form-data">
+                @csrf
+                <hr>
+                <div class="animate__animated animate__backInRight">
+                    <p class="h2" style="margin-top: 10px">Form Informasi Lansia</p>
+                    <div class="col-md-8">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="row mt-2">
+                                        <div class="col-mt-3"><label class="labels">Nama Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Nama Lansia" name="pengarang">
+                                        </div>
+
+                                        <div class="col-md-12"><label class="labels">Tanggal Lahir</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+
+                                        <div class="col-mt-3"><label class="labels">Umur Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Umur Lansia" name="pengarang">
+                                        </div>
+
+                                        <div class="col-mt-3">
+                                            <label for="jeniskelamin" class="form-label">Jenis Kelamin Lansia</label><br>
+                                            <select type="option" class="form-select @error('jenis_kelamin') is-invalid @enderror" id="jeniskelamin" name="jenis_kelamin" placeholder=" Jenis Kelamin Lansia" >
+                                                <option selected>laki-laki</option>
+                                                <option>Perempuan</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-mt-3"><label class="labels">Alamat Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Alamat Lansia" name="pengarang">
+                                        </div>
+
+                                        <div class="col-mt-3"><label class="labels">Nomor Telpon Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Nomor Telpon Lansia" name="pengarang">
+                                        </div>
+
+                                        <div class="col-mt-3"><label class="labels">Nomor Telpon Darurat</label>
+                                            <input type="text" class="form-control" placeholder="Nomor Telpon kerabat terdekat" name="pengarang">
+                                        </div>
+
+                                        <div class="col-md-12"><label class="labels">Riwayat Penyakit</label>
+                                            <textarea class="form-control" placeholder="Contoh : diabetes" name="deskripsi" ></textarea>
+                                        </div>
+
+                                        <div class="col-md-12"><label class="labels">Catatan</label>
+                                            <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="deskripsi" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </center>
+        </div>
+
+        <div class="container">
+            <center>
+            <hr>
+            <p class="h2" style="margin-top: 10px">Total Harga</p>
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="row mt-2">
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Rp.00" name="pengarang">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+
+        <div class="container">
+            <center>
+                <div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Pesan
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="1">Konfirmasi pesanan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            Apakah anda yakin?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <a href="/" class="btn btn-danger" >Batal</a>
+                </div>
+
+
+            </center>
+        </div>
     </section>
 @endsection
