@@ -53,7 +53,7 @@
             </a>
 
             @auth
-            
+
             <div class="btn-group me-5">
                 <button type="button" class="btn btn-success dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -62,7 +62,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     @canany(['pengasuh','user'])
-                    <li><a class="dropdown-item" href=" "><i class="bi bi-cart"></i> Pesanan</a></li>
+                    <li><a class="dropdown-item" href="/pesanan"><i class="bi bi-cart"></i> Pesanan</a></li>
                     @can('user')
                     <li><a class="dropdown-item" href="/profile"><i class="bi bi-person-lines-fill"></i> Edit Profile</a></li>
                     @endcan

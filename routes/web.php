@@ -64,4 +64,9 @@ Route::get('/lokasi', function () {
 Route::get('/infopengasuh', function () {
     return view('user/infopengasuh');
 });
-
+Route::get('/detailpesanan', function () {
+    return view('user/detailpesanan');
+});
+Route::get('/pesanan', function () {
+    return view('pengasuh/pesanan');
+});
