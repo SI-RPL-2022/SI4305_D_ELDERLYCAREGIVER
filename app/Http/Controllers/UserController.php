@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\price;
 use App\Models\User;
 use App\Models\profile;
 use Illuminate\Http\Request;
@@ -59,6 +60,17 @@ class UserController extends Controller
         user::where('id', $request->id)->update([
             'status' => 'pengasuh'
         ]); 
+
+        $price = [
+            'user_id' => $request['id'],
+            'harian' => '1',
+            'mingguan' => '1',
+            'bulanan' => '1',
+            'harga' => '50000',
+        ];
+
+        price::create($price);
+
 
         return redirect('/listpengasuh')->with('status', 'Pengasuh berhasil ditambahkan');
     }
@@ -203,7 +215,7 @@ class UserController extends Controller
         
         $datas = profile::where('user_id', $id)->first();
         $datas2 = user::where('id', $id)->first();
-
-        return view('user/infopengasuh', compact('datas', 'datas2'));
+        $price = price::where('user_id', $id)->first();
+        return view('user/infopengasuh', compact('datas', 'datas2','price'));
     }
 }

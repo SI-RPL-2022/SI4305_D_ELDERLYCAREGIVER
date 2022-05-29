@@ -55,12 +55,46 @@
                                         <div class="col-md-12"><label class="labels">Email</label>
                                             <input type="text" class="form-control" name="email" value="{{ $user->email }}">
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-text">Harian, Mingguan, Bulanan</span>
-                                            <input type="text" aria-label="Harian" class="form-control">
-                                            <input type="text" aria-label="Mingguan" class="form-control">
-                                            <input type="text" aria-label="Bulanan" class="form-control">
+                                        
+                                        @can('pengasuh')
+                                        
+                                        <div class="row "><label class="labels mb-4">Jenis jasa</label>
+                                        
+                                            <div class="col">
+                                        <div class="form-check col-2">
+                                            <input class="form-check-input" type="checkbox" name="harian" value='1' id="flexCheckDefault" @if($price->harian) checked @endif>
+                                            <label class="form-check-label " for="flexCheckDefault">
+                                              Harian
+                                            </label>
+                                          </div>
                                         </div>
+
+                                        <div class="col">
+                                          <div class="form-check col-2">
+                                            <input class="form-check-input" type="checkbox" name="mingguan" value='1' id="flexCheckChecked"  @if($price->mingguan) checked @endif>
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                              Mingguan
+                                            </label>
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="col">
+                                          <div class="form-check col-2">
+                                            <input class="form-check-input" type="checkbox" name="bulanan" value='1' id="flexCheckChecked"  @if($price->bulanan) checked @endif>
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                              Bulanan
+                                            </label>
+                                          </div>
+                                        </div>
+
+                                        </div>
+
+                                        <div class="col-md-12"><label class="labels">Harga</label>
+                                            <input type="text" class="form-control" name="harga" value="{{ $price->harga }}">
+                                        </div>
+                                        
+                                        @endcan
+
                                         <input type="hidden" value="{{ $user->id }}" name="id">
                                         <div class="mt-2 text-center">
                                             <button class="btn btn-primary profile-button" type="submit">Save Profile</button>

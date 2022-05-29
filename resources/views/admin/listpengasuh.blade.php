@@ -201,6 +201,7 @@
                                             {{-- modal tolak selesai --}}
                                         </td>
                                     </tr>
+                                    @endforeach
                                 @endforeach
                                 </tbody>
                                 </table>

@@ -41,8 +41,10 @@
                                     </tr>
                                 </thead>
                                     <tr>
-                                        <th>1</th>
-                                        <td>contoh</td>
+                                        @can('pengasuh')
+                                        @foreach ($pesanan_pengasuh as $datas)
+                                        <th>{{ $loop->iteration }}</th>
+                                        <td class="text-center">{{ $datas->nama_lansia }}</td>
                                         <td>menunggu konfirmasi</td>
                                         <td>
                                              <!-- Button trigger modal lihat -->
@@ -82,6 +84,8 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        @endforeach
+                                        @endcan
                                     </tr>
 
                                 <tbody>

@@ -62,7 +62,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     @canany(['pengasuh','user'])
-                    <li><a class="dropdown-item" href="/pesanan"><i class="bi bi-cart"></i> Pesanan</a></li>
+                    <li><a class="dropdown-item" href="/order"><i class="bi bi-cart"></i> Pesanan</a></li>
                     @can('user')
                     <li><a class="dropdown-item" href="/profile"><i class="bi bi-person-lines-fill"></i> Edit Profile</a></li>
                     @endcan

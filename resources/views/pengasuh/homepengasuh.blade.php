@@ -147,7 +147,7 @@
             }
 
         </style>
-        <div class="containter">
+        {{-- <div class="containter">
             <div class="animate__animated animate__backInRight">
                 <center>
                     <p class="h3" style="margin-top: 10px;">Daftar Lansia</p>
@@ -170,7 +170,7 @@
                     </table>
                 </center>
             </div>
-        </div>
+        </div> --}}
     </section>
 @endcan
 @endsection

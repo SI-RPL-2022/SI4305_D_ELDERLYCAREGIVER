@@ -147,20 +147,45 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <form action="/order" method="post">
+                        <input type="hidden" value="{{ auth()->user()->id }}" name="user_id">
+                        <input type="hidden" value="{{ $datas2->id }}" name="pengasuh_id">
+                        <input type="hidden" value="{{ $price->harga }}" name="harga">
                     <hr size="4px" width="90%">
                     <p class="h2" style="margin-top: 10px">Jasa yang ditawarkan</p>
                     <div class="col-md-8">
                         <div class="card mb-4">
-                            <div class="card-body">
+                                @csrf
+                                <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-3">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Pilih Jasa</option>
-                                            <option value="1">Harian</option>
-                                            <option value="2">Mingguan</option>
-                                            <option value="3">Bulanan</option>
-                                        </select>
-                                        <div class="input-group input-daterange">
+                                            @if($price->harian === 1 )
+                                            <div class="form-check col-2 " style="color: black">
+                                                <input class="form-check-input" type="radio" name="harian" id="harian" value="1">
+                                                <label class="form-check-label" for="harian">
+                                                  harian
+                                                </label>
+                                              </div>
+                                            @endif
+                                            @if($price->mingguan === 1)
+                                            <div class="form-check col-2" style="color: black">
+                                                <input class="form-check-input" type="radio" name="mingguan" id="mingguan" value="1">
+                                                <label class="form-check-label" for="mingguan">
+                                                  mingguan
+                                                </label>
+                                              </div>
+                                            @endif
+                                            @if($price->bulanan === 1)
+                                            <div class="form-check col-2" style="color: black">
+                                                <input class="form-check-input" type="radio" name="bulanan" id="bulanan" value="1">
+                                                <label class="form-check-label" for="bulanan">
+                                                  bulanan
+                                                </label>
+                                              </div>
+                                            @endif
+                                            
+                                        {{-- <div class="input-group input-daterange">
                                             <input type="text" id="start" class="form-control text-left mr-2">
                                             <label class="ml-3 form-control-placeholder" id="start-p" for="start">Start
                                                 Date</label>
@@ -169,9 +194,19 @@
                                             <label class="ml-3 form-control-placeholder" id="end-p" for="end">End
                                                 Date</label>
                                             <span class="fa fa-calendar" id="fa-2"></span>
-                                        </div>
-                                    </div>
+                                        </div> --}}
+                                    
                                 </div>
+                               
+                                {{-- <div class="row mt-4">
+                                    <div class="col-2" style="color: black">
+                                        <h6 class="mb-2">Harga</h6>
+                                    </div>
+                                    <div class=" col-5 ">
+                                        <input type="text" class="form-control" placeholder="Rp.00" name="harga" id="harga">
+                                    </div>
+                                </div> --}}
+                            
                             </div>
                         </div>
                     </div>
@@ -180,8 +215,6 @@
 
         <div class="container">
             <center>
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
                 <hr>
                 <div class="animate__animated animate__backInRight">
                     <p class="h2" style="margin-top: 10px">Form Informasi Lansia</p>
@@ -191,15 +224,15 @@
                                 <div class="row">
                                     <div class="row mt-2">
                                         <div class="col-mt-3"><label class="labels">Nama Lansia</label>
-                                            <input type="text" class="form-control" placeholder="Nama Lansia" name="pengarang">
+                                            <input type="text" class="form-control" placeholder="Nama Lansia" name="nama_lansia">
                                         </div>
 
-                                        <div class="col-md-12"><label class="labels">Tanggal Lahir</label>
-                                            <input type="date" class="form-control">
+                                        <div class="col-md-12"><label class="labels">Tanggal</label>
+                                            <input type="date" class="form-control" name="tanggal">
                                         </div>
 
                                         <div class="col-mt-3"><label class="labels">Umur Lansia</label>
-                                            <input type="text" class="form-control" placeholder="Umur Lansia" name="pengarang">
+                                            <input type="text" class="form-control" placeholder="Umur Lansia" name="umur">
                                         </div>
 
                                         <div class="col-mt-3">
@@ -211,23 +244,23 @@
                                         </div>
 
                                         <div class="col-mt-3"><label class="labels">Alamat Lansia</label>
-                                            <input type="text" class="form-control" placeholder="Alamat Lansia" name="pengarang">
+                                            <input type="text" class="form-control" placeholder="Alamat Lansia" name="alamat">
                                         </div>
 
                                         <div class="col-mt-3"><label class="labels">Nomor Telpon Lansia</label>
-                                            <input type="text" class="form-control" placeholder="Nomor Telpon Lansia" name="pengarang">
+                                            <input type="text" class="form-control" placeholder="Nomor Telpon Lansia" name="no_telp">
                                         </div>
 
                                         <div class="col-mt-3"><label class="labels">Nomor Telpon Darurat</label>
-                                            <input type="text" class="form-control" placeholder="Nomor Telpon kerabat terdekat" name="pengarang">
+                                            <input type="text" class="form-control" placeholder="Nomor Telpon kerabat terdekat" name="no_telp_kerabat">
                                         </div>
 
                                         <div class="col-md-12"><label class="labels">Riwayat Penyakit</label>
-                                            <textarea class="form-control" placeholder="Contoh : diabetes" name="deskripsi" ></textarea>
+                                            <textarea class="form-control" placeholder="Contoh : diabetes" name="penyakit" ></textarea>
                                         </div>
 
                                         <div class="col-md-12"><label class="labels">Catatan</label>
-                                            <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="deskripsi" ></textarea>
+                                            <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="catatan" ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -236,11 +269,10 @@
                     </div>
                 </div>
             </div>
-            </form>
             </center>
         </div>
 
-        <div class="container">
+        {{-- <div class="container">
             <center>
             <hr>
             <p class="h2" style="margin-top: 10px">Total Harga</p>
@@ -256,7 +288,7 @@
                     </div>
                 </div>
             </center>
-        </div>
+        </div> --}}
 
         <div class="container">
             <center>
@@ -279,17 +311,35 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                         </div>
                     </div>
 
+                </form>
                     <a href="/" class="btn btn-danger" >Batal</a>
                 </div>
-
-
+                
+                
             </center>
         </div>
+        
+        {{-- <script>
+            let radioBtns = document.querySelectorAll("input[name='jasa']");
+            let result = document.getElementById("harga");
+
+            let findSelected = () => (let selected = document.querySelector("input[name='jasa']:checked").value;
+                result.textContent = 'value of selected radio button: $(selected)';
+            )
+
+            radioBtns.foreach(radioBtns => {
+                radioBtns.addEventListener("change", findSelected);
+            });
+
+            findSelected();
+         </script> --}}
+
     </section>
+    
 @endsection
