@@ -147,12 +147,20 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <form action="/order" method="post">
+                        <input type="hidden" value="{{ auth()->user()->id }}" name="user_id">
+                        <input type="hidden" value="{{ $datas2->id }}" name="pengasuh_id">
+                        <input type="hidden" value="{{ $price->harga }}" name="harga">
                     <hr size="4px" width="90%">
                     <p class="h2" style="margin-top: 10px">Jasa yang ditawarkan</p>
                     <div class="col-md-8">
                         <div class="card mb-4">
-                            <div class="card-body">
+                                @csrf
+                                <div class="card-body">
                                 <div class="row">
+<<<<<<< HEAD
                                     <div class="col-sm-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="exampleRadios" id="harian"
@@ -176,6 +184,34 @@
                                             </label>
                                         </div>
                                         <div class="input-group input-daterange">
+=======
+                                            @if($price->harian === 1 )
+                                            <div class="form-check col-2 " style="color: black">
+                                                <input class="form-check-input" type="radio" name="harian" id="harian" value="1">
+                                                <label class="form-check-label" for="harian">
+                                                  harian
+                                                </label>
+                                              </div>
+                                            @endif
+                                            @if($price->mingguan === 1)
+                                            <div class="form-check col-2" style="color: black">
+                                                <input class="form-check-input" type="radio" name="mingguan" id="mingguan" value="1">
+                                                <label class="form-check-label" for="mingguan">
+                                                  mingguan
+                                                </label>
+                                              </div>
+                                            @endif
+                                            @if($price->bulanan === 1)
+                                            <div class="form-check col-2" style="color: black">
+                                                <input class="form-check-input" type="radio" name="bulanan" id="bulanan" value="1">
+                                                <label class="form-check-label" for="bulanan">
+                                                  bulanan
+                                                </label>
+                                              </div>
+                                            @endif
+                                            
+                                        {{-- <div class="input-group input-daterange">
+>>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
                                             <input type="text" id="start" class="form-control text-left mr-2">
                                             <label class="ml-3 form-control-placeholder" id="start-p" for="start">Start
                                                 Date</label>
@@ -184,9 +220,19 @@
                                             <label class="ml-3 form-control-placeholder" id="end-p" for="end">End
                                                 Date</label>
                                             <span class="fa fa-calendar" id="fa-2"></span>
-                                        </div>
-                                    </div>
+                                        </div> --}}
+                                    
                                 </div>
+                               
+                                {{-- <div class="row mt-4">
+                                    <div class="col-2" style="color: black">
+                                        <h6 class="mb-2">Harga</h6>
+                                    </div>
+                                    <div class=" col-5 ">
+                                        <input type="text" class="form-control" placeholder="Rp.00" name="harga" id="harga">
+                                    </div>
+                                </div> --}}
+                            
                             </div>
                         </div>
                     </div>
@@ -195,6 +241,7 @@
 
         <div class="container">
             <center>
+<<<<<<< HEAD
                 <form action="" method="post" enctype="multipart/form-data">
                     @csrf
                     <hr>
@@ -218,6 +265,27 @@
                                                 <input type="text" class="form-control" placeholder="Umur Lansia"
                                                     name="pengarang">
                                             </div>
+=======
+                <hr>
+                <div class="animate__animated animate__backInRight">
+                    <p class="h2" style="margin-top: 10px">Form Informasi Lansia</p>
+                    <div class="col-md-8">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="row mt-2">
+                                        <div class="col-mt-3"><label class="labels">Nama Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Nama Lansia" name="nama_lansia">
+                                        </div>
+
+                                        <div class="col-md-12"><label class="labels">Tanggal</label>
+                                            <input type="date" class="form-control" name="tanggal">
+                                        </div>
+
+                                        <div class="col-mt-3"><label class="labels">Umur Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Umur Lansia" name="umur">
+                                        </div>
+>>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
 
                                             <div class="col-mt-3">
                                                 <label for="jeniskelamin" class="form-label">Jenis Kelamin
@@ -231,6 +299,7 @@
                                                 </select>
                                             </div>
 
+<<<<<<< HEAD
                                             <div class="col-mt-3"><label class="labels">Alamat Lansia</label>
                                                 <input type="text" class="form-control" placeholder="Alamat Lansia"
                                                     name="pengarang">
@@ -256,18 +325,44 @@
                                             <div class="col-md-12"><label class="labels">Catatan</label>
                                                 <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="deskripsi"></textarea>
                                             </div>
+=======
+                                        <div class="col-mt-3"><label class="labels">Alamat Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Alamat Lansia" name="alamat">
+                                        </div>
+
+                                        <div class="col-mt-3"><label class="labels">Nomor Telpon Lansia</label>
+                                            <input type="text" class="form-control" placeholder="Nomor Telpon Lansia" name="no_telp">
+                                        </div>
+
+                                        <div class="col-mt-3"><label class="labels">Nomor Telpon Darurat</label>
+                                            <input type="text" class="form-control" placeholder="Nomor Telpon kerabat terdekat" name="no_telp_kerabat">
+                                        </div>
+
+                                        <div class="col-md-12"><label class="labels">Riwayat Penyakit</label>
+                                            <textarea class="form-control" placeholder="Contoh : diabetes" name="penyakit" ></textarea>
+                                        </div>
+
+                                        <div class="col-md-12"><label class="labels">Catatan</label>
+                                            <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="catatan" ></textarea>
+>>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
         </div>
         </form>
         </center>
+=======
+                </div>
+            </div>
+            </center>
+>>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
         </div>
 
-        <div class="container">
+        {{-- <div class="container">
             <center>
                 <hr>
                 <p class="h2" style="margin-top: 10px">Total Harga</p>
@@ -283,7 +378,7 @@
                             </div>
                         </div>
             </center>
-        </div>
+        </div> --}}
 
         <div class="container">
             <center>
@@ -311,14 +406,47 @@
                                     <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         </div>
                     </div>
 
                     <a href="/" class="btn btn-danger">Batal</a>
+=======
+                            <div class="modal-body">
+                            Apakah anda yakin?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </form>
+                    <a href="/" class="btn btn-danger" >Batal</a>
+>>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
                 </div>
-
-
+                
+                
             </center>
         </div>
+        
+        {{-- <script>
+            let radioBtns = document.querySelectorAll("input[name='jasa']");
+            let result = document.getElementById("harga");
+
+            let findSelected = () => (let selected = document.querySelector("input[name='jasa']:checked").value;
+                result.textContent = 'value of selected radio button: $(selected)';
+            )
+
+            radioBtns.foreach(radioBtns => {
+                radioBtns.addEventListener("change", findSelected);
+            });
+
+            findSelected();
+         </script> --}}
+
     </section>
+    
 @endsection
