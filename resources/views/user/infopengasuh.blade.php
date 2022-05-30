@@ -162,25 +162,25 @@
                                 <div class="row">
                                             @if($price->harian === 1 )
                                             <div class="form-check col-2 " style="color: black">
-                                                <input class="form-check-input" type="radio" name="jasa" id="harian" value="harian">
+                                                <input class="form-check-input" type="radio" name="jasa" id="harian" value="Harian">
                                                 <label class="form-check-label" for="harian">
-                                                  harian
+                                                  Harian
                                                 </label>
                                               </div>
                                             @endif
                                             @if($price->mingguan === 1)
                                             <div class="form-check col-2" style="color: black">
-                                                <input class="form-check-input" type="radio" name="jasa" id="mingguan" value="mingguan">
+                                                <input class="form-check-input" type="radio" name="jasa" id="mingguan" value="Mingguan">
                                                 <label class="form-check-label" for="mingguan">
-                                                  mingguan
+                                                  Mingguan
                                                 </label>
                                               </div>
                                             @endif
                                             @if($price->bulanan === 1)
                                             <div class="form-check col-2" style="color: black">
-                                                <input class="form-check-input" type="radio" name="jasa" id="bulanan" value="bulanan">
+                                                <input class="form-check-input" type="radio" name="jasa" id="bulanan" value="Bulanan">
                                                 <label class="form-check-label" for="bulanan">
-                                                  bulanan
+                                                  Bulanan
                                                 </label>
                                               </div>
                                             @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 use App\Models\User;
+use App\Models\profile;
 use App\Http\Requests\StoreorderRequest;
 use App\Http\Requests\UpdateorderRequest;
 
@@ -18,7 +19,9 @@ class OrderController extends Controller
     {
 
         $user = order::where('user_id', auth()->user()->id )->first();
-        return view('pengasuh.pesanan' , [
+        $nama = profile::where('user_id', auth()->user()->id)->first();
+        $detail = order::first();
+        return view('pengasuh.pesanan', compact('nama', 'detail'), [
             "head" => "Profile | Elderly Caregiver",
             "user" => User::where('id', auth()->user()->id)->first(),
             "pesanan_user" => User::where('id', $user->pengasuh_id)->get(),
@@ -59,7 +62,7 @@ class OrderController extends Controller
         ]);
      
         if ($request->jasa == "harian" ){
-            $validateorder['harga'] = $request->harga;
+            $validateorder['harga'] = $request->harga * 1;
             $validateorder['jenis'] = 'harian';
         }elseif ($request->jasa == "bulanan"){
             $validateorder['harga'] = $request->harga * 7;

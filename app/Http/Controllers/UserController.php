@@ -61,6 +61,10 @@ class UserController extends Controller
             'status' => 'pengasuh'
         ]); 
 
+        profile::where('user_id', $request->id)->update([
+            'status' => 'pengasuh'
+        ]);
+
         $price = [
             'user_id' => $request['id'],
             'harian' => '1',
@@ -145,6 +149,7 @@ class UserController extends Controller
             'nama' => 'required|max:32',
             'ttl' => 'required',
             'jenis_kelamin' => 'required',
+            'status' => 'required',
             'alamat' => 'required',
             'no_telp' => 'required',
             'usia' => 'required',
@@ -183,6 +188,7 @@ class UserController extends Controller
             'nama' => 'required|max:32',
             'ttl' => 'required',
             'jenis_kelamin' => 'required',
+            'status' => 'required',
             'alamat' => 'required',
             'no_telp' => 'required',
             'usia' => 'required',
