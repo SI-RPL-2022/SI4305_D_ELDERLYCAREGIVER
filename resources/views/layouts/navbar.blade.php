@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        @livewireStyles
         {{-- <!-- Required meta tags --> --}}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,7 +63,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     @canany(['pengasuh','user'])
-                    <li><a class="dropdown-item" href="/pesanan"><i class="bi bi-cart"></i> Pesanan</a></li>
+                    <li><a class="dropdown-item" href="/order"><i class="bi bi-cart"></i> Pesanan</a></li>
                     @can('user')
                     <li><a class="dropdown-item" href="/profile"><i class="bi bi-person-lines-fill"></i> Edit Profile</a></li>
                     @endcan
@@ -93,13 +94,18 @@
 
     @endcan
     @yield('isi')
+    
+ 
 </div>
 
-    <br>
-    <div class="footer">
-        © 2022• Kelompok 4 | SI4305 • All Rights Reserved
+<br>
+<div class="footer">
+    © 2022• Kelompok 4 | SI4305 • All Rights Reserved
     </div>
 
+    @livewireScripts
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    @stack('scripts')
 </body>
 </html>

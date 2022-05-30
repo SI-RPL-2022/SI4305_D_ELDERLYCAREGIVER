@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\profile;
+use App\Models\price;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreprofileRequest;
 use App\Http\Requests\UpdateprofileRequest;
@@ -45,7 +46,7 @@ class ProfileController extends Controller
     {
         if (auth()->user()->id == $user->id){
             return view('pengasuh.editprofilepengasuh', compact('user'),[
-                
+                "price" => price::where('user_id', $user->id)->first(),
                 "head" => "edit profile | Elderly Caregiver",
             ]);
         }else{
@@ -62,6 +63,15 @@ class ProfileController extends Controller
      */
     public function update(UpdateprofileRequest $request, User $user)
     {
+
+        
+        $price = $request->validate([
+            'harga' => 'max:12',
+        ]);
+
+        $price['harian'] = $request->has(key:'harian');
+        $price['mingguan'] = $request->has(key:'mingguan');
+        $price['bulanan'] = $request->has(key:'bulanan');
 
         $profile = profile::where('user_id', $request->id)->first();
 
@@ -89,7 +99,9 @@ class ProfileController extends Controller
         if($request->email) {
             user::where('id', $request->id) ->update($validatedata2);
         }
-        
+
+        price::where('user_id', $request->id)->update($price);
+
         return redirect('/profile');
     }
 }

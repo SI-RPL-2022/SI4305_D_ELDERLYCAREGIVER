@@ -111,7 +111,7 @@ class ArtikelController extends Controller
     public function index(Request $request){
 
         $datas = artikel::latest()->paginate(4);
-        $filter = profile::where('status', 'pengasuh')->latest();
+        $filter = profile::latest();
 
         if (auth()->guest()){
             return view('welcome', compact('datas'));

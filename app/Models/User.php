@@ -43,6 +43,20 @@ class User extends Authenticatable
     public function profile() {
         return $this->hasOne(profile::class);
     }
+
+    
+    public function price() {
+        return $this->hasOne(price::class);
+    }
+
+    
+    public function order() {
+        return $this->hasOne(order::class);
+    }
+
+    public function locations() {
+        return $this->hasOne(locations::class);
+    }
     
     public function getRouteKeyName()
     {

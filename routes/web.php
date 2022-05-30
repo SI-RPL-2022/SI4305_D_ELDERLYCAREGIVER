@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use App\http\Livewire\Maps;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/profile', ProfileController::class)->parameters([
         'profile' => 'user:username',
     ]);
+    Route::resource('/order', OrderController::class);
     Route::post('/download', [UserController::class, "download"]);
     Route::get('/detailuser/{user}', [UserController::class, "detail"]);
     Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
@@ -46,8 +49,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/regispengasuh', [UserController::class, "registerpelamar"]);
     Route::post('/regisuser', [UserController::class, "registeruser"]);
     Route::post('/login', [UserController::class, "login"]);
-
-
 });
 
 Route::get('/', [ArtikelController::class, "index"]);
@@ -61,12 +62,13 @@ Route::get('/editprofileuser', function () {
 Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
+
+Route::get('/ms', Maps::class);
+
+
 Route::get('/infopengasuh', function () {
     return view('user/infopengasuh');
 });
 Route::get('/detailpesanan', function () {
     return view('user/detailpesanan');
-});
-Route::get('/pesanan', function () {
-    return view('pengasuh/pesanan');
 });

@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,20 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('nama');
-            $table->string('ttl');
-            $table->string('jenis_kelamin');
-            $table->string('alamat');
-            $table->string('no_telp');
-            $table->string('usia');
-            $table->string('ktp');
-            $table->string('cv')->nullable();
-            $table->string('foto')->nullable();
+            $table->foreignId('pengasuh_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('tanggal');
+            $table->string('no_telp_kerabat');
+            $table->string('penyakit')->nullable();
+            $table->string('catatan')->nullable();
+            $table->string('harga')->nullable();
+            $table->enum('status', ['request', 'berlangsung', 'konfirmasi', 'selesai']);
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -37,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('orders');
     }
 };

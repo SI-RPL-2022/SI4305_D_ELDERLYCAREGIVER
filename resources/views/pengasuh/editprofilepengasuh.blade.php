@@ -28,77 +28,16 @@
                                 <form method="POST" action="/profile/{{ $user->username }}">
                                     @method('put')
                                     @csrf
-                                    <div class="row">
-                                        <div class="row mt-2">
-                                            <div class="col-md-12"><label class="labels">Nama Lengkap</label>
-                                                <input type="text" class="form-control" name="nama"
-                                                    value="{{ $user->profile->nama }}">
-                                            </div>
+                                <div class="row">
+                                    <div class="row mt-2">
+                                        <div class="col-md-12"><label class="labels">Nama Lengkap</label>
+                                            <input type="text" class="form-control" name="nama" value="{{ $user->profile->nama }}">
                                         </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-12"><label class="labels">Nomor Telepon</label>
-                                                <input type="text" class="form-control" name="no_telp"
-                                                    value="{{ $user->profile->no_telp }}">
-                                            </div>
-                                            <div class="col-md-12"><label class="labels">Tempat, Tanggal
-                                                    Lahir</label>
-                                                <input type="text" class="form-control" name="ttl"
-                                                    value="{{ $user->profile->ttl }}">
-                                            </div>
-                                            <div class="col-md-12"><label class="labels">Jenis Kelamin</label>
-                                                <select type="option" class="form-select" id="jeniskelamin"
-                                                    name="jenis_kelamin" placeholder="Masukkan Jenis Kelamin Anda" required>
-                                                    <option @if ($user->profile->jenis_kelamin = 'laki-laki') selected @endif>laki-laki
-                                                    </option>
-                                                    <option @if ($user->profile->jenis_kelamin = 'perempuan') selected @endif>Perempuan
-                                                    </option>
-                                                </select>
-                                                <div class="col-md-12"><label class="labels">Alamat</label>
-                                                    <input type="text" class="form-control" name="alamat"
-                                                        value="{{ $user->profile->alamat }}">
-                                                </div>
-                                                <div class="col-md-12"><label class="labels">Usia</label>
-                                                    <input type="text" class="form-control" name="Usia"
-                                                        value="{{ $user->profile->usia }}">
-                                                </div>
-                                                <div class="col-md-12"><label class="labels">Email</label>
-                                                    <input type="text" class="form-control" name="email"
-                                                        value="{{ $user->email }}">
-                                                </div>
-                                                <label class="labels">Jasa</label>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-text"><label class="labels">Harian&nbsp;</label>
-                                                        <input class="form-check-input mt-0" type="checkbox" value=""
-                                                            aria-label="Checkbox for following text input">
-                                                    </div>
-                                                    <input type="text" class="form-control"
-                                                        aria-label="Text input with checkbox">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-text"><label class="labels">Mingguan&nbsp;</label>
-                                                        <input class="form-check-input mt-0" type="checkbox" value=""
-                                                            aria-label="Checkbox for following text input">
-                                                    </div>
-                                                    <input type="text" class="form-control"
-                                                        aria-label="Text input with checkbox">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-text"><label class="labels">Bulanan&nbsp;</label>
-                                                        <input class="form-check-input mt-0" type="checkbox" value=""
-                                                            aria-label="Checkbox for following text input">
-                                                    </div>
-                                                    <input type="text" class="form-control"
-                                                        aria-label="Text input with checkbox">
-                                                </div>
-                                                <input type="hidden" value="{{ $user->id }}" name="id">
-                                                <div class="mt-2 text-center">
-                                                    <button class="btn btn-primary profile-button" type="submit">Save
-                                                        Profile</button>
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label class="labels">Nomor Telepon</label>
+                                            <input type="text" class="form-control" name="no_telp" value="{{ $user->profile->no_telp }}">
                                         </div>
-<<<<<<< HEAD
-=======
                                         <div class="col-md-12"><label class="labels">Tempat, Tanggal Lahir</label>
                                             <input type="text" class="form-control" name="ttl" value="{{ $user->profile->ttl }}">
                                         </div>
@@ -162,7 +101,6 @@
                                         </div>
                                     </div>
                                 </div>
->>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
                                 </form>
                             </div>
                         </div>
