@@ -160,31 +160,6 @@
                                 @csrf
                                 <div class="card-body">
                                 <div class="row">
-<<<<<<< HEAD
-                                    <div class="col-sm-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="harian"
-                                                value="option1" checked>
-                                            <label class="form-check-label" for="harian">
-                                                Harian
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="mingguan"
-                                                value="option2" checked>
-                                            <label class="form-check-label" for="mingguan">
-                                                Mingguan
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                                id="bulanan" value="option3" checked>
-                                            <label class="form-check-label" for="bulanan">
-                                                Bulanan
-                                            </label>
-                                        </div>
-                                        <div class="input-group input-daterange">
-=======
                                             @if($price->harian === 1 )
                                             <div class="form-check col-2 " style="color: black">
                                                 <input class="form-check-input" type="radio" name="harian" id="harian" value="1">
@@ -211,7 +186,6 @@
                                             @endif
                                             
                                         {{-- <div class="input-group input-daterange">
->>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
                                             <input type="text" id="start" class="form-control text-left mr-2">
                                             <label class="ml-3 form-control-placeholder" id="start-p" for="start">Start
                                                 Date</label>
@@ -241,31 +215,6 @@
 
         <div class="container">
             <center>
-<<<<<<< HEAD
-                <form action="" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <hr>
-                    <div class="animate__animated animate__backInRight">
-                        <p class="h2" style="margin-top: 10px">Form Informasi Lansia</p>
-                        <div class="col-md-8">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="row mt-2">
-                                            <div class="col-mt-3"><label class="labels">Nama Lansia</label>
-                                                <input type="text" class="form-control" placeholder="Nama Lansia"
-                                                    name="pengarang">
-                                            </div>
-
-                                            <div class="col-md-12"><label class="labels">Tanggal Lahir</label>
-                                                <input type="date" class="form-control">
-                                            </div>
-
-                                            <div class="col-mt-3"><label class="labels">Umur Lansia</label>
-                                                <input type="text" class="form-control" placeholder="Umur Lansia"
-                                                    name="pengarang">
-                                            </div>
-=======
                 <hr>
                 <div class="animate__animated animate__backInRight">
                     <p class="h2" style="margin-top: 10px">Form Informasi Lansia</p>
@@ -285,7 +234,6 @@
                                         <div class="col-mt-3"><label class="labels">Umur Lansia</label>
                                             <input type="text" class="form-control" placeholder="Umur Lansia" name="umur">
                                         </div>
->>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
 
                                             <div class="col-mt-3">
                                                 <label for="jeniskelamin" class="form-label">Jenis Kelamin
@@ -299,33 +247,6 @@
                                                 </select>
                                             </div>
 
-<<<<<<< HEAD
-                                            <div class="col-mt-3"><label class="labels">Alamat Lansia</label>
-                                                <input type="text" class="form-control" placeholder="Alamat Lansia"
-                                                    name="pengarang">
-                                            </div>
-
-                                            <div class="col-mt-3"><label class="labels">Nomor Telpon
-                                                    Lansia</label>
-                                                <input type="text" class="form-control" placeholder="Nomor Telpon Lansia"
-                                                    name="pengarang">
-                                            </div>
-
-                                            <div class="col-mt-3"><label class="labels">Nomor Telpon
-                                                    Darurat</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Nomor Telpon kerabat terdekat" name="pengarang">
-                                            </div>
-
-                                            <div class="col-md-12"><label class="labels">Riwayat
-                                                    Penyakit</label>
-                                                <textarea class="form-control" placeholder="Contoh : diabetes" name="deskripsi"></textarea>
-                                            </div>
-
-                                            <div class="col-md-12"><label class="labels">Catatan</label>
-                                                <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="deskripsi"></textarea>
-                                            </div>
-=======
                                         <div class="col-mt-3"><label class="labels">Alamat Lansia</label>
                                             <input type="text" class="form-control" placeholder="Alamat Lansia" name="alamat">
                                         </div>
@@ -344,22 +265,15 @@
 
                                         <div class="col-md-12"><label class="labels">Catatan</label>
                                             <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="catatan" ></textarea>
->>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-        </div>
-        </form>
-        </center>
-=======
                 </div>
             </div>
             </center>
->>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
         </div>
 
         {{-- <div class="container">
@@ -406,12 +320,6 @@
                                     <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
-<<<<<<< HEAD
-                        </div>
-                    </div>
-
-                    <a href="/" class="btn btn-danger">Batal</a>
-=======
                             <div class="modal-body">
                             Apakah anda yakin?
                             </div>
@@ -425,7 +333,6 @@
 
                 </form>
                     <a href="/" class="btn btn-danger" >Batal</a>
->>>>>>> 2d45fbe6c34283e85ecfac2553a2ae4ab9e9f556
                 </div>
                 
                 

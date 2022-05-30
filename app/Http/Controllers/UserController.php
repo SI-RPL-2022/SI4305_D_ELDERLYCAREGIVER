@@ -60,6 +60,10 @@ class UserController extends Controller
             'status' => 'pengasuh'
         ]); 
 
+        profile::where('user_id', $request->id)->update([
+            'status' => 'pengasuh'
+        ]); 
+
         return redirect('/listpengasuh')->with('status', 'Pengasuh berhasil ditambahkan');
     }
     
@@ -134,6 +138,7 @@ class UserController extends Controller
             'ttl' => 'required',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
+            'status' => 'required',
             'no_telp' => 'required',
             'usia' => 'required',
             'ktp' => 'image',
@@ -172,6 +177,7 @@ class UserController extends Controller
             'ttl' => 'required',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
+            'status' => 'required',
             'no_telp' => 'required',
             'usia' => 'required',
             'ktp' => 'image|required',
