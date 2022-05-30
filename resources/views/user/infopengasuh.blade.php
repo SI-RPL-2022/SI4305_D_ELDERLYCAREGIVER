@@ -184,7 +184,7 @@
                                                 </label>
                                               </div>
                                             @endif
-                                            
+
                                         {{-- <div class="input-group input-daterange">
                                             <input type="text" id="start" class="form-control text-left mr-2">
                                             <label class="ml-3 form-control-placeholder" id="start-p" for="start">Start
@@ -195,9 +195,9 @@
                                                 Date</label>
                                             <span class="fa fa-calendar" id="fa-2"></span>
                                         </div> --}}
-                                    
+
                                 </div>
-                               
+
                                 {{-- <div class="row mt-4">
                                     <div class="col-2" style="color: black">
                                         <h6 class="mb-2">Harga</h6>
@@ -206,7 +206,7 @@
                                         <input type="text" class="form-control" placeholder="Rp.00" name="harga" id="harga">
                                     </div>
                                 </div> --}}
-                            
+
                             </div>
                         </div>
                     </div>
@@ -223,19 +223,19 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="row mt-2">
-                                        <div class="col-md-12"><label class="labels">Tanggal Pemesanan</label>
+                                        <div class="col-md-12" style="color: black"><label class="labels">Tanggal Pemesanan</label>
                                             <input type="date" class="form-control" name="tanggal">
                                         </div>
 
-                                        <div class="col-mt-3"><label class="labels">Nomor Telpon Darurat</label>
+                                        <div class="col-mt-3"><label class="labels" style="color: black">Nomor Telpon Darurat</label>
                                             <input type="text" class="form-control" placeholder="Nomor Telpon kerabat terdekat" name="no_telp_kerabat">
                                         </div>
 
-                                        <div class="col-md-12"><label class="labels">Riwayat Penyakit</label>
+                                        <div class="col-md-12"><label class="labels" style="color: black">Riwayat Penyakit</label>
                                             <textarea class="form-control" placeholder="Contoh : diabetes" name="penyakit" ></textarea>
                                         </div>
 
-                                        <div class="col-md-12"><label class="labels">Catatan</label>
+                                        <div class="col-md-12"><label class="labels" style="color: black">Catatan</label>
                                             <textarea class="form-control" placeholder="Contoh : injeksi insulin sebelum makan" name="catatan" ></textarea>
                                         </div>
                                     </div>
@@ -270,7 +270,7 @@
             <center>
                 <div>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-success mb-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Pesan
                     </button>
 
@@ -279,28 +279,28 @@
                         <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="1">Konfirmasi pesanan</h5>
+                            <h5 class="modal-title" id="1" style="color: black">Konfirmasi pesanan</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" style="color: black">
                             Apakah anda yakin?
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                         </div>
                     </div>
 
                 </form>
-                    <a href="/" class="btn btn-danger" >Batal</a>
+                    <a href="/" class="btn btn-danger mb-5" >Batal</a>
                 </div>
-                
-                
+
+
             </center>
         </div>
-        
+
         {{-- <script>
             let radioBtns = document.querySelectorAll("input[name='jasa']");
             let result = document.getElementById("harga");
@@ -317,5 +317,5 @@
          </script> --}}
 
     </section>
-    
+
 @endsection
