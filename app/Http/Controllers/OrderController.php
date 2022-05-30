@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 use App\Models\User;
-use App\Models\profile;
 use App\Http\Requests\StoreorderRequest;
 use App\Http\Requests\UpdateorderRequest;
 
@@ -17,14 +16,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-
-        $user = order::where('user_id', auth()->user()->id )->first();
-        $nama = profile::where('user_id', auth()->user()->id)->first();
-        $detail = order::first();
-        return view('pengasuh.pesanan', compact('nama', 'detail'), [
+        
+        return view('pengasuh.pesanan' , [
             "head" => "Profile | Elderly Caregiver",
             "user" => User::where('id', auth()->user()->id)->first(),
-            "pesanan_user" => User::where('id', $user->pengasuh_id)->get(),
+            "pesanan_user" => order::where('user_id', auth()->user()->id )->get(),
             "pesanan_pengasuh" => order::where('pengasuh_id', auth()->user()->id)->get(),
         ]);
     }
@@ -62,7 +58,7 @@ class OrderController extends Controller
         ]);
      
         if ($request->jasa == "harian" ){
-            $validateorder['harga'] = $request->harga * 1;
+            $validateorder['harga'] = $request->harga;
             $validateorder['jenis'] = 'harian';
         }elseif ($request->jasa == "bulanan"){
             $validateorder['harga'] = $request->harga * 7;

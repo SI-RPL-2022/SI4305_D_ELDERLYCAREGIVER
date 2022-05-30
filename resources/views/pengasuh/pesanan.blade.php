@@ -46,7 +46,7 @@
                                         @foreach ($pesanan_pengasuh as $datas)
                                         <th>{{ $loop->iteration }}</th>
                                         <td></td>
-                                        <td>$datas->user->profile->nama</td>
+                                        <td>{{ $datas->user->profile->nama }}</td>
                                         <td>menunggu konfirmasi</td>
                                         <td>
                                              <!-- Button trigger modal konfirmasi -->
@@ -208,14 +208,14 @@
                                                 </div>
                                             </div>
                                         </td>
+                                    </tr>
                                         @endforeach
                                         @endcan
 
                                         @can('user')
                                         @foreach ($pesanan_user as $datas)
                                         <th>{{ $loop->iteration }}</th>
-                                        <td>{{ $nama->nama }}</td>
-                                        <td>{{ $datas->profile->nama }}</td>
+                                        <td>{{ $datas->pengasuh->profile->nama }}</td>
                                         <td>menunggu konfirmasi</td>
                                         <td>
                                              <!-- Button trigger modal lihat -->
@@ -353,10 +353,10 @@
                                                 </div>
                                             </div>
                                         </td>
+                                    </tr>
                                         @endforeach
                                         @endcan
 
-                                    </tr>
 
                                 <tbody>
                                 </tbody>
