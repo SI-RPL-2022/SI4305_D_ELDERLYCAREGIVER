@@ -105,9 +105,15 @@ class OrderController extends Controller
      * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateorderRequest $request, order $order)
+    public function update(UpdateorderRequest $request, order $order, )
     {
-        //
+        
+        order::where('id', $order->id)->update([
+            'status' => $request->status
+        ]);
+
+
+        return back();
     }
 
     /**
@@ -118,6 +124,6 @@ class OrderController extends Controller
      */
     public function destroy(order $order)
     {
-        //
+        
     }
 }

@@ -35,9 +35,9 @@
                                 <thead>
                                     <tr>
                                         <th class="col-1">No</th>
-                                        <th class="col-7 text-center">Nama Pengasuh</th>
-                                        <th class="col-3">Status</th>
-                                        <th class="col-1">Action</th>
+                                        <th class="col-7 text-center">Nama User</th>
+                                        <th class="col-2">Status</th>
+                                        <th class="col-2">Action</th>
                                     </tr>
                                 </thead>
                                     <tr>
@@ -45,12 +45,12 @@
                                         @foreach ($pesanan_pengasuh as $datas)
                                         <th>{{ $loop->iteration }}</th>
                                         <td class="text-center ">{{ $datas->user->profile->nama }}</td> 
-                                        <td>menunggu konfirmasi</td>
+                                        <td>{{ $datas->status }}</td>
                                         <td>
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
                                                 Lihat
                                             </button>
-                                        <td>
+                                        
                                              <!-- Button trigger modal konfirmasi -->
                                             
 
@@ -160,8 +160,24 @@
                                                             {{-- </center> --}}
                                                     </div>
                                                     <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <div class="row">
+                                                    <div class="col-7">
+                                                    <form action="order/{{$datas->id}}" method="post">
+                                                        @csrf
+                                                        @method('put')
+                                                    <input type="hidden" value="Prosess" name="status">
+                                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Konfirmasi</button></div>
+                                                    </form>
+
+                                                    <div class="col-5"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div>
                                                     </div>
+                                                    </div>
+
+                                                    
+
+                                                    
+                                                    
+                                                    
                                                 </div>
                                                 </div>
                                             </div>
@@ -186,9 +202,10 @@
                                                     <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
 
-                                                    <form method="POST" action="/pelamar/deleted">
+                                                    <form method="POST" action="order/{{ $datas->id }}">
                                                         @csrf
-                                                        <input type="hidden" value="" name="id">
+                                                        @method('put')
+                                                        <input type="hidden" value="Ditolak" name="status">
                                                     <button type="submit" class="btn btn-primary">Tolak</button>
                                                     </form>
 
@@ -205,7 +222,7 @@
                                         @foreach ($pesanan_user as $datas)
                                         <th>{{ $loop->iteration }}</th>
                                         <td>{{ $datas->pengasuh->profile->nama }}</td> 
-                                        <td>menunggu konfirmasi</td>
+                                        <td>{{ $datas->status }}</td>
                                         <td>
                                              <!-- Button trigger modal lihat -->
 
