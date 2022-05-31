@@ -57,19 +57,18 @@ class OrderController extends Controller
             'catatan' => '',
         ]);
      
-        if ($request->jasa = "harian" ){
+        if ($request->jasa == "Harian" ){
             $validateorder['harga'] = $request->harga;
             $validateorder['jenis'] = 'harian';
-        }elseif ($request->jasa = "bulanan"){
+        }elseif ($request->jasa == "Mingguan"){
             $validateorder['harga'] = $request->harga * 7;
             $validateorder['jenis'] = 'mingguan';
-        }elseif ($request->jasa = "bulanan"){
+        }elseif ($request->jasa == "Bulanan"){
             $validateorder['harga'] = $request->harga * 30;
             $validateorder['jenis'] = 'bulanan';
         }
         
         $validateorder['status'] = 'request';
-// @dd($validateorder);
         
         order::create($validateorder);
 
