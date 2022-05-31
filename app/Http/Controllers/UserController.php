@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\price;
+use File;
 use App\Models\User;
+use App\Models\price;
 use App\Models\profile;
+use App\Models\locations;
 use Illuminate\Http\Request;
+use App\http\Livewire\CreateMap;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Routing\Redirector;
-use File;
 
 
 class UserController extends Controller
@@ -138,6 +140,7 @@ class UserController extends Controller
     }
 
     public function registeruser (Request $request) {
+        
         $validateuser = $request->validate([
             'username' => 'required|max:32|unique:users',
             'email' => 'required|email:dns|unique:users|unique:users',
@@ -156,6 +159,7 @@ class UserController extends Controller
             'ktp' => 'image',
             'foto' => 'image|required',
         ]);
+        // @dd($request);
 
         if($request->file('ktp')) {
             $validateprofile['ktp'] = $request->file('ktp')->store('ktp');
@@ -172,6 +176,13 @@ class UserController extends Controller
 
         profile::create($validateprofile);
 
+        
+        $validatealamat['user_id'] = $validateprofile['user_id'];
+        $validatealamat['long'] = $request->long;
+        $validatealamat['lat'] = $request->lat;
+        $validatealamat['alamat'] = $validateprofile['alamat'];
+        locations::create($validatealamat);
+
         return redirect('/')->with('status', 'Registration berhasil silakan melakukan login ^_^');
     }
 
@@ -183,7 +194,7 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'status' => 'required',
         ]);
-        
+
         $validateprofile = $request->validate([
             'nama' => 'required|max:32',
             'ttl' => 'required',
@@ -213,6 +224,12 @@ class UserController extends Controller
         $validateprofile['user_id'] = $user_id['id'] ;
 
         profile::create($validateprofile);
+
+        $validatealamat['user_id'] = $validateprofile['user_id'];
+        $validatealamat['long'] = $request->long;
+        $validatealamat['lat'] = $request->lat;
+        $validatealamat['alamat'] = $validateprofile['alamat'];
+        locations::create($validatealamat);
 
         return redirect('/')->with('status', 'Akun anda sedang di proses, Silakan menunggu akun anda diaktivasi oleh kami ^_^ ');
     }

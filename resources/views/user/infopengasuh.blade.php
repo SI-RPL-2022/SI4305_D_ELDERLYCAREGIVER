@@ -75,14 +75,14 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
                                         {{ $datas->alamat }}
-                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                             <a href="/lokasi" class="btn btn-primary"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                                     <path
                                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
                                                 </svg></a>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                 </div>
@@ -150,9 +150,11 @@
 
 
                     <form action="/order" method="post">
+                        
                         <input type="hidden" value="{{ auth()->user()->id }}" name="user_id">
                         <input type="hidden" value="{{ $datas2->id }}" name="pengasuh_id">
                         <input type="hidden" value="{{ $price->harga }}" name="harga">
+
                     <hr size="4px" width="90%">
                     <p class="h2" style="margin-top: 10px">Jasa yang ditawarkan</p>
                     <div class="col-md-8">

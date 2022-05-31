@@ -7,6 +7,8 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\http\Livewire\Maps;
+use App\http\Livewire\CreateMap;
+use App\http\Livewire\CreateMapPengasuh;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +22,11 @@ use App\http\Livewire\Maps;
 
 
 Route::middleware('auth')->group(function () {
-
+    
     Route::resource('/profile', ProfileController::class)->parameters([
         'profile' => 'user:username',
     ]);
+    Route::get('/lokasi', Maps::class);
     Route::resource('/order', OrderController::class);
     Route::post('/download', [UserController::class, "download"]);
     Route::get('/detailuser/{user}', [UserController::class, "detail"]);
@@ -44,8 +47,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [UserController::class, "loginview"])->name('login');
-    Route::get('/regispengasuh', [UserController::class, "pengasuh"]);
-    Route::get('/regisuser', [UserController::class, "user"]);
+    Route::get('/regisuser', CreateMap::class);
+    Route::get('/regispengasuh', CreateMapPengasuh::class);
+    // Route::get('/regispengasuh', [UserController::class, "pengasuh"]);
+    // Route::get('/regisuser', [UserController::class, "user"]);
     Route::post('/regispengasuh', [UserController::class, "registerpelamar"]);
     Route::post('/regisuser', [UserController::class, "registeruser"]);
     Route::post('/login', [UserController::class, "login"]);
@@ -59,12 +64,6 @@ Route::get('/editprofilepengasuh', function () {
 Route::get('/editprofileuser', function () {
     return view('user/editprofile');
 });
-Route::get('/lokasi', function () {
-    return view('user/lokasi');
-});
-
-Route::get('/ms', Maps::class);
-
 
 Route::get('/infopengasuh', function () {
     return view('user/infopengasuh');

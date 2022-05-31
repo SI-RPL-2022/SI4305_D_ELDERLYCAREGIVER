@@ -45,9 +45,9 @@
                                         @can('pengasuh')
                                         @foreach ($pesanan_pengasuh as $datas)
                                         <th>{{ $loop->iteration }}</th>
-                                        <td></td>
-                                        <td>{{ $datas->user->profile->nama }}</td>
+                                        <td>{{ $datas->user->profile->nama }}</td> 
                                         <td>menunggu konfirmasi</td>
+                                        <td>
                                         <td>
                                              <!-- Button trigger modal konfirmasi -->
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
@@ -215,7 +215,7 @@
                                         @can('user')
                                         @foreach ($pesanan_user as $datas)
                                         <th>{{ $loop->iteration }}</th>
-                                        <td>{{ $datas->pengasuh->profile->nama }}</td>
+                                        <td>{{ $datas->pengasuh->profile->nama }}</td> 
                                         <td>menunggu konfirmasi</td>
                                         <td>
                                              <!-- Button trigger modal lihat -->
@@ -239,33 +239,33 @@
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label" for="nama">Nama</label>
                                                                     <div class="col-9 ">
-                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->profile->nama }}" readonly>
+                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->pengasuh->profile->nama }}" readonly>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label " for="ttl">Tanggal Lahir</label>
                                                                     <div class="col-4  border-end border-dark">
-                                                                    <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->profile->ttl }}" readonly>
+                                                                    <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->pengasuh->profile->ttl }}" readonly>
                                                                     </div>
 
                                                                     <label class=" col-2 col-form-label" for="usia">Usia</label>
                                                                     <div class="col-3 ">
-                                                                    <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->profile->usia }} Tahun" readonly>
+                                                                    <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->pengasuh->profile->usia }} Tahun" readonly>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label " for="alamat">Alamat</label>
                                                                     <div class="col-9">
-                                                                    <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->profile->alamat}} </textarea>
+                                                                    <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->pengasuh->profile->alamat}} </textarea>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label " for="no_telp">No.Telepon</label>
                                                                     <div class="col-9">
-                                                                    <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->profile->no_telp}}" readonly>
+                                                                    <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->pengasuh->profile->no_telp}}" readonly>
                                                                     </div>
                                                                 </div>
                                                                 <hr>
@@ -273,28 +273,28 @@
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label" for="nama">Tanggal Pesanan</label>
                                                                     <div class="col-9 ">
-                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $detail->tanggal }}" readonly>
+                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->tanggal }}" readonly>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label" for="nama">Nomor Telpon Darurat</label>
                                                                     <div class="col-9 ">
-                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $detail->no_telp_kerabat }}" readonly>
+                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->no_telp_kerabat }}" readonly>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label" for="nama">Riwayat Penyakit</label>
                                                                     <div class="col-9 ">
-                                                                    <textarea type="text" class="form-control-plaintext" id="nama"  readonly>: {{ $detail->penyakit }}</textarea>
+                                                                    <textarea type="text" class="form-control-plaintext" id="nama"  readonly>: {{ $datas->penyakit }}</textarea>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label" for="nama">Catatan</label>
                                                                     <div class="col-9 ">
-                                                                    <textarea type="text" class="form-control-plaintext" id="nama"  readonly>: {{ $detail->catatan }}</textarea>
+                                                                    <textarea type="text" class="form-control-plaintext" id="nama"  readonly>: {{ $datas->catatan }}</textarea>
                                                                     </div>
                                                                 </div>
 
@@ -303,13 +303,13 @@
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label" for="nama">Jasa yang Dipilih</label>
                                                                     <div class="col-9 ">
-                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $detail->jenis }}" readonly>
+                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->jenis }}" readonly>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row mt-2">
                                                                     <label class=" col-3 col-form-label" for="nama">Total Harga</label>
                                                                     <div class="col-9 ">
-                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $detail->harga }}" readonly>
+                                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
                                                                     </div>
                                                                 </div>
                                                         {{-- </form> --}}

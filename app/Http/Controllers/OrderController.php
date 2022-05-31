@@ -57,13 +57,13 @@ class OrderController extends Controller
             'catatan' => '',
         ]);
      
-        if ($request->jasa == "harian" ){
+        if ($request->jasa = "harian" ){
             $validateorder['harga'] = $request->harga;
             $validateorder['jenis'] = 'harian';
-        }elseif ($request->jasa == "bulanan"){
+        }elseif ($request->jasa = "bulanan"){
             $validateorder['harga'] = $request->harga * 7;
             $validateorder['jenis'] = 'mingguan';
-        }elseif ($request->jasa == "bulanan"){
+        }elseif ($request->jasa = "bulanan"){
             $validateorder['harga'] = $request->harga * 30;
             $validateorder['jenis'] = 'bulanan';
         }
