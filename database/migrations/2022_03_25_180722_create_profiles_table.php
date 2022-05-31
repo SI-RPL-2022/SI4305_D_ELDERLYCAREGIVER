@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('nama');
+            $table->string('status');
             $table->string('ttl');
             $table->string('jenis_kelamin');
             $table->string('alamat');

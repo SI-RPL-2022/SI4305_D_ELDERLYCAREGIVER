@@ -18,11 +18,12 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('pengasuh_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('tanggal');
+            $table->string('jenis');
             $table->string('no_telp_kerabat');
             $table->string('penyakit')->nullable();
             $table->string('catatan')->nullable();
             $table->string('harga')->nullable();
-            $table->enum('status', ['request', 'berlangsung', 'konfirmasi', 'selesai']);
+            $table->string('status');
             $table->timestamps();
         });
         

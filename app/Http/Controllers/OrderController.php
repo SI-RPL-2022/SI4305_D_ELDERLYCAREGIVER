@@ -16,12 +16,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-
-        $user = order::where('user_id', auth()->user()->id )->first();
+        
         return view('pengasuh.pesanan' , [
             "head" => "Profile | Elderly Caregiver",
             "user" => User::where('id', auth()->user()->id)->first(),
-            "pesanan_user" => User::where('id', $user->pengasuh_id)->get(),
+            "pesanan_user" => order::where('user_id', auth()->user()->id )->get(),
             "pesanan_pengasuh" => order::where('pengasuh_id', auth()->user()->id)->get(),
         ]);
     }
@@ -58,19 +57,18 @@ class OrderController extends Controller
             'catatan' => '',
         ]);
      
-        if ($request->jasa == "harian" ){
+        if ($request->jasa == "Harian" ){
             $validateorder['harga'] = $request->harga;
             $validateorder['jenis'] = 'harian';
-        }elseif ($request->jasa == "bulanan"){
+        }elseif ($request->jasa == "Mingguan"){
             $validateorder['harga'] = $request->harga * 7;
             $validateorder['jenis'] = 'mingguan';
-        }elseif ($request->jasa == "bulanan"){
+        }elseif ($request->jasa == "Bulanan"){
             $validateorder['harga'] = $request->harga * 30;
             $validateorder['jenis'] = 'bulanan';
         }
         
         $validateorder['status'] = 'request';
-// @dd($validateorder);
         
         order::create($validateorder);
 
@@ -107,9 +105,15 @@ class OrderController extends Controller
      * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateorderRequest $request, order $order)
+    public function update(UpdateorderRequest $request, order $order, )
     {
-        //
+        
+        order::where('id', $order->id)->update([
+            'status' => $request->status
+        ]);
+
+
+        return back();
     }
 
     /**
@@ -120,6 +124,8 @@ class OrderController extends Controller
      */
     public function destroy(order $order)
     {
-        //
+        order::where('id', $order->id)->delete();
+
+        return back();
     }
 }
