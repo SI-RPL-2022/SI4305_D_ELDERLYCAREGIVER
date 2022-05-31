@@ -16,7 +16,7 @@
     <p style="margin-left: 65px">{{ $alamat }}</p>
     <br>
 
-    <a href="/infopengasuh/{{ $user_id }}" class="btn btn-primary">Selengkapnya</a>
+    <a href="/infopengasuh/{{ $user_id }}" class="btn btn-primary mb-5 ms-4">Selengkapnya</a>
 
     {{-- <ul class="h5">
         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">

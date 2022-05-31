@@ -348,8 +348,9 @@
                                                     <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
 
-                                                    <form method="POST" action="/pelamar/deleted">
+                                                    <form method="POST" action="order/{{ $datas->id }}">
                                                         @csrf
+                                                        @method('delete')
                                                         <input type="hidden" value="" name="id">
                                                     <button type="submit" class="btn btn-primary">Batalkan</button>
                                                     </form>
