@@ -94,8 +94,8 @@
             <option value="3" @if (old('filter') == '3') {{ 'selected' }} @endif>Usia</option>
         </select>
         </div>
-        <div class="d-grid gap-2 bg-dark d-md-flex justify-content-md-end">
-            <a href="/lokasi" class="btn btn-primary"> See Maps <svg
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/lokasi" class="btn btn-primary ms-4"> See Maps <svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                     <path
