@@ -68,11 +68,11 @@ class OrderController extends Controller
             $validateorder['jenis'] = 'bulanan';
         }
         
-        $validateorder['status'] = 'request';
+        $validateorder['status'] = 'Request';
         
         order::create($validateorder);
 
-        return redirect('/')->with('status', 'orderan berhasil dibuat');
+        return redirect('/')->with('status', 'Pesanan berhasil dibuat');
 
     }
 
