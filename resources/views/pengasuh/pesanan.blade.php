@@ -330,12 +330,12 @@
                                             {{-- modal konfirmasi selesai --}}
 
                                         <!-- Button trigger modal hapus-->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolak{{ $datas->id }}">
                                                 Batal
                                             </button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="tolak{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
