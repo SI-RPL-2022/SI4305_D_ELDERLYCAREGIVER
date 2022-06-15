@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('catatan')->nullable();
             $table->string('harga')->nullable();
             $table->string('status');
+            $table->float('rating')->nullable();
             $table->timestamps();
         });
         

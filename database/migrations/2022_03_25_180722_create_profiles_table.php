@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('no_telp');
             $table->string('usia');
             $table->string('ktp');
+            $table->float('rating')->nullable();
             $table->string('cv')->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();
