@@ -6,6 +6,7 @@ use File;
 use App\Models\User;
 use App\Models\price;
 use App\Models\profile;
+use App\Models\order;
 use App\Models\locations;
 use Illuminate\Http\Request;
 use App\http\Livewire\CreateMap;
@@ -235,6 +236,12 @@ class UserController extends Controller
     }
 
     public function detailuser($id) {
+
+        $fun_rating = order::avg('rating');
+        profile::where('user_id', $id)->update([
+            'rating' => $fun_rating
+        ]);
+
         
         $datas = profile::where('user_id', $id)->first();
         $datas2 = user::where('id', $id)->first();
