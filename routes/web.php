@@ -74,6 +74,3 @@ Route::get('/detailpesanan', function () {
 Route::get('/chatuser', function () {
     return view('user/chatuser');
 });
-Route::get('/chatpengasuh', function () {
-    return view('pengasuh/chatpengasuh');
-});
