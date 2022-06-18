@@ -71,9 +71,6 @@
                                         <h6 class="mb-0">Alamat</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary" style="color: black">
-                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary me-md-2" type="button">Button</button>
-                                        </div>
                                         {{ $user->profile->alamat }}
 
                                     </div>

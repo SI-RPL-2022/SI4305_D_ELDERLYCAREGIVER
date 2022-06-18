@@ -79,6 +79,158 @@
                                     <td class="text-center ">{{ $datas->user->profile->nama }}</td>
                                     <td>{{ $datas->status }}</td>
                                     <td>
+
+                                        @if ($datas->status == 'Menunggu Konfirmasi Pembayaran')
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Konfirmasi
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Cara konfirmasi : Silahkan tekan tombol konfirmasi ketika telah menerima pembayaran dari user
+                                                <div class="row mt-2">
+                                                    <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                    <div class="col-9 ">
+                                                        <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <form action="order/{{$datas->id}}" method="post">
+                                                            @csrf
+                                                            @method('put')
+                                                            <input type="hidden" value="Selesai" name="status">
+                                                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Konfirmasi</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                        @elseif($datas->status == 'Selesai')
+                                        <!-- Button trigger modal konfirmasi -->
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                            Lihat
+                                        </button>
+
+                                        <!-- isi Modal konfirmasi -->
+                                        <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        {{-- <center> --}}
+                                                        <h5>Detail Pengasuh</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Nama</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->pengasuh->profile->nama }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="ttl">Tanggal Lahir</label>
+                                                            <div class="col-4  border-end border-dark">
+                                                                <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->pengasuh->profile->ttl }}" readonly>
+                                                            </div>
+
+                                                            <label class=" col-2 col-form-label" for="usia">Usia</label>
+                                                            <div class="col-3 ">
+                                                                <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->pengasuh->profile->usia }} Tahun" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="alamat">Alamat</label>
+                                                            <div class="col-9">
+                                                                <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->pengasuh->profile->alamat}} </textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="no_telp">No.Telepon</label>
+                                                            <div class="col-9">
+                                                                <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->pengasuh->profile->no_telp}}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <h5>Informasi Tambahan</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Tanggal Pesanan</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->tanggal }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Nomor Telpon Darurat</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->no_telp_kerabat }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Riwayat Penyakit</label>
+                                                            <div class="col-9 ">
+                                                                <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->penyakit }}</textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Catatan</label>
+                                                            <div class="col-9 ">
+                                                                <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->catatan }}</textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr>
+                                                        <h5>Detail Harga</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Jasa yang Dipilih</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->jenis }}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Status Pembayaran</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": Selesai" readonly>
+                                                            </div>
+                                                        </div>
+                                                        {{-- </form> --}}
+                                                        {{-- </center> --}}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @else
+
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
                                             Lihat
                                         </button>
@@ -193,16 +345,17 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <div class="row">
+                                                            <div class="col-5"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div>
                                                             <div class="col-7">
                                                                 <form action="order/{{$datas->id}}" method="post">
                                                                     @csrf
                                                                     @method('put')
                                                                     <input type="hidden" value="Prosess" name="status">
-                                                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Konfirmasi</button>
+                                                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Konfirmasi</button>
                                                             </div>
                                                             </form>
 
-                                                            <div class="col-5"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div>
+
                                                         </div>
                                                     </div>
 
@@ -211,6 +364,7 @@
 
 
 
+                                                </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -246,6 +400,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -257,8 +412,198 @@
                                 <td>{{ $datas->pengasuh->profile->nama }}</td>
                                 <td>{{ $datas->status }}</td>
                                 <td>
-                                    <!-- Button trigger modal lihat -->
 
+                                    @if ($datas->status == 'Prosess')
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#abc">
+                                    Bayar
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="abc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Cara pembayaran : silahkan melakukan transaksi secara langsung kepada pengasuh, dan tunggu konfirmasi pembayaran dari pihak pengasuh
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <form action="order/{{$datas->id}}" method="post">
+                                                        @csrf
+                                                        @method('put')
+                                                        <input type="hidden" value="Menunggu Konfirmasi Pembayaran" name="status">
+                                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Bayar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai">
+                                        Nilai
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="nilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="rate">
+                                                        <input type="radio" id="star5" name="rate" value="5" />
+                                                        <label for="star5" title="text">5 stars</label>
+                                                        <input type="radio" id="star4" name="rate" value="4" />
+                                                        <label for="star4" title="text">4 stars</label>
+                                                        <input type="radio" id="star3" name="rate" value="3" />
+                                                        <label for="star3" title="text">3 stars</label>
+                                                        <input type="radio" id="star2" name="rate" value="2" />
+                                                        <label for="star2" title="text">2 stars</label>
+                                                        <input type="radio" id="star1" name="rate" value="1" />
+                                                        <label for="star1" title="text">1 star</label>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                                        <label for="floatingTextarea">Comments</label>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @elseif($datas->status == 'Selesai')
+                                    <!-- Button trigger modal konfirmasi -->
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                        Lihat
+                                    </button>
+
+                                    <!-- isi Modal konfirmasi -->
+                                    <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{-- <center> --}}
+                                                    <h5>Detail Pengasuh</h5>
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Nama</label>
+                                                        <div class="col-9 ">
+                                                            <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->pengasuh->profile->nama }}" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label " for="ttl">Tanggal Lahir</label>
+                                                        <div class="col-4  border-end border-dark">
+                                                            <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->pengasuh->profile->ttl }}" readonly>
+                                                        </div>
+
+                                                        <label class=" col-2 col-form-label" for="usia">Usia</label>
+                                                        <div class="col-3 ">
+                                                            <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->pengasuh->profile->usia }} Tahun" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label " for="alamat">Alamat</label>
+                                                        <div class="col-9">
+                                                            <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->pengasuh->profile->alamat}} </textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label " for="no_telp">No.Telepon</label>
+                                                        <div class="col-9">
+                                                            <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->pengasuh->profile->no_telp}}" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <h5>Informasi Tambahan</h5>
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Tanggal Pesanan</label>
+                                                        <div class="col-9 ">
+                                                            <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->tanggal }}" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Nomor Telpon Darurat</label>
+                                                        <div class="col-9 ">
+                                                            <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->no_telp_kerabat }}" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Riwayat Penyakit</label>
+                                                        <div class="col-9 ">
+                                                            <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->penyakit }}</textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Catatan</label>
+                                                        <div class="col-9 ">
+                                                            <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->catatan }}</textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr>
+                                                    <h5>Detail Harga</h5>
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Jasa yang Dipilih</label>
+                                                        <div class="col-9 ">
+                                                            <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->jenis }}" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                        <div class="col-9 ">
+                                                            <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-2">
+                                                        <label class=" col-3 col-form-label" for="nama">Status Pembayaran</label>
+                                                        <div class="col-9 ">
+                                                            <input type="text" class="form-control-plaintext" id="nama" value=": Selesai" readonly>
+                                                        </div>
+                                                    </div>
+                                                    {{-- </form> --}}
+                                                    {{-- </center> --}}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    @else
                                     <!-- Button trigger modal konfirmasi -->
                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
                                         Lihat
@@ -392,45 +737,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Nilai
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Review</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="rate">
-                                                        <input type="radio" id="star5" name="rate" value="5" />
-                                                        <label for="star5" title="text">5 stars</label>
-                                                        <input type="radio" id="star4" name="rate" value="4" />
-                                                        <label for="star4" title="text">4 stars</label>
-                                                        <input type="radio" id="star3" name="rate" value="3" />
-                                                        <label for="star3" title="text">3 stars</label>
-                                                        <input type="radio" id="star2" name="rate" value="2" />
-                                                        <label for="star2" title="text">2 stars</label>
-                                                        <input type="radio" id="star1" name="rate" value="1" />
-                                                        <label for="star1" title="text">1 star</label>
-                                                    </div>
-                                                    <div class="form-floating">
-                                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                                        <label for="floatingTextarea">Comments</label>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                @endif
                                 </td>
                                 </tr>
                                 @endforeach
