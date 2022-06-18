@@ -22,7 +22,7 @@ use App\http\Livewire\CreateMapPengasuh;
 
 
 Route::middleware('auth')->group(function () {
-    
+
     Route::resource('/profile', ProfileController::class)->parameters([
         'profile' => 'user:username',
     ]);
@@ -70,4 +70,7 @@ Route::get('/infopengasuh', function () {
 });
 Route::get('/detailpesanan', function () {
     return view('user/detailpesanan');
+});
+Route::get('/chatuser', function () {
+    return view('user/chatuser');
 });
