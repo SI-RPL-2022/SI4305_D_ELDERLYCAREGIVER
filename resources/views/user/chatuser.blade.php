@@ -11,7 +11,7 @@
 
     /* .chat-online {
         color: #34ce57
-    }
+    } euy
 
     .chat-offline {
         color: #e4606d
