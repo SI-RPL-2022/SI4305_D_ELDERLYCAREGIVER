@@ -44,15 +44,15 @@
                                         @can('pengasuh')
                                         @foreach ($pesanan_pengasuh as $datas)
                                         <th>{{ $loop->iteration }}</th>
-                                        <td class="text-center ">{{ $datas->user->profile->nama }}</td> 
+                                        <td class="text-center ">{{ $datas->user->profile->nama }}</td>
                                         <td>{{ $datas->status }}</td>
                                         <td>
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
                                                 Lihat
                                             </button>
-                                        
+
                                              <!-- Button trigger modal konfirmasi -->
-                                            
+
 
                                             <!-- isi Modal konfirmasi -->
                                             <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -173,11 +173,11 @@
                                                     </div>
                                                     </div>
 
-                                                    
 
-                                                    
-                                                    
-                                                    
+
+
+
+
                                                 </div>
                                                 </div>
                                             </div>
@@ -221,9 +221,11 @@
                                         @can('user')
                                         @foreach ($pesanan_user as $datas)
                                         <th>{{ $loop->iteration }}</th>
-                                        <td>{{ $datas->pengasuh->profile->nama }}</td> 
+                                        <td>{{ $datas->pengasuh->profile->nama }}</td>
                                         <td>{{ $datas->status }}</td>
                                         <td>
+
+                                            
                                              <!-- Button trigger modal lihat -->
 
                                              <!-- Button trigger modal konfirmasi -->
