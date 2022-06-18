@@ -72,16 +72,19 @@
                                         <th class="col-2">Action</th>
                                     </tr>
                                 </thead>
-                                <tr>
-                                    @can('pengasuh')
-                                    @foreach ($pesanan_pengasuh as $datas)
-                                    <th>{{ $loop->iteration }}</th>
-                                    <td class="text-center ">{{ $datas->user->profile->nama }}</td>
-                                    <td>{{ $datas->status }}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
-                                            Lihat
-                                        </button>
+                                    <tr>
+                                        @can('pengasuh')
+                                        @foreach ($pesanan_pengasuh as $datas)
+                                        <th>{{ $loop->iteration }}</th>
+                                        <td class="text-center ">{{ $datas->user->profile->nama }}</td>
+                                        <td>{{ $datas->status }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                                Lihat
+                                            </button>
+
+                                             <!-- Button trigger modal konfirmasi -->
+
 
                                         <!-- Button trigger modal konfirmasi -->
 
@@ -212,6 +215,7 @@
 
 
                                                 </div>
+                                                </div>
                                             </div>
                                         </div>
                                         {{-- modal konfirmasi selesai --}}
@@ -251,13 +255,15 @@
                                 @endforeach
                                 @endcan
 
-                                @can('user')
-                                @foreach ($pesanan_user as $datas)
-                                <th>{{ $loop->iteration }}</th>
-                                <td>{{ $datas->pengasuh->profile->nama }}</td>
-                                <td>{{ $datas->status }}</td>
-                                <td>
-                                    <!-- Button trigger modal lihat -->
+                                        @can('user')
+                                        @foreach ($pesanan_user as $datas)
+                                        <th>{{ $loop->iteration }}</th>
+                                        <td>{{ $datas->pengasuh->profile->nama }}</td>
+                                        <td>{{ $datas->status }}</td>
+                                        <td>
+
+                                            
+                                             <!-- Button trigger modal lihat -->
 
                                     <!-- Button trigger modal konfirmasi -->
                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
@@ -362,7 +368,6 @@
                                     </div>
                                     {{-- modal konfirmasi selesai --}}
 
-<<<<<<< HEAD
                                         <!-- Button trigger modal hapus-->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolak{{ $datas->id }}">
                                                 Batal
@@ -373,18 +378,6 @@
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-=======
-                                    <!-- Button trigger modal hapus-->
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Batal
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
->>>>>>> 0dfdcea4e69d0a683626749223a0ea0becd64a3c
                                                     <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
