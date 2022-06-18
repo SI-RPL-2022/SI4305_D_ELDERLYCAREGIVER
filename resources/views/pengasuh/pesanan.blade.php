@@ -16,6 +16,37 @@
         padding-bottom: 10px;
         padding-top: 10px;
     }
+
+    .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+        content: '★ ';
+    }
+
+    .rate>input:checked~label {
+        color: #ffc700;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+        color: #deb217;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+        color: #c59b08;
+    }
 </style>
 
 <title>List Pesanan| Elderly Caregiver</title>
@@ -675,6 +706,18 @@
                                     </div>
                                     {{-- modal konfirmasi selesai --}}
 
+<<<<<<< HEAD
+                                        <!-- Button trigger modal hapus-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolak{{ $datas->id }}">
+                                                Batal
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="tolak{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+=======
                                     <!-- Button trigger modal hapus-->
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Batal
@@ -685,6 +728,7 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
+>>>>>>> 0dfdcea4e69d0a683626749223a0ea0becd64a3c
                                                     <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
