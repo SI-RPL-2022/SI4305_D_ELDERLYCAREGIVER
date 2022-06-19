@@ -469,40 +469,6 @@
                                 </div>
                             </div>
 
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai">
-                                Nilai
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="nilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Review</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5">
-                                                <label for="star5" title="Very Good">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4">
-                                                <label for="star4" title="Good">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3">
-                                                <label for="star3" title="Ok">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2">
-                                                <label for="star2" title="Bad">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1">
-                                                <label for="star1" title="Very Bad">1 star</label>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             @elseif($datas->status == 'Selesai')
                             <!-- Button trigger modal konfirmasi -->
@@ -613,7 +579,47 @@
                                 </div>
                             </div>
 
+                            <!-- Button trigger modal -->
+                            @if (is_null($datas->rating))
 
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai">
+                                Nilai
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="nilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="d-flex justify-content-center">Seberapa puas kamu terhadap pengasuh {{ $datas->pengasuh->profile->nama }} </div>
+                                        <form action="order/rating/{{ $datas->id }}" method="post">
+                                            @csrf
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <div class="rate">
+                                                <input type="radio" id="star5" name="rate" value="5">
+                                                <label for="star5" title="Very Good">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4">
+                                                <label for="star4" title="Good">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3">
+                                                <label for="star3" title="Ok">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2">
+                                                <label for="star2" title="Bad">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1">
+                                                <label for="star1" title="Very Bad">1 star</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit Rating</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
 
                             @else
                             <!-- Button trigger modal konfirmasi -->
