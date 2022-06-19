@@ -150,6 +150,7 @@
             <option value="1" @if (old('filter') == '1') {{ 'selected' }} @endif>Nama</option>
             <option value="2" @if (old('filter') == '2') {{ 'selected' }} @endif>Jenis Kelamin</option>
             <option value="3" @if (old('filter') == '3') {{ 'selected' }} @endif>Usia</option>
+            <option value="4" @if (old('filter') == '4') {{ 'selected' }} @endif>Rating</option>
         </select>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -194,9 +195,10 @@
                                 <br>
                                 @endif
 
-                        <p class="text-muted font-size-sm mt-3">Fee : Rp. {{ $value->user->price->harga }}</p>
+                        
 
                         <p class="card-text">{{ $value->jenis_kelamin }} <br> {{ $value->no_telp }}</p>
+                        <p class="text-muted font-size-sm mt-3">Fee : Rp. {{ $value->user->price->harga }}</p>
                         <input type="hidden" name="">
                         <a href="/infopengasuh/{{ $value->user_id }}" class="btn btn-primary">Pesan
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">

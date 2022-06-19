@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\profile;
 use App\Models\price;
+use App\Models\order;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreprofileRequest;
 use App\Http\Requests\UpdateprofileRequest;
@@ -19,6 +20,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $fun_rating = order::where('pengasuh_id', auth()->user()->id)->avg('rating');
+        profile::where('user_id', auth()->user()->id)->update([
+            'rating' => $fun_rating
+        ]);
+
         return view('pengasuh.homepengasuh' , [
             "head" => "Profile | Elderly Caregiver",
             "user" => User::where('id', auth()->user()->id)->first(),

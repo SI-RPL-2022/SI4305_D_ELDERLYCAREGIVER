@@ -158,7 +158,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-15">
-                                        <a class="btn btn-success " href="/profile/{{ $user->username }}/edit">Edit</a>
+                                        <a class="btn btn-success " href="/profile/{{ $user->username }}/edit">Edit Profil</a>
                                     </div>
                                 </div>
                             </div>

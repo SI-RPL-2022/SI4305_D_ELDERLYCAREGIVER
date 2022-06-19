@@ -248,12 +248,12 @@
                                         <!-- Button trigger modal -->
                                         @if ($datas->rating > 0)
 
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai">
-                                            Nilai
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai{{ $datas->id }}">
+                                            Review
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="nilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="nilai{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
