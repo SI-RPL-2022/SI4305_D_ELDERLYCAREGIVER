@@ -78,7 +78,7 @@
                                 </div>
                                 
                                 @if (is_null($datas->rating))
-                                <p class="text-muted font-size-sm">Belum ada rating</p>
+                                <p class="text-muted font-size-sm">Belum ada Rating</p>
                                 @else
                                 <div class="rate">
                                     <input type="radio" id="star5" name="rate" value="5" disabled @if ($datas->rating > 4) checked @endif>

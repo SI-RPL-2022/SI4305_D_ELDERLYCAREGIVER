@@ -174,6 +174,9 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $value->nama }}</h5>
                         
+                                @if (is_null($value->rating))
+                                <p class="text-muted font-size-sm mt-3 mb-4">Belum ada Rating</p>
+                                @else
                                 <div class="rate">
                                 &emsp;&emsp;&ensp;&thinsp;
                                     <input type="radio" id="star5" name="rate" value="5" disabled @if ($value->rating > 4) checked @endif>
@@ -187,9 +190,11 @@
                                     <input type="radio" id="star1" name="rate" value="1" disabled @if ($value->rating < 2) checked @endif>
                                     <label for="star1" title="Sangat Buruk">1 star</label>
                                 </div>
+                                <br>
+                                <br>
+                                @endif
 
-                                <br>
-                                <br>
+                        <p class="text-muted font-size-sm mt-3">Fee : Rp. {{ $value->user->price->harga }}</p>
 
                         <p class="card-text">{{ $value->jenis_kelamin }} <br> {{ $value->no_telp }}</p>
                         <input type="hidden" name="">

@@ -245,6 +245,49 @@
                                             </div>
                                         </div>
 
+                                        <!-- Button trigger modal -->
+                                        @if ($datas->rating > 0)
+
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai">
+                                            Nilai
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="nilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center">Hasil penilaian oleh {{ $datas->user->profile->nama }} </div>
+                                                    <form action="order/rating/{{ $datas->id }}" method="post">
+                                                        @csrf
+                                                    <div class="modal-body d-flex justify-content-center">
+                                                        
+                                                    <div class="rate">
+                                                        <input type="radio" id="star5" name="rate" value="5" disabled @if ($datas->rating > 4) checked @endif>
+                                                        <label for="star5" title="Sangat Baik">5 stars</label>
+                                                        <input type="radio" id="star4" name="rate" value="4" disabled @if ($datas->rating < 5) checked @endif>
+                                                        <label for="star4" title="Baik">4 stars</label>
+                                                        <input type="radio" id="star3" name="rate" value="3" disabled @if ($datas->rating < 4) checked @endif>
+                                                        <label for="star3" title="Oke">3 stars</label>
+                                                        <input type="radio" id="star2" name="rate" value="2" disabled @if ($datas->rating < 3) checked @endif>
+                                                        <label for="star2" title="Buruk">2 stars</label>
+                                                        <input type="radio" id="star1" name="rate" value="1" disabled @if ($datas->rating < 2) checked @endif>
+                                                        <label for="star1" title="Sangat Buruk">1 star</label>
+                                                    </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+
                                         @else
 
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
