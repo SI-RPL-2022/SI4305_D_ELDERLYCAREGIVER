@@ -11,7 +11,7 @@
         <div class="container">
             <center>
                 <div class="animate__animated animate__backInRight">
-                    <p class="h2" style="margin-top: 10px">Profile</p>
+                    <p class="h2" style="margin-top: 10px ">Profile</p>
                     <div class="col-md-4 mb-4" style="margin-top: 10px">
                         <div class="card">
                             <div class="card-body">
@@ -29,7 +29,7 @@
                                         <p class="text-muted font-size-sm">{{ $user->status }}</p>
                                         <p class="text-muted font-size-sm">Rating</p>
 
-                                        
+
 
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr size="4px" width="90%">
+                    {{-- <hr size="4px" width="90%"> --}}
             </center>
         </div>
     </section>

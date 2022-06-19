@@ -58,7 +58,7 @@
         <div class="col-sm-10">
             <div style="margin:21px;"></div>
             <div class="col-sm-11 mx-auto">
-                <h1 class="pb-3 mb-4 border-bottom">Dashboard</h1>
+                <h1 class="pb-3 mb-0 border-bottom">Dashboard</h1>
                 <div class="card-body">
                     <div style="margin:21px;"></div>
                     <div class="card">
