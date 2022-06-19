@@ -24,7 +24,7 @@
                                     </div>
                                     {{-- @if ($user->profile->cv) --}}
                                     <div>
-                                        <p class="text-muted font-size-sm">Rating</p>
+                                        <p class="text-muted font-size-sm">Rating : {{ $datas->rating }}</p>
                                     </div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"

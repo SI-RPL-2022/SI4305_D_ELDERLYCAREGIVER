@@ -235,6 +235,16 @@ class UserController extends Controller
         return redirect('/')->with('status', 'Akun anda sedang di proses, Silakan menunggu akun anda diaktivasi oleh kami ^_^ ');
     }
 
+    public function rating(Request $request, $id) {
+
+        order::where('id', $id)->update([
+            'rating' => $request->rate
+        ]);
+
+        
+        return back();
+    }
+
     public function detailuser($id) {
 
         $fun_rating = order::avg('rating');
@@ -248,4 +258,6 @@ class UserController extends Controller
         $price = price::where('user_id', $id)->first();
         return view('user/infopengasuh', compact('datas', 'datas2','price'));
     }
+
+    
 }

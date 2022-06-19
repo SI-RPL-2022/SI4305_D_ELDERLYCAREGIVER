@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     ]);
     Route::get('/lokasi', Maps::class);
     Route::resource('/order', OrderController::class);
+    Route::post('order/rating/{id}', [UserController::class, "rating"]);
     Route::post('/download', [UserController::class, "download"]);
     Route::get('/detailuser/{user}', [UserController::class, "detail"]);
     Route::post('/pelamar/deleted', [UserController::class, "pelamardel"]);
