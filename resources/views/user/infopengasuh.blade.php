@@ -1,30 +1,62 @@
 @extends('layouts.navbar')
 @section('isi')
+
+<style type="text/css">
+    .nav-item {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+    .rate:not(:checked)>input {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+        content: '★ ';
+    }
+
+    .rate>input:checked~label {
+        color: #ffc700;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+        color: #deb217;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+        color: #c59b08;
+    }
+</style>
+
 <section id="profile">
-    <style type="text/css">
-        .card {
-            border-radius: 10px
-        }
 
-        .rate:not(:checked)>label {
-            float: right;
-            width: 1em;
-            overflow: hidden;
-            white-space: nowrap;
-            cursor: pointer;
-            font-size: 30px;
-            color: #ccc;
-        }
-
-        .rate:not(:checked)>input {
-            position: absolute;
-            top: -9999px;
-        }
-
-        .rate:not(:checked)>label:before {
-            content: '★ ';
-        }
-    </style>
     <title>Detail Pengasuh | Elderly Caregiver</title>
     <div class="container">
         <center>
@@ -41,68 +73,27 @@
                                 </div>
                                 {{-- @if ($user->profile->cv) --}}
                                 <div>
-                                    <p class="text-muted font-size-sm">Rating : {{ $datas->rating }}</p>
+                                    <p class="text-muted font-size-sm">Rating</p>
+                                    
                                 </div>
+                                
+                                @if (is_null($datas->rating))
+                                <p class="text-muted font-size-sm">Belum ada rating</p>
+                                @else
                                 <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5">
-                                    <label for="star5" title="Very Good">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4">
-                                    <label for="star4" title="Good">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3">
-                                    <label for="star3" title="Ok">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2">
-                                    <label for="star2" title="Bad">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1">
-                                    <label for="star1" title="Very Bad">1 star</label>
+                                    <input type="radio" id="star5" name="rate" value="5" @if ($datas->rating > 4) checked @endif>
+                                    <label for="star5" title="Sangat Baik">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" @if ($datas->rating < 5) checked @endif>
+                                    <label for="star4" title="Baik">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" @if ($datas->rating < 4) checked @endif>
+                                    <label for="star3" title="Oke">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" @if ($datas->rating < 3) checked @endif>
+                                    <label for="star2" title="Buruk">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1" @if ($datas->rating < 2) checked @endif>
+                                    <label for="star1" title="Sangat Buruk">1 star</label>
                                 </div>
-                                <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5">
-                                    <label for="star5" title="Very Good">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4">
-                                    <label for="star4" title="Good">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3">
-                                    <label for="star3" title="Ok">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2">
-                                    <label for="star2" title="Bad">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1">
-                                    <label for="star1" title="Very Bad">1 star</label>
-                                </div>
-                                <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5">
-                                    <label for="star5" title="Very Good">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4">
-                                    <label for="star4" title="Good">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3">
-                                    <label for="star3" title="Ok">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2">
-                                    <label for="star2" title="Bad">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1">
-                                    <label for="star1" title="Very Bad">1 star</label>
-                                </div>
-                                <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5">
-                                    <label for="star5" title="Very Good">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4">
-                                    <label for="star4" title="Good">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3">
-                                    <label for="star3" title="Ok">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2">
-                                    <label for="star2" title="Bad">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1">
-                                    <label for="star1" title="Very Bad">1 star</label>
-                                </div>
-                                <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5">
-                                    <label for="star5" title="Very Good">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4">
-                                    <label for="star4" title="Good">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3">
-                                    <label for="star3" title="Ok">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2">
-                                    <label for="star2" title="Bad">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1">
-                                    <label for="star1" title="Very Bad">1 star</label>
-                                </div>
+                                @endif
+    
                                 {{-- @endif --}}
                             </div>
                         </div>
