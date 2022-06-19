@@ -42,7 +42,7 @@
         color: #ffc700;
     }
 
-    .rate:not(:checked)>label:hover,
+    /* .rate:not(:checked)>label:hover,
     .rate:not(:checked)>label:hover~label {
         color: #deb217;
     }
@@ -53,7 +53,7 @@
     .rate>input:checked~label:hover~label,
     .rate>label:hover~input:checked~label {
         color: #c59b08;
-    }
+    } */
 </style>
 
 @if (session('status'))

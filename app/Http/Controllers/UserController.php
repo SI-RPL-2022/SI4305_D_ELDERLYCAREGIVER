@@ -247,7 +247,7 @@ class UserController extends Controller
 
     public function detailuser($id) {
 
-        $fun_rating = order::avg('rating');
+        $fun_rating = order::where('pengasuh_id', $id)->avg('rating');
         profile::where('user_id', $id)->update([
             'rating' => $fun_rating
         ]);

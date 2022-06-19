@@ -27,6 +27,10 @@
                                     <div class="mt-3">
                                         <h4 style="color: black">{{ $user->username }}</h4>
                                         <p class="text-muted font-size-sm">{{ $user->status }}</p>
+                                        <p class="text-muted font-size-sm">Rating</p>
+
+                                        
+
                                     </div>
                                 </div>
                             </div>

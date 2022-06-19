@@ -41,7 +41,7 @@
         color: #ffc700;
     }
 
-    .rate:not(:checked)>label:hover,
+    /* .rate:not(:checked)>label:hover,
     .rate:not(:checked)>label:hover~label {
         color: #deb217;
     }
@@ -52,7 +52,7 @@
     .rate>input:checked~label:hover~label,
     .rate>label:hover~input:checked~label {
         color: #c59b08;
-    }
+    } */
 </style>
 
 <section id="profile">
@@ -81,15 +81,15 @@
                                 <p class="text-muted font-size-sm">Belum ada rating</p>
                                 @else
                                 <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5" @if ($datas->rating > 4) checked @endif>
+                                    <input type="radio" id="star5" name="rate" value="5" disabled @if ($datas->rating > 4) checked @endif>
                                     <label for="star5" title="Sangat Baik">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" @if ($datas->rating < 5) checked @endif>
+                                    <input type="radio" id="star4" name="rate" value="4" disabled @if ($datas->rating < 5) checked @endif>
                                     <label for="star4" title="Baik">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" @if ($datas->rating < 4) checked @endif>
+                                    <input type="radio" id="star3" name="rate" value="3" disabled @if ($datas->rating < 4) checked @endif>
                                     <label for="star3" title="Oke">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" @if ($datas->rating < 3) checked @endif>
+                                    <input type="radio" id="star2" name="rate" value="2" disabled @if ($datas->rating < 3) checked @endif>
                                     <label for="star2" title="Buruk">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" @if ($datas->rating < 2) checked @endif>
+                                    <input type="radio" id="star1" name="rate" value="1" disabled @if ($datas->rating < 2) checked @endif>
                                     <label for="star1" title="Sangat Buruk">1 star</label>
                                 </div>
                                 @endif
