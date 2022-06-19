@@ -600,15 +600,15 @@
                                         <div class="modal-body d-flex justify-content-center">
                                             <div class="rate">
                                                 <input type="radio" id="star5" name="rate" value="5">
-                                                <label for="star5" title="Very Good">5 stars</label>
+                                                <label for="star5" title="Sangat Baik">5 stars</label>
                                                 <input type="radio" id="star4" name="rate" value="4">
-                                                <label for="star4" title="Good">4 stars</label>
+                                                <label for="star4" title="Baik">4 stars</label>
                                                 <input type="radio" id="star3" name="rate" value="3">
-                                                <label for="star3" title="Ok">3 stars</label>
+                                                <label for="star3" title="Oke">3 stars</label>
                                                 <input type="radio" id="star2" name="rate" value="2">
-                                                <label for="star2" title="Bad">2 stars</label>
+                                                <label for="star2" title="Buruk">2 stars</label>
                                                 <input type="radio" id="star1" name="rate" value="1">
-                                                <label for="star1" title="Very Bad">1 star</label>
+                                                <label for="star1" title="Sangat Buruk">1 star</label>
                                             </div>
                                         </div>
                                         <div class="modal-footer">

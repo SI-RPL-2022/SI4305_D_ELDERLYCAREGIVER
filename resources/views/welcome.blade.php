@@ -2,6 +2,60 @@
 
 @section('isi')
 
+<style type="text/css">
+    .nav-item {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+    .rate:not(:checked)>input {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+        content: '★ ';
+    }
+
+    .rate>input:checked~label {
+        color: #ffc700;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+        color: #deb217;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+        color: #c59b08;
+    }
+</style>
+
 @if (session('status'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   {{ session('status') }}
@@ -115,6 +169,24 @@
                     <img src="{{ asset('storage/' . $value->foto) }}" class="card-img-top" alt="" width="100px" height="200px">
                     <div class="card-body">
                         <h5 class="card-title">{{ $value->nama }}</h5>
+                        
+                                <div class="rate">
+                                &emsp;&emsp;&ensp;&thinsp;
+                                    <input type="radio" id="star5" name="rate" value="5" disabled @if ($value->rating > 4) checked @endif>
+                                    <label for="star5" title="Sangat Baik">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" disabled @if ($value->rating < 5) checked @endif>
+                                    <label for="star4" title="Baik">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" disabled @if ($value->rating < 4) checked @endif>
+                                    <label for="star3" title="Oke">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" disabled @if ($value->rating < 3) checked @endif>
+                                    <label for="star2" title="Buruk">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1" disabled @if ($value->rating < 2) checked @endif>
+                                    <label for="star1" title="Sangat Buruk">1 star</label>
+                                </div>
+
+                                <br>
+                                <br>
+
                         <p class="card-text">{{ $value->jenis_kelamin }} <br> {{ $value->no_telp }}</p>
                         <input type="hidden" name="">
                         <a href="/infopengasuh/{{ $value->user_id }}" class="btn btn-primary">Selengkapnya</a>
