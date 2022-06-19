@@ -5,6 +5,7 @@
         .card {
             border-radius: 10px
         }
+
         .rate:not(:checked)>label {
             float: right;
             width: 1em;
@@ -19,6 +20,7 @@
             position: absolute;
             top: -9999px;
         }
+
         .rate:not(:checked)>label:before {
             content: '★ ';
         }
@@ -42,16 +44,64 @@
                                     <p class="text-muted font-size-sm">Rating : {{ $datas->rating }}</p>
                                 </div>
                                 <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5" />
-                                    <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" />
-                                    <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" />
-                                    <label for="star3" title="text">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" />
-                                    <label for="star1" title="text">1 star</label>
+                                    <input type="radio" id="star5" name="rate" value="5">
+                                    <label for="star5" title="Very Good">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4">
+                                    <label for="star4" title="Good">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3">
+                                    <label for="star3" title="Ok">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2">
+                                    <label for="star2" title="Bad">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1">
+                                    <label for="star1" title="Very Bad">1 star</label>
+                                </div>
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5">
+                                    <label for="star5" title="Very Good">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4">
+                                    <label for="star4" title="Good">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3">
+                                    <label for="star3" title="Ok">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2">
+                                    <label for="star2" title="Bad">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1">
+                                    <label for="star1" title="Very Bad">1 star</label>
+                                </div>
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5">
+                                    <label for="star5" title="Very Good">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4">
+                                    <label for="star4" title="Good">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3">
+                                    <label for="star3" title="Ok">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2">
+                                    <label for="star2" title="Bad">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1">
+                                    <label for="star1" title="Very Bad">1 star</label>
+                                </div>
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5">
+                                    <label for="star5" title="Very Good">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4">
+                                    <label for="star4" title="Good">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3">
+                                    <label for="star3" title="Ok">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2">
+                                    <label for="star2" title="Bad">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1">
+                                    <label for="star1" title="Very Bad">1 star</label>
+                                </div>
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5">
+                                    <label for="star5" title="Very Good">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4">
+                                    <label for="star4" title="Good">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3">
+                                    <label for="star3" title="Ok">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2">
+                                    <label for="star2" title="Bad">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1">
+                                    <label for="star1" title="Very Bad">1 star</label>
                                 </div>
                                 {{-- @endif --}}
                             </div>
