@@ -19,6 +19,7 @@ class RoomController extends Component
     {
         // if($this->room){
             $room = resident::where('user_id', auth()->user()->id)->get();
+            
         // }
     }
 

@@ -5,19 +5,19 @@
         </div>
     </div>
 </div> --}}
-<div>
+<div wire:poll="lastmessage" >
     @foreach($room as $rooms) {{-- mencari room --}}
     
         @foreach($rooms->room->resident as $roomate){{-- mencari pasangan room --}}
 
             @if($roomate->user->username != $user->username)
                 <button wire:click="switchroom({{ $roomate->id }})" class="list-group-item list-group-item-action border-0">
-                    {{-- <div class="badge bg-success float-right">5</div> --}}
-                    <div class="d-flex align-items-start">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
+                @if($roomate->room->chat->where('status', 'terkirim')->count() !== 0) ? <div class="badge bg-success float-right">{{ $roomate->room->chat->where('status', 'terkirim')->count() }}</div> @endif
+                    <div class=" d-flex align-items-start">
+                        <img src="{{ asset('storage/' . $roomate->user->profile->foto) }}" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
                         <div class="flex-grow-1 ml-3">
-                            {{ $roomate->user->username }}
-                            <div wire:poll="lastmessage" class="small"><span class="fas fa-circle chat-online"></span> {{$roomate->room->chat->last()->message}}</div>
+                            {{ $roomate->user->profile->nama }}
+                            <div class="small"><span class="fas fa-circle chat-online"></span> {{$roomate->room->chat->last()->message}}</div>
                         </div>
                     </div>
                 </button>
