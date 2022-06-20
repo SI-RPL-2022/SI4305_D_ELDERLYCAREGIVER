@@ -112,6 +112,26 @@ class OrderController extends Controller
             'status' => $request->status
         ]);
 
+        
+
+        if($request->file('bukti_bayar')) {
+
+            $rules = [
+                'bukti_bayar' => 'image|file'
+            ];
+            
+            $validatedData = $request->validate($rules);
+
+            $gambar = time().'.'.$request->bukti_bayar->extension();
+            $request->bukti_bayar->move(public_path('bukti_bayar'), $gambar);
+    
+            order::where('id', $order->id)->update([
+                'bukti_bayar' => $gambar
+            ]);
+        }
+
+       
+
 
         return back();
     }

@@ -287,7 +287,7 @@
                             <div class="row">
                                 <div class="row mt-2">
                                     <div class="col-md-12" style="color: black"><label class="labels">Tanggal Pemesanan</label>
-                                        <input type="date" class="form-control" name="tanggal">
+                                        <input type="date" class="form-control" name="tanggal" required>
                                     </div>
 
                                     <div class="col-mt-3"><label class="labels" style="color: black">Nomor Telpon Darurat</label>
