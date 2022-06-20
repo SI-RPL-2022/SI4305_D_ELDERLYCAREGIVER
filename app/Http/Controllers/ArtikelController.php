@@ -121,10 +121,12 @@ class ArtikelController extends Controller
             return redirect('/profile');    
         }else{
             if (request('search')){
-                $filter = profile::where('nama', 'like', '%' . request('search') . '%')
+                $filter = profile::where('status', 'pengasuh')->where('nama', 'like', '%' . request('search') . '%')
                        ->orWhere('jenis_kelamin', 'like', '%' . request('search') . '%')
                        ->orWhere('alamat', 'like', '%' . request('search') . '%')
-                       ->orWhere('usia', 'like', '%' . request('search') . '%');
+                       ->orWhere('usia', 'like', '%' . request('search') . '%')
+                       ->orWhere('rating', 'like', '%' . request('search') . '%')
+                       ;
                 
                 if ( $request->filter == '1'){
                     $filter = $filter->orderBy('nama', 'asc')->paginate(4)->withQueryString();
@@ -132,17 +134,21 @@ class ArtikelController extends Controller
                     $filter = $filter->orderBy('jenis_kelamin', 'desc')->paginate(4)->withQueryString();
                 }elseif ($request->filter == '3'){
                     $filter = $filter->orderBy('usia', 'desc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '4'){
+                    $filter = $filter->orderBy('rating', 'asc')->paginate(4)->withQueryString();
                 }else{
                     $filter = $filter->paginate(4)->withQueryString();
                 }
 
             }else{
                 if ( $request->filter == '1'){
-                    $filter = profile::orderBy('nama', 'asc')->paginate(4)->withQueryString();
+                    $filter = profile::where('status', 'pengasuh')->orderBy('nama', 'asc')->paginate(4)->withQueryString();
                 }elseif ($request->filter == '2'){
-                    $filter = profile::orderBy('jenis_kelamin', 'desc')->paginate(4)->withQueryString();
+                    $filter = profile::where('status', 'pengasuh')->orderBy('jenis_kelamin', 'desc')->paginate(4)->withQueryString();
                 }elseif ($request->filter == '3'){
-                    $filter = profile::orderBy('usia', 'desc')->paginate(4)->withQueryString();
+                    $filter = profile::where('status', 'pengasuh')->orderBy('usia', 'desc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '4'){
+                    $filter = profile::where('status', 'pengasuh')->orderBy('usia', 'asc')->paginate(4)->withQueryString();
                 }else{
                     $filter = $filter->paginate(4)->withQueryString();
                 }

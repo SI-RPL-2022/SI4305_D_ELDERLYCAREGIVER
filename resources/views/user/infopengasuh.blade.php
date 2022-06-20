@@ -78,7 +78,7 @@
                                 </div>
                                 
                                 @if (is_null($datas->rating))
-                                <p class="text-muted font-size-sm">Belum ada rating</p>
+                                <p class="text-muted font-size-sm">Belum ada Rating</p>
                                 @else
                                 <div class="rate">
                                     <input type="radio" id="star5" name="rate" value="5" disabled @if ($datas->rating > 4) checked @endif>
@@ -287,7 +287,7 @@
                             <div class="row">
                                 <div class="row mt-2">
                                     <div class="col-md-12" style="color: black"><label class="labels">Tanggal Pemesanan</label>
-                                        <input type="date" class="form-control" name="tanggal">
+                                        <input type="date" class="form-control" name="tanggal" required>
                                     </div>
 
                                     <div class="col-mt-3"><label class="labels" style="color: black">Nomor Telpon Darurat</label>

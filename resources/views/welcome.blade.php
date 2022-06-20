@@ -150,6 +150,7 @@
             <option value="1" @if (old('filter') == '1') {{ 'selected' }} @endif>Nama</option>
             <option value="2" @if (old('filter') == '2') {{ 'selected' }} @endif>Jenis Kelamin</option>
             <option value="3" @if (old('filter') == '3') {{ 'selected' }} @endif>Usia</option>
+            <option value="4" @if (old('filter') == '4') {{ 'selected' }} @endif>Rating</option>
         </select>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -174,26 +175,32 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $value->nama }}</h5>
                         
+                                @if (is_null($value->rating))
+                                <p class="text-muted fs-5 mt-3 mb-4">Belum ada Rating</p>
+                                @else
                                 <div class="rate">
                                 &emsp;&emsp;&ensp;&thinsp;
-                                    <input type="radio" id="star5" name="rate" value="5" disabled @if ($value->rating > 4) checked @endif>
+                                    <input type="radio" id="star5" name="rate{{ $value->nama }}" value="5" disabled @if ($value->rating > 4) checked @endif>
                                     <label for="star5" title="Sangat Baik">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" disabled @if ($value->rating < 5) checked @endif>
+                                    <input type="radio" id="star4" name="rate{{ $value->nama }}" value="4" disabled @if ($value->rating < 5) checked @endif>
                                     <label for="star4" title="Baik">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" disabled @if ($value->rating < 4) checked @endif>
+                                    <input type="radio" id="star3" name="rate{{ $value->nama }}" value="3" disabled @if ($value->rating < 4) checked @endif>
                                     <label for="star3" title="Oke">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" disabled @if ($value->rating < 3) checked @endif>
+                                    <input type="radio" id="star2" name="rate{{ $value->nama }}" value="2" disabled @if ($value->rating < 3) checked @endif>
                                     <label for="star2" title="Buruk">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" disabled @if ($value->rating < 2) checked @endif>
+                                    <input type="radio" id="star1" name="rate{{ $value->nama }}" value="1" disabled @if ($value->rating < 2) checked @endif>
                                     <label for="star1" title="Sangat Buruk">1 star</label>
                                 </div>
+                                <br>
+                                <br>
+                                @endif
 
-                                <br>
-                                <br>
+                        
 
                         <p class="card-text">{{ $value->jenis_kelamin }} <br> {{ $value->no_telp }}</p>
+                        <p class="text-muted font-size-sm mt-3">Fee : Rp. {{ $value->user->price->harga }}</p>
                         <input type="hidden" name="">
-                        <a href="/infopengasuh/{{ $value->user_id }}" class="btn btn-primary">Pesan
+                        <a href="/infopengasuh/{{ $value->user_id }}" class="btn btn-primary me-3">Pesan
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                             </svg>
