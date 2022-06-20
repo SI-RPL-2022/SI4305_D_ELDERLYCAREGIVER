@@ -257,7 +257,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Hasil Review</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="d-flex justify-content-center">Hasil penilaian oleh {{ $datas->user->profile->nama }} </div>
@@ -634,12 +634,13 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Review Pengasuh</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="d-flex justify-content-center">Seberapa puas kamu terhadap pengasuh {{ $datas->pengasuh->profile->nama }} </div>
                                         <form action="order/rating/{{ $datas->id }}" method="post">
                                             @csrf
+                                            <input type="hidden" value="{{ $datas->pengasuh->profile->user_id }}" name="pengasuh_id">
                                         <div class="modal-body d-flex justify-content-center">
                                             <div class="rate">
                                                 <input type="radio" id="star5" name="rate" value="5">
@@ -650,7 +651,7 @@
                                                 <label for="star3" title="Oke">3 stars</label>
                                                 <input type="radio" id="star2" name="rate" value="2">
                                                 <label for="star2" title="Buruk">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1">
+                                                <input type="radio" id="star1" name="rate" value="1" required>
                                                 <label for="star1" title="Sangat Buruk">1 star</label>
                                             </div>
                                         </div>

@@ -241,6 +241,11 @@ class UserController extends Controller
             'rating' => $request->rate
         ]);
 
+        $fun_rating = order::where('pengasuh_id', $request->pengasuh_id)->avg('rating');
+        profile::where('user_id', $request->pengasuh_id)->update([
+            'rating' => $fun_rating
+        ]);
+
         
         return back();
     }
