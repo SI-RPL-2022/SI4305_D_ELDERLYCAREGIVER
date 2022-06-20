@@ -141,6 +141,116 @@
                                             </div>
                                         </div>
 
+                                        @elseif($datas->status == 'Prosess')
+
+                                        <!-- Button trigger modal konfirmasi -->
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                            Lihat
+                                        </button>
+
+                                        <!-- isi Modal konfirmasi -->
+                                        <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        {{-- <center> --}}
+                                                        <h5>Detail Pengasuh</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Nama</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->pengasuh->profile->nama }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="ttl">Tanggal Lahir</label>
+                                                            <div class="col-4  border-end border-dark">
+                                                                <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->pengasuh->profile->ttl }}" readonly>
+                                                            </div>
+
+                                                            <label class=" col-2 col-form-label" for="usia">Usia</label>
+                                                            <div class="col-3 ">
+                                                                <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->pengasuh->profile->usia }} Tahun" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="alamat">Alamat</label>
+                                                            <div class="col-9">
+                                                                <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->pengasuh->profile->alamat}} </textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="no_telp">No.Telepon</label>
+                                                            <div class="col-9">
+                                                                <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->pengasuh->profile->no_telp}}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <h5>Informasi Tambahan</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Tanggal Pesanan</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->tanggal }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Nomor Telpon Darurat</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->no_telp_kerabat }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Riwayat Penyakit</label>
+                                                            <div class="col-9 ">
+                                                                <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->penyakit }}</textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Catatan</label>
+                                                            <div class="col-9 ">
+                                                                <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->catatan }}</textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr>
+                                                        <h5>Detail Harga</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Jasa yang Dipilih</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->jenis }}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Status Pembayaran</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": Selesai" readonly>
+                                                            </div>
+                                                        </div>
+                                                        {{-- </form> --}}
+                                                        {{-- </center> --}}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         @elseif($datas->status == 'Selesai')
                                         <!-- Button trigger modal konfirmasi -->
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
@@ -269,7 +379,7 @@
                                                     <form action="order/rating/{{ $datas->id }}" method="post">
                                                         @csrf
                                                     <div class="modal-body d-flex justify-content-center">
-                                                        
+
                                                     <div class="rate">
                                                         <input type="radio" id="star5" name="rate" value="5" disabled @if ($datas->rating > 4) checked @endif>
                                                         <label for="star5" title="Sangat Baik">5 stars</label>
@@ -292,6 +402,109 @@
                                             </div>
                                         </div>
                                         @endif
+
+                                        @elseif($datas->status == 'Ditolak')
+                                        <!-- Button trigger modal konfirmasi -->
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                            Lihat
+                                        </button>
+
+                                        <!-- isi Modal konfirmasi -->
+                                        <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        {{-- <center> --}}
+                                                        <h5>Detail Pengasuh</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Nama</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->pengasuh->profile->nama }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="ttl">Tanggal Lahir</label>
+                                                            <div class="col-4  border-end border-dark">
+                                                                <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->pengasuh->profile->ttl }}" readonly>
+                                                            </div>
+
+                                                            <label class=" col-2 col-form-label" for="usia">Usia</label>
+                                                            <div class="col-3 ">
+                                                                <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->pengasuh->profile->usia }} Tahun" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="alamat">Alamat</label>
+                                                            <div class="col-9">
+                                                                <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->pengasuh->profile->alamat}} </textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label " for="no_telp">No.Telepon</label>
+                                                            <div class="col-9">
+                                                                <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->pengasuh->profile->no_telp}}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <h5>Informasi Tambahan</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Tanggal Pesanan</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->tanggal }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Nomor Telpon Darurat</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->no_telp_kerabat }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Riwayat Penyakit</label>
+                                                            <div class="col-9 ">
+                                                                <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->penyakit }}</textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Catatan</label>
+                                                            <div class="col-9 ">
+                                                                <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->catatan }}</textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr>
+                                                        <h5>Detail Harga</h5>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Jasa yang Dipilih</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->jenis }}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-2">
+                                                            <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                            <div class="col-9 ">
+                                                                <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                            </div>
+                                                        </div>
+                                                        {{-- </form> --}}
+                                                        {{-- </center> --}}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         @else
 
@@ -511,7 +724,7 @@
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <div class="row">
                                                 <div class="col-7">
-                                                    
+
                                                         <input type="hidden" value="Menunggu Konfirmasi Pembayaran" name="status">
                                                         <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Bayar</button>
                                                 </div>
@@ -522,6 +735,115 @@
                                 </div>
                             </div>
 
+                            @elseif($datas->status == 'Menunggu Konfirmasi Pembayaran')
+                            <!-- Button trigger modal -->
+                            <!-- Button trigger modal konfirmasi -->
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                Lihat
+                            </button>
+
+                            <!-- isi Modal konfirmasi -->
+                            <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{-- <center> --}}
+                                            <h5>Detail Pengasuh</h5>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Nama</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->pengasuh->profile->nama }}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label " for="ttl">Tanggal Lahir</label>
+                                                <div class="col-4  border-end border-dark">
+                                                    <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->pengasuh->profile->ttl }}" readonly>
+                                                </div>
+
+                                                <label class=" col-2 col-form-label" for="usia">Usia</label>
+                                                <div class="col-3 ">
+                                                    <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->pengasuh->profile->usia }} Tahun" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label " for="alamat">Alamat</label>
+                                                <div class="col-9">
+                                                    <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->pengasuh->profile->alamat}} </textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label " for="no_telp">No.Telepon</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->pengasuh->profile->no_telp}}" readonly>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <h5>Informasi Tambahan</h5>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Tanggal Pesanan</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->tanggal }}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Nomor Telpon Darurat</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->no_telp_kerabat }}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Riwayat Penyakit</label>
+                                                <div class="col-9 ">
+                                                    <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->penyakit }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Catatan</label>
+                                                <div class="col-9 ">
+                                                    <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->catatan }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <hr>
+                                            <h5>Detail Harga</h5>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Jasa yang Dipilih</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->jenis }}" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Status Pembayaran</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": Menunggu Konfirmasi" readonly>
+                                                </div>
+                                            </div>
+                                            {{-- </form> --}}
+                                            {{-- </center> --}}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             @elseif($datas->status == 'Selesai')
                             <!-- Button trigger modal konfirmasi -->
@@ -647,7 +969,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Review Pengasuh</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="d-flex justify-content-center">Seberapa puas kamu terhadap pengasuh {{ $datas->pengasuh->profile->nama }} </div>
+                                        <div class="d-flex justify-content-center">Seberapa puas kamu terhadap {{ $datas->pengasuh->profile->nama }} </div>
                                         <form action="order/rating/{{ $datas->id }}" method="post">
                                             @csrf
                                             <input type="hidden" value="{{ $datas->pengasuh->profile->user_id }}" name="pengasuh_id">
@@ -674,6 +996,109 @@
                                 </div>
                             </div>
                             @endif
+
+                            @elseif($datas->status == 'Ditolak')
+                            <!-- Button trigger modal konfirmasi -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                Lihat
+                            </button>
+
+                            <!-- isi Modal konfirmasi -->
+                            <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{-- <center> --}}
+                                            <h5>Detail Pengasuh</h5>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Nama</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->pengasuh->profile->nama }}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label " for="ttl">Tanggal Lahir</label>
+                                                <div class="col-4  border-end border-dark">
+                                                    <input type="text" class="form-control-plaintext " id="ttl" value=": {{ $datas->pengasuh->profile->ttl }}" readonly>
+                                                </div>
+
+                                                <label class=" col-2 col-form-label" for="usia">Usia</label>
+                                                <div class="col-3 ">
+                                                    <input type="text" class="form-control-plaintext" id="usia" value=": {{ $datas->pengasuh->profile->usia }} Tahun" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label " for="alamat">Alamat</label>
+                                                <div class="col-9">
+                                                    <textarea type="text" class="form-control-plaintext" id="alamat" rows="2" readonly> : {{ $datas->pengasuh->profile->alamat}} </textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label " for="no_telp">No.Telepon</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control-plaintext" id="no_telp" rows="2" value=": {{ $datas->pengasuh->profile->no_telp}}" readonly>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <h5>Informasi Tambahan</h5>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Tanggal Pesanan</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->tanggal }}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Nomor Telpon Darurat</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->no_telp_kerabat }}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Riwayat Penyakit</label>
+                                                <div class="col-9 ">
+                                                    <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->penyakit }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Catatan</label>
+                                                <div class="col-9 ">
+                                                    <textarea type="text" class="form-control-plaintext" id="nama" readonly>: {{ $datas->catatan }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <hr>
+                                            <h5>Detail Harga</h5>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Jasa yang Dipilih</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->jenis }}" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <label class=" col-3 col-form-label" for="nama">Total Harga</label>
+                                                <div class="col-9 ">
+                                                    <input type="text" class="form-control-plaintext" id="nama" value=": {{ $datas->harga }}" readonly>
+                                                </div>
+                                            </div>
+                                            {{-- </form> --}}
+                                            {{-- </center> --}}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             @else
                             <!-- Button trigger modal konfirmasi -->
