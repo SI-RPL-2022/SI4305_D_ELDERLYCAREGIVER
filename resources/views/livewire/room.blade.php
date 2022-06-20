@@ -1,3 +1,10 @@
+{{-- <div class="px-4 d-none d-md-block">
+    <div class="d-flex align-items-center">
+        <div class="flex-grow-1">
+            <input wire:model="search" type="text" class="form-control my-3" placeholder="Cari...">
+        </div>
+    </div>
+</div> --}}
 <div>
     @foreach($room as $rooms) {{-- mencari room --}}
     
@@ -10,7 +17,7 @@
                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
                         <div class="flex-grow-1 ml-3">
                             {{ $roomate->user->username }}
-                            <div class="small"><span class="fas fa-circle chat-online"></span> {{$roomate->room->chat->last()->message}}</div>
+                            <div wire:poll="lastmessage" class="small"><span class="fas fa-circle chat-online"></span> {{$roomate->room->chat->last()->message}}</div>
                         </div>
                     </div>
                 </button>

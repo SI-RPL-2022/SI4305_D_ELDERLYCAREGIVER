@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-7 col-xl-9">
+<div @if($messages) wire:poll="message"@endif class="col-12 col-lg-7 col-xl-9">
     {{-- @dd($user_id) --}}
     @if($user)
     <div class="py-2 px-4 border-bottom d-none d-lg-block">

@@ -32,13 +32,20 @@ class Chatting extends Component
 
     }
 
+    public function message()
+    {
+        if($this->user != null){
+            $this->messages = chat::where('room_id', $this->roomate['room_id'])->get();
+        }
+    }
+
     protected $listeners = [
         'switchroom'
     ];
 
     public function render()
     {
-        return view('livewire.chatting');
+        return view('livewire.chatting', compact($this->messages));
     }
 
     public function switchroom($room)
@@ -66,7 +73,9 @@ class Chatting extends Component
                 'room_id' => $this->room_id,
                 'user_id' => $this->user->id,
             ]);
-            
+
+            $this->roomate = resident::orderBy('id', 'DESC')->first();
+
         }
         
         $chat = chat::create([
