@@ -23,6 +23,7 @@ class Chatting extends Component
                 if($roomates->user_id == $this->user['id']) {
                     $this->roomate = $roomates;
                     $this->messages = chat::where('room_id', $this->roomate['room_id'])->get();
+                    $this->room_id = $this->roomate['room_id'];
                 }
             }    
             }
@@ -66,9 +67,8 @@ class Chatting extends Component
                 'user_id' => $this->user->id,
             ]);
             
-            $this->emit('addroom');
         }
-
+        
         $chat = chat::create([
             'room_id' => $this->room_id,
             'user_id' => auth()->user()->id,
@@ -77,6 +77,7 @@ class Chatting extends Component
         
         $this->pesan = null;
         
+        $this->emit('addroom');
         $this->messages = chat::where('room_id', $this->room_id)->get();
     }
     

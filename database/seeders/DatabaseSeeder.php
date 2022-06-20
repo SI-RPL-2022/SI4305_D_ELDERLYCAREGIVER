@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
            'email' => 'rafmul@gmail.com',
            'password' => bcrypt('123'),
            'status' => 'admin',
+           'online' => 'offline',
     ]);
 
     User::create([
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
         'email' => 'harits@gmail.com',
         'password' => bcrypt('123'),
         'status' => 'admin',
+        'online' => 'offline',
     ]);
 
     User::create([
@@ -34,6 +36,7 @@ class DatabaseSeeder extends Seeder
         'email' => 'nizur@gmail.com',
         'password' => bcrypt('123'),
         'status' => 'admin',
+        'online' => 'offline',
     ]);
 
     User::create([
@@ -41,6 +44,7 @@ class DatabaseSeeder extends Seeder
         'email' => 'raihan@gmail.com',
         'password' => bcrypt('123'),
         'status' => 'admin',
+        'online' => 'offline',
     ]);
 
     User::create([
@@ -48,6 +52,7 @@ class DatabaseSeeder extends Seeder
         'email' => 'arfin@gmail.com',
         'password' => bcrypt('123'),
         'status' => 'admin',
+        'online' => 'offline',
     ]);
     }
 }

@@ -134,10 +134,10 @@ class UserController extends Controller
         // dd($credentials);
         if(Auth::attempt($credentials )) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
             user::where('id', auth()->user()->id)->update([
                 'online' => 'online'
             ]);
+            return redirect()->intended('/');
         }
 
         return back()->with('login', 'login Gagal Tolong masukan data dengan benar');
@@ -145,14 +145,14 @@ class UserController extends Controller
 
 
     public function logout(Request $request) {
+        user::where('id', auth()->user()->id)->update([
+            'online' => 'offline'
+        ]);
         Auth::logout();
 
     $request->session()->invalidate();
 
     $request->session()->regenerateToken();
-    user::where('id', auth()->user()->id)->update([
-        'online' => 'offline'
-    ]);
 
     return redirect('/');
     }
