@@ -72,6 +72,7 @@ Route::get('/infopengasuh', function () {
 Route::get('/detailpesanan', function () {
     return view('user/detailpesanan');
 });
-Route::get('/chatuser', function () {
-    return view('user/chatuser');
-});
+Route::get('/chatuser', [UserController::class, "chatuser"]);
+
+Route::get('/chatuser/{user}', [UserController::class, "chatuserparam"]);
+

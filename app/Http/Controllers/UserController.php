@@ -26,7 +26,18 @@ class UserController extends Controller
         ]);
     }
 
-    
+    public function chatuser() {
+        return view('user.chatuser');
+    }
+
+    public function chatuserparam($user) {
+
+        $user = user::where('id', $user)->first();
+        return view('user.chatuser', [
+            'user' => $user,
+        ]);
+    }
+
     public function detail(user $user) {
         return view('admin.detailuserpengasuh', compact('user'),[
             

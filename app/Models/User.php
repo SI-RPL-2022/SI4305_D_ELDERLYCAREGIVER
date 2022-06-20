@@ -57,6 +57,14 @@ class User extends Authenticatable
     public function locations() {
         return $this->hasOne(locations::class);
     }
+
+    public function chat() {
+        return $this->hasMany(chat::class);
+    }
+
+    public function resident() {
+        return $this->hasMany(resident::class);
+    }
     
     public function getRouteKeyName()
     {
