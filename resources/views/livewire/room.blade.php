@@ -10,7 +10,7 @@
                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
                         <div class="flex-grow-1 ml-3">
                             {{ $roomate->user->username }}
-                            <div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
+                            <div class="small"><span class="fas fa-circle chat-online"></span> {{$roomate->room->chat->last()->message}}</div>
                         </div>
                     </div>
                 </button>
