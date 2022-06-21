@@ -28,7 +28,7 @@ class ArtikelController extends Controller
         ];
 
         $validatedData = $request->validate($rules);
-        
+
 
         $gambar = time().'.'.$request->gambarArtikel->extension();
         $request->gambarArtikel->move(public_path('gambar_artikel'), $gambar);
@@ -118,16 +118,16 @@ class ArtikelController extends Controller
         }elseif (auth()->user()->status == 'Admin'){
             return redirect('dashboard');
         }elseif (auth()->user()->status == 'Pengasuh'){
-            return redirect('/profile');    
+            return redirect('/profile');
         }else{
             if (request('search')){
                 $filter = profile::where('status', 'pengasuh')->where('nama', 'like', '%' . request('search') . '%')
-                       ->orWhere('jenis_kelamin', 'like', '%' . request('search') . '%')
-                       ->orWhere('alamat', 'like', '%' . request('search') . '%')
-                       ->orWhere('usia', 'like', '%' . request('search') . '%')
-                       ->orWhere('rating', 'like', '%' . request('search') . '%')
+                       ->where('status', 'pengasuh')->orWhere('jenis_kelamin', 'like', '%' . request('search') . '%')
+                       ->where('status', 'pengasuh')->orWhere('alamat', 'like', '%' . request('search') . '%')
+                       ->where('status', 'pengasuh')->orWhere('usia', 'like', '%' . request('search') . '%')
+                       ->where('status', 'pengasuh')->orWhere('rating', 'like', '%' . request('search') . '%')
                        ;
-                
+
                 if ( $request->filter == '1'){
                     $filter = $filter->orderBy('nama', 'asc')->paginate(4)->withQueryString();
                 }elseif ($request->filter == '2'){
@@ -153,7 +153,7 @@ class ArtikelController extends Controller
                     $filter = $filter->paginate(4)->withQueryString();
                 }
             }
-            
+
 
             return view('welcome', compact('datas', 'filter'));
         }
