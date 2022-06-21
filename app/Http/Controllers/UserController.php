@@ -172,6 +172,7 @@ class UserController extends Controller
             'email' => 'required|email:dns|unique:users|unique:users',
             'password' => 'required|min:8',
             'status' => 'required',
+            'online' => '',
         ]);
 
         $validateprofile = $request->validate([
@@ -192,6 +193,7 @@ class UserController extends Controller
         }
 
         $validateprofile['foto'] = $request->file('foto')->store('foto_profile');
+        $validateprofile['online'] = 'offline';
 
         $validateuser['password'] = hash::make($validateuser['password']);
 
@@ -219,6 +221,7 @@ class UserController extends Controller
             'email' => 'required|email:dns|unique:users|unique:users',
             'password' => 'required|min:8',
             'status' => 'required',
+            'online' => '',
         ]);
 
         $validateprofile = $request->validate([
@@ -243,6 +246,7 @@ class UserController extends Controller
         // validasi file
 
         $validateuser['password'] = hash::make($validateuser['password']);
+        $validateprofile['online'] = 'offline';
 
         User::create($validateuser);
 
