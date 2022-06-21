@@ -7,7 +7,7 @@
                 <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
             </div>
             <div class="flex-grow-1 pl-3">
-                
+
             <strong>{{ $user->username }}</strong>
 
                 <div class="text-muted small"><em> {{ $user->online }}</em></div>
@@ -25,7 +25,7 @@
             @if($messages)
             @foreach($messages as $message)
             @if($message->user->username == auth()->user()->username)
-            
+
             <div class="chat-message-right pb-4">
                 <div>
                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
@@ -55,14 +55,16 @@
 
             {{-- form input --}}
             <div class="flex-grow-0 py-3 px-4 mb-4 border-top">
+                <div class="text">
                     <form wire:submit.prevent="store" class="input-group">
-                    <input wire:model="pesan" type="text" name= "" id="" class="form-control" placeholder="Masukkan pesan">
+                    <input wire:model="pesan" type="text" min="5" max="150" name= "" id="" class="form-control" placeholder="Masukkan pesan">
                     @if($pesan)
                     <button type="submit" class="btn btn-primary">Kirim</button>
                     @else
                     <a type="submit" class="btn btn-primary">Kirim</a>
                      @endif
                     </form>
+                </div>
             </div>
         </div>
     </div>
