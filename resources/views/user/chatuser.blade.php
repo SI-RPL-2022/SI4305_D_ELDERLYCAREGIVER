@@ -20,8 +20,8 @@
     .chat-messages {
         display: flex;
         flex-direction: column;
-        max-height: 80vh;
-        min-height: 80vh;
+        min-height: 70vh;
+        max-height: 70vh;
         overflow-y: scroll
     }
 
