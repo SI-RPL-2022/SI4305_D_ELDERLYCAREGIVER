@@ -1,6 +1,6 @@
 <div>
 
-    
+
 <div class="container mb-5">
     <div class="row justify-content-center">
         <div class="animate__animated animate__backInLeft col-5 pt-3">
@@ -22,7 +22,7 @@
                 <div class="mb-3">
                     <label for="jeniskelamin" class="form-label">Jenis Kelamin</label><br>
                     <select type="option" class="form-select @error('jenis_kelamin') is-invalid @enderror" id="jeniskelamin" name="jenis_kelamin" placeholder="Masukkan Jenis Kelamin Anda" required value={{ old('jenis_kelamin') }} >
-                        <option selected>laki-laki</option>
+                        <option selected>Laki-laki</option>
                         <option>Perempuan</option>
                     </select>
                 </div>
@@ -108,7 +108,7 @@
                     @enderror
                 </div>
 
-                
+
 
                 <input type="hidden" value="{{ $long }}" name="long">
                 <input type="hidden" value="{{ $lat}}" name="lat">
@@ -129,7 +129,7 @@
 
         {{-- <img src="https://drive.google.com/uc?export=view&id=1kuMHrpkUinnXptZovpdXX2GzHDPBcWCG" alt="" width="400px" height="400px" style= "Margin-left: 100px; Margin-top: 400px"> --}}
     </div>
-    
+
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -138,13 +138,13 @@
 </div>
 
 @push('scripts')
-    
+
     <script>
 
     document.addEventListener('livewire:load', () => {
 
     const defaultlocation = [107.60531614849594, -6.9355762735191036]
-    
+
     mapboxgl.accessToken = '{{ env('MAPBOX_KEY') }}';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -161,10 +161,10 @@
 
         @this.long = longtitude
         @this.lat = lattitude
-        
+
         })
     })
-    
+
     </script>
 
 @endpush

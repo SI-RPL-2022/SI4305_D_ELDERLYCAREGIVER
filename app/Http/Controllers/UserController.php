@@ -40,27 +40,27 @@ class UserController extends Controller
 
     public function detail(user $user) {
         return view('admin.detailuserpengasuh', compact('user'),[
-            
+
             "head" => "detail User | Elderly Caregiver",
         ]);
     }
 
     public function download(Request $request) {
         return response()->download(public_path('storage/'.$request['cv']));
-        
+
     }
-    
+
     public function pelamardel(Request $request) {
 
         $user = User::find($request->id);
         $profile = profile::where('user_id', $request->id)->first();
         Storage::delete($profile->ktp);
-        
-        if($profile->cv) {  
+
+        if($profile->cv) {
         Storage::delete($profile->cv);
             }
 
-        if($profile->foto) {  
+        if($profile->foto) {
             Storage::delete($profile->foto);
             }
 
@@ -73,7 +73,7 @@ class UserController extends Controller
         // @dd($request);
         user::where('id', $request->id)->update([
             'status' => 'pengasuh'
-        ]); 
+        ]);
 
         profile::where('user_id', $request->id)->update([
             'status' => 'pengasuh'
@@ -92,7 +92,7 @@ class UserController extends Controller
 
         return redirect('/listpengasuh')->with('status', 'Pengasuh berhasil ditambahkan');
     }
-    
+
 
     public function user() {
         return view('user.regisuser', [
@@ -114,8 +114,16 @@ class UserController extends Controller
             "head" => "Admin | Elderly Caregiver"
         ]);
     }
+    public function detailpesan() {
 
-    
+        return view('admin.detailpesan', [
+
+            "data" => order::where('status', 'Selesai' )->get(),
+            "head" => "Admin | Elderly Caregiver"
+        ]);
+    }
+
+
     public function listuser() {
 
         return view('admin.listuser', [
@@ -158,14 +166,14 @@ class UserController extends Controller
     }
 
     public function registeruser (Request $request) {
-        
+
         $validateuser = $request->validate([
             'username' => 'required|max:32|unique:users',
             'email' => 'required|email:dns|unique:users|unique:users',
             'password' => 'required|min:8',
             'status' => 'required',
         ]);
-        
+
         $validateprofile = $request->validate([
             'nama' => 'required|max:32',
             'ttl' => 'required',
@@ -194,7 +202,7 @@ class UserController extends Controller
 
         profile::create($validateprofile);
 
-        
+
         $validatealamat['user_id'] = $validateprofile['user_id'];
         $validatealamat['long'] = $request->long;
         $validatealamat['lat'] = $request->lat;
@@ -230,7 +238,7 @@ class UserController extends Controller
         $validateprofile['ktp'] = $request->file('ktp')->store('ktp');
 
         $validateprofile['cv'] = $request->file('cv')->store('cv');
-        
+
         $validateprofile['foto'] = $request->file('foto')->store('foto_profile');
         // validasi file
 
@@ -263,7 +271,7 @@ class UserController extends Controller
             'rating' => $fun_rating
         ]);
 
-        
+
         return back();
     }
 
@@ -274,12 +282,12 @@ class UserController extends Controller
             'rating' => $fun_rating
         ]);
 
-        
+
         $datas = profile::where('user_id', $id)->first();
         $datas2 = user::where('id', $id)->first();
         $price = price::where('user_id', $id)->first();
         return view('user/infopengasuh', compact('datas', 'datas2','price'));
     }
 
-    
+
 }
