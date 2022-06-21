@@ -8,6 +8,7 @@ class CreateMap extends Component
 {
     
     public $long, $lat;
+    public $geometri;
     
     public function render()
     {

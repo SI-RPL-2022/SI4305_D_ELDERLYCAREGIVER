@@ -1,14 +1,19 @@
 <div @if($messages) wire:poll="message"@endif class="col-12 col-lg-7 col-xl-9">
-    {{-- @dd($user_id) --}}
+
     @if($user)
     <div class="py-2 px-4 border-bottom d-none d-lg-block">
         <div class="d-flex align-items-center py-1">
             <div class="position-relative">
-                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                <img src="{{ asset('storage/' . $user->profile->foto) }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
             </div>
             <div class="flex-grow-1 pl-3">
+<<<<<<< HEAD
 
             <strong>{{ $user->username }}</strong>
+=======
+                
+            <strong>{{ $user->profile->nama }}</strong>
+>>>>>>> a0870c824a146eae5d72159c380a9ccbbc49cfc9
 
                 <div class="text-muted small"><em> {{ $user->online }}</em></div>
             </div>
@@ -28,8 +33,8 @@
 
             <div class="chat-message-right pb-4">
                 <div>
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                    <div class="text-muted small text-nowrap mt-2">2:33 am</div>
+                    <img src="{{ asset('storage/' . $message->user->profile->foto) }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                    <div class="text-muted small text-nowrap mt-2">{{ $message->created_at->diffForHumans(null, false, false) }}</div>
                 </div>
                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
                     <div class="mb-1" style="font-weight: bold">You</div>
@@ -40,11 +45,11 @@
 
             <div class="chat-message-left pb-4">
                 <div>
-                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                    <div class="text-muted small text-nowrap mt-2">2:34 am</div>
+                    <img src="{{ asset('storage/' . $message->user->profile->foto) }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                    <div class="text-muted small text-nowrap mt-2">{{ $message->created_at->diffForHumans(null, false, false) }}</div>
                 </div>
                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                    <div class="mb-1" style="font-weight: bold">{{ $message->user->username }}</div>
+                    <div class="mb-1" style="font-weight: bold">{{ $message->user->profile->nama }}</div>
                     {{ $message->message }}
                 </div>
             </div>

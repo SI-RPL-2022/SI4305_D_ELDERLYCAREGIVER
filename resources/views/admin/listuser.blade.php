@@ -80,7 +80,11 @@
                                         <tr>
                                             <th >{{ $loop->iteration }}</th>
                                             <td class="text-center">{{ $datas->profile->nama}}</td>
-                                            <td>{{ $datas->status }}</td>
+                                            @if($datas->status == 'user')
+                                            <td><span class="badge rounded-pill bg-primary mt-2">{{ $datas->status }}</span></td>
+                                            @else
+                                            <td><span class="badge rounded-pill bg-warning text-dark mt-2">{{ $datas->status }}</span></td>
+                                            @endif
                                             <td>
                                                 <!-- Button trigger modal lihat -->
 

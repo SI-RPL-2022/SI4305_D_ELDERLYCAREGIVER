@@ -93,7 +93,19 @@
                                     @foreach ($pesanan_pengasuh as $datas)
                                     <th>{{ $loop->iteration }}</th>
                                     <td class="text-center ">{{ $datas->user->profile->nama }}</td>
+                                    @if ($datas->status == 'Request')
+                                    <td><span class="badge rounded-pill bg-secondary mt-2">{{ $datas->status }}</span></td>
+                                    @elseif ($datas->status == 'Prosess')
+                                    <td><span class="badge rounded-pill bg-success mt-2">{{ $datas->status }}</span></td>
+                                    @elseif ($datas->status == 'Menunggu Konfirmasi Pembayaran')
+                                    <td><span class="badge rounded-pill bg-warning text-dark mt-2">{{ $datas->status }}</span></td>
+                                    @elseif ($datas->status == 'Selesai')
+                                    <td><span class="badge rounded-pill bg-primary mt-2">{{ $datas->status }}</span></td>
+                                    @elseif ($datas->status == 'Ditolak')
+                                    <td><span class="badge rounded-pill bg-danger mt-2">{{ $datas->status }}</span></td>
+                                    @else
                                     <td>{{ $datas->status }}</td>
+                                    @endif
                                     <td>
 
                                         @if ($datas->status == 'Menunggu Konfirmasi Pembayaran')
@@ -687,7 +699,19 @@
                         @foreach ($pesanan_user as $datas)
                         <th>{{ $loop->iteration }}</th>
                         <td>{{ $datas->pengasuh->profile->nama }}</td>
+                        @if ($datas->status == 'Request')
+                        <td><span class="badge rounded-pill bg-secondary mt-2">{{ $datas->status }}</span></td>
+                        @elseif ($datas->status == 'Prosess')
+                        <td><span class="badge rounded-pill bg-success mt-2">{{ $datas->status }}</span></td>
+                        @elseif ($datas->status == 'Menunggu Konfirmasi Pembayaran')
+                        <td><span class="badge rounded-pill bg-warning text-dark mt-2">{{ $datas->status }}</span></td>
+                        @elseif ($datas->status == 'Selesai')
+                        <td><span class="badge rounded-pill bg-primary mt-2">{{ $datas->status }}</span></td>
+                        @elseif ($datas->status == 'Ditolak')
+                        <td><span class="badge rounded-pill bg-danger mt-2">{{ $datas->status }}</span></td>
+                        @else
                         <td>{{ $datas->status }}</td>
+                        @endif
                         <td>
 
                             @if ($datas->status == 'Prosess')

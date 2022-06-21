@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('message');
+            $table->enum('status', ['terkirim', 'read']);
             $table->timestamps();
         });
     }

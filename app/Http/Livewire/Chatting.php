@@ -36,6 +36,15 @@ class Chatting extends Component
     {
         if($this->user != null){
             $this->messages = chat::where('room_id', $this->roomate['room_id'])->get();
+            $checkmessages = chat::where('room_id', $this->roomate['room_id'])->where('status', 'terkirim')->get();
+            foreach($checkmessages as $checkmessage) {
+                if($checkmessage->user_id !== auth()->user()->id) {
+                    chat::where('id', $checkmessage->id)->update([
+                        'status' => 'read'
+                    ]);
+                }
+                
+            }
         }
     }
 
@@ -82,6 +91,7 @@ class Chatting extends Component
             'room_id' => $this->room_id,
             'user_id' => auth()->user()->id,
             'message' => $this->pesan,
+            'status' => 'terkirim',
         ]);
         
         $this->pesan = null;
