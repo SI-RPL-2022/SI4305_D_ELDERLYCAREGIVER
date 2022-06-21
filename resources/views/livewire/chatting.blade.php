@@ -26,7 +26,6 @@
             @if($messages)
             @foreach($messages as $message)
             @if($message->user->username == auth()->user()->username)
-
             <div class="chat-message-right pb-4">
                 <div>
                     <img src="{{ asset('storage/' . $message->user->profile->foto) }}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
@@ -49,14 +48,15 @@
                     {{ $message->message }}
                 </div>
             </div>
+            
+            @endif
+            @endforeach
         </div>
-        
-        @endif
-        @endforeach
         @endif
         {{-- form input --}}
+            
         </div>
-        <div class=" px-4 mb-4 border-top">
+        <div class=" py-3 px-4 mb-4 border-top">
             <div class="text">
                 <form wire:submit.prevent="store" class="input-group">
                 <input wire:model="pesan" type="text" name= "" id="" class="form-control" placeholder="Masukkan pesan">
