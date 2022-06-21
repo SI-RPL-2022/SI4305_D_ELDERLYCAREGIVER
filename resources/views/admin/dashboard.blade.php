@@ -113,7 +113,7 @@
                                                 <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">ID</th>
+                                                        <th scope="col">No</th>
                                                         <th scope="col">Judul Artikel</th>
                                                         <th scope="col">Pengarang</th>
                                                         <th scope="col">Action</th>
@@ -122,7 +122,7 @@
                                                 <tbody>
                                                 @foreach ($datas as $key=>$value)
                                                     <tr>
-                                                        <th scope="row">{{ $value->id }}</th>
+                                                        <th scope="row">{{ $datas->firstItem() + $loop->index }}</th>
                                                         <td>{{ $value->judul }}</td>
                                                         <td>{{ $value->pengarang }}</td>
                                                         <td><a href="{{ url('/artikel/edit/'.$value->id) }}" class="btn btn-success m-2">Edit</a>

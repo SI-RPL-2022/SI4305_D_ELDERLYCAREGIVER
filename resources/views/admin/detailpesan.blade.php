@@ -80,7 +80,7 @@
                                         <th >{{ $loop->iteration }}</th>
                                         <td class="text-center ">{{ $datas->user->profile->nama }}</td>
 
-                                            <td>{{ $datas->status }}</td>
+                                            <td><span class="badge rounded-pill bg-primary mt-2">{{ $datas->status }}</span></td>
 
                                             <td>
                                             {{-- isi tabel selesai --}}
