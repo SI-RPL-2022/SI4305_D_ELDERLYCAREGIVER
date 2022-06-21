@@ -7,13 +7,8 @@
                 <img src="{{ asset('storage/' . $user->profile->foto) }}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
             </div>
             <div class="flex-grow-1 pl-3">
-<<<<<<< HEAD
-
-            <strong>{{ $user->username }}</strong>
-=======
                 
             <strong>{{ $user->profile->nama }}</strong>
->>>>>>> a0870c824a146eae5d72159c380a9ccbbc49cfc9
 
                 <div class="text-muted small"><em> {{ $user->online }}</em></div>
             </div>
