@@ -15,22 +15,23 @@ class Chatting extends Component
 
     public function mount($user = null)
     {
-        if($this->user != null){
-        $room = resident::where('user_id', auth()->user()->id)->get();
-        foreach($room as $roomate){
-            $rooms = resident::where('room_id', $roomate->room_id)->get();
-            foreach($rooms as $roomates){
-                if($roomates->user_id == $this->user['id']) {
-                    $this->roomate = $roomates;
-                    $this->messages = chat::where('room_id', $this->roomate['room_id'])->get();
-                    $this->room_id = $this->roomate['room_id'];
+        if($this->user !== null){
+            $room = resident::where('user_id', auth()->user()->id)->get();
+            foreach($room as $roomate){
+                $rooms = resident::where('room_id', $roomate->room_id)->get();
+                foreach($rooms as $roomates){
+                    if($roomates->user_id == $this->user['id']) {
+                        $this->roomate = $roomates;
+                        $this->messages = chat::where('room_id', $this->roomate['room_id'])->get();
+                        $this->room_id = $this->roomate['room_id'];
+                    }
                 }
-            }    
             }
-            
+
         }
 
     }
+
 
     public function message()
     {
@@ -43,7 +44,7 @@ class Chatting extends Component
                         'status' => 'read'
                     ]);
                 }
-                
+
             }
         }
     }
@@ -54,7 +55,7 @@ class Chatting extends Component
 
     public function render()
     {
-        return view('livewire.chatting', compact($this->messages));
+        return view('livewire.chatting');
     }
 
     public function switchroom($room)
@@ -64,20 +65,20 @@ class Chatting extends Component
         $this->roomate = resident::where('id', $room['id'])->first();
         $this->messages = chat::where('room_id', $room['room_id'])->get();
     }
-    
+
     public function store()
     {
         if($this->room_id == null) {
             room::create();
-            
+
             $room = room::orderBy('id', 'DESC')->first();
             $this->room_id = $room->id;
-            
+
             resident::create([
                 'room_id' => $this->room_id,
                 'user_id' => auth()->user()->id,
             ]);
-            
+
             resident::create([
                 'room_id' => $this->room_id,
                 'user_id' => $this->user->id,
@@ -86,18 +87,18 @@ class Chatting extends Component
             $this->roomate = resident::orderBy('id', 'DESC')->first();
 
         }
-        
+
         $chat = chat::create([
             'room_id' => $this->room_id,
             'user_id' => auth()->user()->id,
             'message' => $this->pesan,
             'status' => 'terkirim',
         ]);
-        
+
         $this->pesan = null;
-        
+
         $this->emit('addroom');
         $this->messages = chat::where('room_id', $this->room_id)->get();
     }
-    
+
 }

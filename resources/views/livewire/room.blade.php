@@ -5,9 +5,9 @@
         </div>
     </div>
 </div> --}}
-<div wire:poll="lastmessage" >
+<div wire:poll="lastmessage" style="overflow-y: scroll; min-height: 85vh; max-height: 85vh;">
     @foreach($room as $rooms) {{-- mencari room --}}
-    
+
         @foreach($rooms->room->resident as $roomate){{-- mencari pasangan room --}}
 
             @if($roomate->user->username != $user->username)
@@ -23,7 +23,6 @@
                 </button>
             </form>
             @endif
-
         @endforeach
 
     @endforeach

@@ -20,7 +20,8 @@
     .chat-messages {
         display: flex;
         flex-direction: column;
-        max-height: 800px;
+        max-height: 80vh;
+        min-height: 80vh;
         overflow-y: scroll
     }
 
@@ -65,7 +66,7 @@
 
 		<div class="h3 mb-4"></div>
 
-		<div class="card">
+		<div class="card" style="min-height: 90vh; max-height: 90vh;">
 			<div class="row g-0">
 		{{-- sidebar --}}
 				<div class="col-12 col-lg-5 col-xl-3 border-right">
@@ -79,7 +80,7 @@
 
 					<livewire:room-controller> </livewire:room-controller>
 
-					
+
 				</div>
 {{-- side bar --}}
 @isset($user)
@@ -87,6 +88,6 @@
 	@else
 	<livewire:chatting> </livewire:chatting>
 @endif
-                           
+
 </main>
 @endsection
