@@ -110,12 +110,12 @@
 
                                         @if ($datas->status == 'Menunggu Konfirmasi Pembayaran')
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#konfirmasi_pengasuh{{ $datas->id }}">
                                             Konfirmasi
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="konfirmasi_pengasuh{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -156,12 +156,12 @@
                                         @elseif($datas->status == 'Prosess')
 
                                         <!-- Button trigger modal konfirmasi -->
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#proses_pengasuh{{ $datas->id }}">
                                             Lihat
                                         </button>
 
                                         <!-- isi Modal konfirmasi -->
-                                        <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="proses_pengasuh{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -265,12 +265,12 @@
 
                                         @elseif($datas->status == 'Selesai')
                                         <!-- Button trigger modal konfirmasi -->
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#selesai_pengasuh{{ $datas->id }}">
                                             Lihat
                                         </button>
 
                                         <!-- isi Modal konfirmasi -->
-                                        <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="selesai_pengasuh{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -375,12 +375,12 @@
                                         <!-- Button trigger modal -->
                                         @if ($datas->rating > 0)
 
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai{{ $datas->id }}">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai_pengasuh{{ $datas->id }}">
                                             Review
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="nilai{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="nilai_pengasuh{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -417,12 +417,12 @@
 
                                         @elseif($datas->status == 'Ditolak')
                                         <!-- Button trigger modal konfirmasi -->
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ditolak_pengasuh{{ $datas->id }}">
                                             Lihat
                                         </button>
 
                                         <!-- isi Modal konfirmasi -->
-                                        <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="ditolak_pengasuh{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -520,7 +520,7 @@
 
                                         @else
 
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detail_pengasuh{{ $datas->id }}">
                                             Lihat
                                         </button>
 
@@ -528,7 +528,7 @@
 
 
                                         <!-- isi Modal konfirmasi -->
-                                        <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="detail_pengasuh{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -660,12 +660,12 @@
                         {{-- modal konfirmasi selesai --}}
 
                         <!-- Button trigger modal hapus-->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#batal{{ $datas->id }}">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#batal_pengasuh{{ $datas->id }}">
                             Tolak
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="batal{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="batal_pengasuh{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -716,12 +716,12 @@
 
                             @if ($datas->status == 'Prosess')
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#abc">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#abc{{ $datas->id }}">
                                 Bayar
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="abc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="abc{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -762,12 +762,12 @@
                             @elseif($datas->status == 'Menunggu Konfirmasi Pembayaran')
                             <!-- Button trigger modal -->
                             <!-- Button trigger modal konfirmasi -->
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#user_bayar{{ $datas->id }}">
                                 Lihat
                             </button>
 
                             <!-- isi Modal konfirmasi -->
-                            <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="user_bayar{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -871,12 +871,12 @@
 
                             @elseif($datas->status == 'Selesai')
                             <!-- Button trigger modal konfirmasi -->
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#finish_user{{ $datas->id }}">
                                 Lihat
                             </button>
 
                             <!-- isi Modal konfirmasi -->
-                            <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="finish_user{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -981,12 +981,12 @@
                             <!-- Button trigger modal -->
                             @if (is_null($datas->rating))
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nilai_user{{  $datas->id }}">
                                 Nilai
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="nilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="nilai_user{{  $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -1023,12 +1023,12 @@
 
                             @elseif($datas->status == 'Ditolak')
                             <!-- Button trigger modal konfirmasi -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#id{{ $datas->id }}">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolak_user{{ $datas->id }}">
                                 Lihat
                             </button>
 
                             <!-- isi Modal konfirmasi -->
-                            <div class="modal fade" id="id{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="tolak_user{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -1229,12 +1229,12 @@
                             {{-- modal konfirmasi selesai --}}
 
                             <!-- Button trigger modal hapus-->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolak{{ $datas->id }}">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#batal_user{{ $datas->id }}">
                                 Batal
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="tolak{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="batal_user{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
