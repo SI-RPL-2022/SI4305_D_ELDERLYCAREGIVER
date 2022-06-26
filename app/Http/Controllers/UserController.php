@@ -90,7 +90,7 @@ class UserController extends Controller
         price::create($price);
 
 
-        return redirect('/listpengasuh')->with('status', 'Pengasuh berhasil ditambahkan');
+        return redirect('/listuser')->with('status', 'Pengasuh berhasil ditambahkan');
     }
 
 

@@ -128,7 +128,7 @@
 </section>
 
 @can("user")
-
+<div class="animate__animated animate__backInRight">
 <section id="daftarpengasuh" class="mb-5">
 
 
@@ -224,6 +224,7 @@
     </center>
 
 </section>
+</div>
 
 @endcan
 @endcan
