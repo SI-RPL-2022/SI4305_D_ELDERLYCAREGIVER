@@ -149,8 +149,9 @@
             <option selected>Filter</option>
             <option value="1" @if (old('filter') == '1') {{ 'selected' }} @endif>Nama</option>
             <option value="2" @if (old('filter') == '2') {{ 'selected' }} @endif>Jenis Kelamin</option>
-            <option value="3" @if (old('filter') == '3') {{ 'selected' }} @endif>Usia</option>
-            <option value="4" @if (old('filter') == '4') {{ 'selected' }} @endif>Rating</option>
+            <option value="3" @if (old('filter') == '3') {{ 'selected' }} @endif>Alamat</option>
+            <option value="4" @if (old('filter') == '4') {{ 'selected' }} @endif>Usia</option>
+            <option value="5" @if (old('filter') == '5') {{ 'selected' }} @endif>Rating</option>
         </select>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">

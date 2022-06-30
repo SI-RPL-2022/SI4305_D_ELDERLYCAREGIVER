@@ -121,23 +121,26 @@ class ArtikelController extends Controller
             return redirect('/profile');
         }else{
             if (request('search')){
-                $filter = profile::where('status', 'pengasuh')->where('nama', 'like', '%' . request('search') . '%')
+
+                if ( $request->filter == '1'){
+                    $filter = profile::where('status', 'pengasuh')->where('nama', 'like', '%' . request('search') . '%')->orderBy('nama', 'asc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '2'){
+                    $filter = profile::where('status', 'pengasuh')->where('jenis_kelamin', 'like', '%' . request('search') . '%')->orderBy('jenis_kelamin', 'desc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '3'){
+                    $filter = profile::where('status', 'pengasuh')->where('alamat', 'like', '%' . request('search') . '%')->orderBy('alamat', 'desc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '4'){
+                    $filter = profile::where('status', 'pengasuh')->where('usia', 'like', '%' . request('search') . '%')->orderBy('usia', 'asc')->paginate(4)->withQueryString();
+                }elseif ($request->filter == '5'){
+                    $filter = profile::where('status', 'pengasuh')->where('rating', 'like', '%' . request('search') . '%')->orderBy('rating', 'desc')->paginate(4)->withQueryString();
+                }
+                else{
+                    $filter = profile::where('status', 'pengasuh')->where('nama', 'like', '%' . request('search') . '%')
                        ->where('status', 'pengasuh')->orWhere('jenis_kelamin', 'like', '%' . request('search') . '%')
                        ->where('status', 'pengasuh')->orWhere('alamat', 'like', '%' . request('search') . '%')
                        ->where('status', 'pengasuh')->orWhere('usia', 'like', '%' . request('search') . '%')
                        ->where('status', 'pengasuh')->orWhere('rating', 'like', '%' . request('search') . '%')
+                       ->paginate(4)->withQueryString()
                        ;
-
-                if ( $request->filter == '1'){
-                    $filter = $filter->orderBy('nama', 'asc')->paginate(4)->withQueryString();
-                }elseif ($request->filter == '2'){
-                    $filter = $filter->orderBy('jenis_kelamin', 'desc')->paginate(4)->withQueryString();
-                }elseif ($request->filter == '3'){
-                    $filter = $filter->orderBy('usia', 'desc')->paginate(4)->withQueryString();
-                }elseif ($request->filter == '4'){
-                    $filter = $filter->orderBy('rating', 'asc')->paginate(4)->withQueryString();
-                }else{
-                    $filter = $filter->paginate(4)->withQueryString();
                 }
 
             }else{
